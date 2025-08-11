@@ -327,38 +327,15 @@ date:
       - Handling Asynchronous Logic
       - Dispatching Multiple Actions
       - Fetching Data with Redux Thunk
-- Introduction to Redux Saga
-      - Understanding Generators in JavaScript
-      - Creating Sagas for Side Effects
-      - Handling API Calls and Side Effects
+- Introduction to Redux Query
 
-### {==5. Zustand & Recoil (Alternative State Management)==}
-
-#### {==5.1 Zustand==}
+### {==5. Zustand ==}
 
 - What is Zustand?
 - Advantages of Zustand Over Redux
 - Creating a Zustand Store
 - Managing State in a Minimalist Way
 - Using Middleware with Zustand
-
-#### {==5.2 Recoil==}
-
-- Introduction to Recoil
-- Atoms and Selectors in Recoil
-- Using Recoil State in Components
-- Managing Global State with Recoil
-- Performance Benefits of Recoil
-
-### {==6. MobX for State Management==}
-
-- Introduction to MobX
-- MobX vs Redux
-- Observables and Actions in MobX
-- Using MobX in React Components
-- Best Practices for MobX State Management
-
-This comprehensive guide covers multiple state management solutions in React, ensuring a solid understanding of different approaches.
 
 ## {++11. React Styling Techniques++}
 

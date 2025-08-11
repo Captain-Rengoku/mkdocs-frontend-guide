@@ -87,6 +87,8 @@ nav:
     - 6.Handling Events in React: react/6.Handling Events in React.md
     - 7.React Hooks: react/7.React Hooks.md
     - 9.React Router: react/9.React Router.md
+    - 10.State Management in React: react/10.State Management in React.md
+    - 10.5.Redux Toolkit: react/10.5.Redux Toolkit.md
     - 14.API Calls in React: react/14.API Calls in React.md
     - Important Keywords: react/Important Keywords.md
     - React & Next Ecosystem: react/React & Next Ecosystem.md
