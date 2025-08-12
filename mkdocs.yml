@@ -90,6 +90,8 @@ nav:
     - 10.State Management in React: react/10.State Management in React.md
     - 10.5.Redux Toolkit: react/10.5.Redux Toolkit.md
     - 14.API Calls in React: react/14.API Calls in React.md
+    - 14.2.JSON Server: react/14.2.JSON Server.md
+    - 14.5.Axios: react/14.5.Axios.md
     - Important Keywords: react/Important Keywords.md
     - React & Next Ecosystem: react/React & Next Ecosystem.md
     - Progress: react/Progress.md
