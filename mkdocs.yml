@@ -89,12 +89,22 @@ nav:
     - 9.React Router: react/9.React Router.md
     - 10.State Management in React: react/10.State Management in React.md
     - 10.5.Redux Toolkit: react/10.5.Redux Toolkit.md
-    - 14.API Calls in React: react/14.API Calls in React.md
-    - 14.2.JSON Server: react/14.2.JSON Server.md
-    - 14.5.Axios: react/14.5.Axios.md
     - Important Keywords: react/Important Keywords.md
     - React & Next Ecosystem: react/React & Next Ecosystem.md
     - Progress: react/Progress.md
+  - API Integration:
+    - 14.API Integration: reactapi/14.API Integration.md
+    - 14.0.JSON Server: reactapi/14.0.JSON Server.md
+    - 14.1.Core Fundamentals: reactapi/14.1.Core Fundamentals.md
+    - 14.2.0.Axios: reactapi/14.2.0.Axios.md
+    - 14.2.1.Axios Industry Standards: reactapi/14.2.1.Axios Industry Standards.md
+    - 14.3.Authentication: reactapi/14.3.Authentication.md
+    - 14.4.Advanced API Scenarios: reactapi/14.4.Advanced API Scenarios.md
+    - 14.5.1.State Management with API Data: reactapi/14.5.1.State Management with API Data.md
+    - 14.5.2.React Query: reactapi/14.5.2.React Query.md
+    - 14.6.Real-Time Data: reactapi/14.6.Real-Time Data.md
+    - 14.7.Security & Best Practices: reactapi/14.7.Security & Best Practices.md
+    - 14.8.File Handling: reactapi/14.8.File Handling.md
   - TypeScript Docs:
     - 0.List of Content: ts/ts-list.md
     - 1.Introduction to TypeScript: ts/1.Introduction to TS.md

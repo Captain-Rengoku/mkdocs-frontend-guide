@@ -19,14 +19,10 @@ date:
 8. ❌ React Forms and Form Handling  
 9. ✅ React Router (Navigation in React)  
 10. 🟡 State Management in React  
+
 11. ❌ React Styling Techniques  
-12. ❌ React Performance Optimization  
-13. ❌ React Server-Side Rendering (SSR) & Static Site Generation (SSG)  
-14. 🟡 API Calls in React  
-15. ❌ React and Authentication  
-16. ❌ React Testing and Debugging  
-17. ❌ WebSockets and Real-Time Applications  
-18. ❌ React Progressive Web Apps (PWAs)  
-19. ❌ React Native (Mobile Development with React)  
-20. ❌ React Deployment and DevOps  
-21. ❌ Advanced React Topics  
+12. ❌ React Server-Side Rendering (SSR) & Static Site Generation (SSG)  
+13. ❌ React Progressive Web Apps (PWAs)  
+14. 🟡 API Integration
+15. ❌ React Performance Optimization
+16. ❌ React Testing and Debugging
