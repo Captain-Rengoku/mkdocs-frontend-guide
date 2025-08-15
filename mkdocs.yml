@@ -102,6 +102,7 @@ nav:
     - 14.4.Advanced API Scenarios: reactapi/14.4.Advanced API Scenarios.md
     - 14.5.1.State Management with API Data: reactapi/14.5.1.State Management with API Data.md
     - 14.5.2.React Query: reactapi/14.5.2.React Query.md
+    - 14.5.3.React Query Ref: reactapi/14.5.3.React Query Ref.md
     - 14.6.Real-Time Data: reactapi/14.6.Real-Time Data.md
     - 14.7.Security & Best Practices: reactapi/14.7.Security & Best Practices.md
     - 14.8.File Handling: reactapi/14.8.File Handling.md
