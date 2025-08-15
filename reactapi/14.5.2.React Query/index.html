@@ -1,0 +1,2237 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://stiename.example/reactapi/14.5.2.React%20Query/">
+      
+      
+        <link rel="prev" href="../14.5.1.State%20Management%20with%20API%20Data/">
+      
+      
+        <link rel="next" href="../14.5.3.React%20Query%20Ref/">
+      
+      
+      <link rel="icon" href="../../assets/code-solid-full.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>14.5.2.React Query - My Frontend Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#react-query-comprehensive-topics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Frontend Guide" class="md-header__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Frontend Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              14.5.2.React Query
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../react/react-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  React Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../14.API%20Integration/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ts/ts-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  TypeScript Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Frontend Guide" class="md-nav__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    My Frontend Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../react/react-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    React Docs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            API Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.API%20Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.API Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.0.JSON%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.0.JSON Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.1.Core%20Fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.1.Core Fundamentals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.0.Axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.2.0.Axios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.1.Axios%20Industry%20Standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.2.1.Axios Industry Standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.3.Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.3.Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.4.Advanced%20API%20Scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.4.Advanced API Scenarios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.1.State%20Management%20with%20API%20Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.5.1.State Management with API Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    14.5.2.React Query
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.5.2.React Query
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      0️⃣ Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0️⃣ Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-vs-server-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client vs server state
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-react-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is React Query?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-react-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use React Query?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-concepts-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-with-redux-swr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Redux &amp; SWR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#react-query-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      React Query - Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Query - Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-query-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Set Up Query Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-a-fetcher-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Create a Fetcher Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-use-react-query-in-a-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Use React Query in a Component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Key Concepts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queryclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      QueryClient
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queryclientprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      QueryClientProvider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usequery" class="md-nav__link">
+    <span class="md-ellipsis">
+      useQuery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usemutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      useMutation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usequeryclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      useQueryClient
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-query-keys-and-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ Query Keys and Cache
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fetching-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Fetching Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mutations" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ Mutations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-query-lifecycle-refetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Query Lifecycle &amp; Refetching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-devtools" class="md-nav__link">
+    <span class="md-ellipsis">
+      7️⃣ DevTools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      8️⃣ Advanced Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-integration-with-axios-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      9️⃣ Integration with Axios / Fetch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔟 Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.3.React%20Query%20Ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.5.3.React Query Ref
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.6.Real-Time%20Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.6.Real-Time Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.7.Security%20%26%20Best%20Practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.7.Security & Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.8.File%20Handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.8.File Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../ts/ts-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TypeScript Docs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      0️⃣ Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0️⃣ Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem Statement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-vs-server-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client vs server state
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-react-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is React Query?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-react-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use React Query?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-concepts-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-with-redux-swr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison with Redux &amp; SWR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#react-query-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      React Query - Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Query - Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-query-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Set Up Query Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-a-fetcher-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Create a Fetcher Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-use-react-query-in-a-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Use React Query in a Component
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Key Concepts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#queryclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      QueryClient
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queryclientprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      QueryClientProvider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usequery" class="md-nav__link">
+    <span class="md-ellipsis">
+      useQuery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usemutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      useMutation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usequeryclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      useQueryClient
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-query-keys-and-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ Query Keys and Cache
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fetching-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Fetching Patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mutations" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ Mutations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-query-lifecycle-refetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Query Lifecycle &amp; Refetching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-devtools" class="md-nav__link">
+    <span class="md-ellipsis">
+      7️⃣ DevTools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      8️⃣ Advanced Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-integration-with-axios-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      9️⃣ Integration with Axios / Fetch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔟 Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="react-query-comprehensive-topics">React Query Comprehensive Topics</h1>
+<h2 id="0-introduction">0️⃣ Introduction</h2>
+<h3 id="problem-statement">Problem Statement</h3>
+<ul>
+<li>Since React is a UI library, there is no specific pattern for data fetching</li>
+<li>We typically use the useEffect hook for data fetching and useState hook to maintain component state like loading, error state or the resulting data</li>
+<li>If the data is needed throughout the app, then we tend to use state management libraries like Redux</li>
+<li>Most of the state management libraries are good for working with client state. Ex. 'theme' for an application / whether a modal is open</li>
+<li>State Management Libraries are not great for working with asynchronous or server state</li>
+</ul>
+<h4 id="client-vs-server-state">Client vs server state</h4>
+<ul>
+<li><strong>Client state:</strong></li>
+<li>
+<p>Persisted in your app memory and accessing or updating it is synchronous</p>
+</li>
+<li>
+<p><strong>Server state:</strong></p>
+</li>
+<li>Persisted remotely and requires asynchronous APIs for fetching or updating</li>
+<li>Has shared ownership</li>
+<li>Data can be updated by someone else without your knowledge</li>
+<li>UI data may not be in sync with the remote server/database data</li>
+<li>Challenging when you have to deal with caching, deduplication of multiple requests for thsame data, updating stale data in the background, performance optimizations in pagination and lazy-loading, etc</li>
+</ul>
+<h3 id="what-is-react-query">What is React Query?</h3>
+<ul>
+<li>React Query is a powerful data-fetching and state management library for React applications.</li>
+<li>It provides a set of hooks for fetching, caching, synchronizing, and updating server state in your UI, without needing complex global state management solutions like Redux.</li>
+</ul>
+<p>Created by Tanner Linsley, React Query simplifies remote data management by:</p>
+<ul>
+<li>Automatically caching fetched data</li>
+<li>Keeping data fresh via background refetching</li>
+<li>Avoiding duplicate network requests</li>
+<li>Simplifying pagination, infinite scrolling, and optimistic updates</li>
+</ul>
+<h3 id="why-use-react-query">Why Use React Query?</h3>
+<p>Traditionally, managing server state involved juggling global stores (Redux, MobX), side effects (Redux-Thunk, Redux-Saga), and manual caching logic. React Query eliminates this complexity by abstracting most of this away, offering:</p>
+<ul>
+<li>✅ <strong>Auto caching and background syncing</strong></li>
+<li>🔁 <strong>Refetch on focus or reconnect</strong></li>
+<li>💡 <strong>Stale-while-revalidate logic</strong></li>
+<li>🚀 <strong>Performance optimization out of the box</strong></li>
+<li>🔄 <strong>Support for paginated and infinite queries</strong></li>
+<li>💥 <strong>Built-in retry and error recovery</strong></li>
+<li>🔧 <strong>DevTools for debugging query states</strong></li>
+</ul>
+<p>React Query is especially useful in apps with a lot of asynchronous data (like dashboards, admin panels, and data-heavy UIs).</p>
+<h3 id="core-concepts-overview">Core Concepts Overview</h3>
+<p>Here are the fundamental building blocks of React Query:</p>
+<ul>
+<li><strong>Query (useQuery)</strong>: Used to fetch and cache server data. Handles loading, error, and success states.</li>
+<li><strong>Mutation (useMutation)</strong>: Used to send data to the server (e.g., POST, PUT, DELETE). Supports optimistic updates.</li>
+<li><strong>Query Keys</strong>: Unique identifiers for queries; essential for caching and invalidation.</li>
+<li><strong>Query Client</strong>: A central manager for all queries/mutations. Configures global settings like retry count and cache time.</li>
+<li><strong>DevTools</strong>: Visual debugging tool to inspect the query cache, query states, and performance.</li>
+</ul>
+<h3 id="comparison-with-redux-swr">Comparison with Redux &amp; SWR</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>React Query</th>
+<th>Redux</th>
+<th>SWR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Server state mgmt</td>
+<td>Global app &amp; server state mgmt</td>
+<td>Server state mgmt</td>
+</tr>
+<tr>
+<td>Data Caching</td>
+<td>✅ Built-in</td>
+<td>❌ Manual</td>
+<td>✅ Built-in</td>
+</tr>
+<tr>
+<td>Background Refetching</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>DevTools</td>
+<td>✅ Yes</td>
+<td>✅ (via Redux DevTools)</td>
+<td>❌ No (community-based)</td>
+</tr>
+<tr>
+<td>Boilerplate</td>
+<td>Minimal</td>
+<td>High</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>Optimistic Updates</td>
+<td>✅ Yes</td>
+<td>❌ Manual</td>
+<td>🚧 Limited</td>
+</tr>
+<tr>
+<td>Pagination Support</td>
+<td>✅ Yes</td>
+<td>❌ Manual</td>
+<td>🚧 Basic support</td>
+</tr>
+<tr>
+<td>Learning Curve</td>
+<td>Medium</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summary</strong>:<br />
+React Query is ideal when your app heavily interacts with remote data and you want to avoid over-engineering with global state libraries like Redux. It's more full-featured than SWR and offers deep control and performance optimizations for serious production use.</p>
+<h3 id="react-query-setup">React Query - Setup</h3>
+<h4 id="1-install-dependencies">1. Install Dependencies</h4>
+<p>Go to react query docs for installation
+-- <a href="https://tanstack.com/query/latest/docs/framework/react/installation">https://tanstack.com/query/latest/docs/framework/react/installation</a></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install React Query</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>npm<span class="w"> </span>install<span class="w"> </span>@tanstack/react-query
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Optional: React Query Devtools</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>npm<span class="w"> </span>install<span class="w"> </span>@tanstack/react-query-devtools
+</span></code></pre></div>
+<p>also install react-router for routing in React</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>install<span class="w"> </span>react-router
+</span></code></pre></div>
+<h4 id="2-set-up-query-client">2. Set Up Query Client</h4>
+<p>Create a <code>QueryClient</code> and wrap your app with <code>QueryClientProvider</code> in <code>main.jsx</code>.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">ReactDOM</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react-dom/client&quot;</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./App&quot;</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QueryClient</span><span class="p">,</span><span class="w"> </span><span class="nx">QueryClientProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query&quot;</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ReactQueryDevtools</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query-devtools&quot;</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Create a client</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">queryClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QueryClient</span><span class="p">();</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;root&quot;</span><span class="p">)).</span><span class="nx">render</span><span class="p">(</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">React</span><span class="p">.</span><span class="nx">StrictMode</span><span class="o">&gt;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">QueryClientProvider</span><span class="w"> </span><span class="nx">client</span><span class="o">=</span><span class="p">{</span><span class="nx">queryClient</span><span class="p">}</span><span class="o">&gt;</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">App</span><span class="w"> </span><span class="o">/&gt;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">ReactQueryDevtools</span><span class="w"> </span><span class="nx">initialIsOpen</span><span class="o">=</span><span class="p">{</span><span class="kc">false</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/QueryClientProvider&gt;</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/React.StrictMode&gt;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="3-create-a-fetcher-function">3. Create a Fetcher Function</h4>
+<p>Define a function that fetches data from your API. You can use <code>fetch</code> or <code>axios</code>.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// api/posts.js</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchPosts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><span class="p">);</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Network response was not ok&quot;</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">};</span>
+</span></code></pre></div>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// api/posts.js</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;axios&quot;</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchPosts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><span class="p">);</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">statusText</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;Network request failed&quot;</span><span class="p">);</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">};</span>
+</span></code></pre></div>
+<h4 id="4-use-react-query-in-a-component">4. Use React Query in a Component</h4>
+<p>Use <code>useQuery</code> to fetch data and handle loading, error, and success states automatically.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useQuery</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query&quot;</span><span class="p">;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fetchPosts</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./api/posts&quot;</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">PostsList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">isLoading</span><span class="p">,</span><span class="w"> </span><span class="nx">isError</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useQuery</span><span class="p">({</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="c1">// the path becomes the queryKey here,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="c1">// /posts --&gt; [&quot;posts&quot;]</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="c1">// /posts/1 --&gt; [&quot;posts&quot;, 1]</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span><span class="c1">// /posts/2 --&gt; [&quot;posts&quot;, 2]</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="c1">// or for dynamic route</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="c1">// /posts/:id --&gt; [&quot;posts&quot;, post.id]</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="c1">// /posts/:id/comments --&gt; [&quot;posts&quot;, post.id, &quot;comments&quot;]</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nx">queryKey</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;posts&quot;</span><span class="p">],</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="c1">// the queryFn is a Callback Function that returns a promise</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nx">queryFn</span><span class="o">:</span><span class="w"> </span><span class="nx">fetchPosts</span><span class="p">,</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isLoading</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Loading</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/p&gt;;</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isError</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="ne">Error</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">      </span><span class="p">{</span><span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">post</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="o">&lt;</span><span class="nx">li</span><span class="w"> </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">post</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">          </span><span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">post</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h3&gt;</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">          </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">post</span><span class="p">.</span><span class="nx">body</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">        </span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">      </span><span class="p">))}</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/ul&gt;</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="5-key-concepts">5. Key Concepts</h4>
+<ul>
+<li><strong>queryKey</strong> → Unique key for caching and refetching.</li>
+<li><strong>queryFn</strong> → Function returning a promise (fetcher).</li>
+<li><strong>Automatic caching</strong> → Data is cached and updated automatically.</li>
+<li><strong>Stale time &amp; refetch</strong> → Configurable to control updates.</li>
+<li><strong>Devtools</strong> → Visualize query cache and state in the browser.</li>
+</ul>
+<hr />
+<h2 id="1-core-concepts">1️⃣ Core Concepts</h2>
+<h3 id="queryclient"><strong>QueryClient</strong></h3>
+<ul>
+<li><strong>Purpose:</strong> Central object that manages queries, mutations, cache, and default configurations.  </li>
+<li>
+<p><strong>Key Options:</strong></p>
+<ul>
+<li><code>staleTime</code> – The time during which cached data is considered fresh. While data is “fresh,” React Query will not automatically refetch it when a component mounts or window refocuses.</li>
+<li><code>cacheTime</code> –The time after which unused (inactive) cached data is garbage-collected. “Unused” means no active queries or components are currently subscribing to it.</li>
+<li><code>refetchOnWindowFocus</code> – Refetch queries when window regains focus.  </li>
+<li>More key options are listed below</li>
+</ul>
+</li>
+<li>
+<p><strong>Example:</strong></p>
+</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// src/main.jsx</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QueryClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query&quot;</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">queryClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QueryClient</span><span class="p">({</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="c1">// Default options: `staleTime`, `cacheTime`, `refetchOnWindowFocus`.</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="c1">// here we are just create a QueryClient with Default Options</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nx">defaultOptions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nx">queries</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="c1">// Configure how long the data should remain fresh, or won&#39;t turn into stale value.</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="c1">// Default staleTime = 0 ms</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="c1">// lets keep the value fresh for one minute</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">      </span><span class="nx">staleTime</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1 minute</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">      </span><span class="c1">//The default value of cacheTime in React Query is: 5 minutes (1000 * 60 * 5 ms)</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">      </span><span class="nx">cacheTime</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="c1">// 5 minutes</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="c1">// Fires when the browser window/tab regains focus. </span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">      </span><span class="c1">// When the user switches to another tab or window and comes back, React Query will refetch queries that are stale.</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">      </span><span class="c1">// This ensures the UI shows the most up-to-date data without the user needing to refresh manually.</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">      </span><span class="nx">refetchOnWindowFocus</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">   </span><span class="c1">// default, refetch when window refocuses</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">      </span><span class="c1">// refetchOnWindowFocus: false  // never refetch automatically on focus</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">      </span><span class="c1">// refetchOnWindowFocus: &#39;always&#39; // always refetch even if data is fresh</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">      </span><span class="c1">// Fires when a component mounts that uses the query.</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">      </span><span class="c1">// On component mount, React Query decides whether to refetch based on the staleness of the data.</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">      </span><span class="c1">// refetchOnMount: true        // Refetch if the data is stale</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">      </span><span class="c1">// refetchOnMount: false       // Never refetch on mount</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">      </span><span class="nx">refetchOnMount</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;always&#39;</span><span class="w">    </span><span class="c1">// default, Always refetch, even if data is fresh</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">      </span><span class="c1">// Useful when you want to ensure the component always shows up-to-date data on mount.</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">      </span><span class="c1">// Can be set to false if you trust the cached data and want instant UI without unnecessary network requests.</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="p">});</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p>staleTime = 1 min</p>
+<ul>
+<li>During this time, data is “fresh.”</li>
+<li>React Query will never show a loading state if a component mounts — it just serves the cached data.</li>
+</ul>
+</li>
+<li>
+<p>After 1 min → data becomes stale</p>
+<ul>
+<li>React Query considers it stale and can refetch it in the background if refetchOnMount or refetchOnWindowFocus is enabled.</li>
+<li>But the cached data is still available, so the UI can display stale data immediately instead of showing Loading....</li>
+</ul>
+</li>
+<li>
+<p>cacheTime = 5 min</p>
+<ul>
+<li>Even if no component is using the query, React Query keeps the data in memory for 5 minutes.</li>
+<li>If a component mounts within that 5 minutes, it gets stale data immediately while the background refetch happens.</li>
+<li>Only after 5 minutes of inactivity is the cache removed — then a new fetch will show Loading....</li>
+</ul>
+</li>
+</ul>
+<h3 id="queryclientprovider"><strong>QueryClientProvider</strong></h3>
+<ul>
+<li>Purpose: Wrap your app to provide the QueryClient instance globally.</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QueryClientProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query&quot;</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ReactQueryDevtools</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query-devtools&quot;</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">// Create a Client</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">queryClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QueryClient</span><span class="p">({</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nx">defaultOptions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nx">queries</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="c1">// every defalut query you want to give goes here.</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">});</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">QueryClientProvider</span><span class="w"> </span><span class="nx">client</span><span class="o">=</span><span class="p">{</span><span class="nx">queryClient</span><span class="p">}</span><span class="o">&gt;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">MyAppComponents</span><span class="w"> </span><span class="o">/&gt;</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">      </span><span class="p">{</span><span class="cm">/* if you want to use react query devtools */</span><span class="p">}</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">      </span><span class="o">&lt;</span><span class="nx">ReactQueryDevtools</span><span class="w"> </span><span class="nx">initialIsOpen</span><span class="o">=</span><span class="p">{</span><span class="kc">false</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/QueryClientProvider&gt;</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="usequery"><strong>useQuery</strong></h3>
+<ul>
+<li>Purpose: Fetch and cache data from an API. Handles loading, error, and success automatically.</li>
+<li>Key Options: same Key Options as before</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useQuery</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query&quot;</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fetchUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/users&quot;</span><span class="p">);</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">res</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Failed to fetch users&quot;</span><span class="p">);</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">};</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">UsersList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">isLoading</span><span class="p">,</span><span class="w"> </span><span class="nx">isError</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useQuery</span><span class="p">({</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="nx">queryKey</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;users&quot;</span><span class="p">],</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="nx">queryFn</span><span class="o">:</span><span class="w"> </span><span class="nx">fetchUsers</span><span class="p">,</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="nx">staleTime</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="c1">// 1 min</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="nx">retry</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isLoading</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Loading</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/p&gt;;</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isError</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="ne">Error</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;;</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">      </span><span class="p">{</span><span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">user</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">li</span><span class="w"> </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;)}</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="o">&lt;</span><span class="err">/ul&gt;</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>To know more: <a href="/reactapi/14.5.3.React%20Query%20Ref">useQuery Reference</a></p>
+<h3 id="usemutation"><strong>useMutation</strong></h3>
+<ul>
+<li>Purpose: Perform POST, PUT, PATCH, DELETE operations with automatic cache updates.</li>
+<li>Key Options:<ul>
+<li><code>onSuccess</code> – Called after successful mutation.</li>
+<li><code>onError</code> – Called if mutation fails.</li>
+<li><code>onSettled</code> – Called after either success or error.</li>
+</ul>
+</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useMutation</span><span class="p">,</span><span class="w"> </span><span class="nx">useQueryClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query&quot;</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">addUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">user</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/users&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">user</span><span class="p">),</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">res</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Failed to add user&quot;</span><span class="p">);</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">};</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">AddUserForm</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">queryClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useQueryClient</span><span class="p">();</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">mutation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useMutation</span><span class="p">(</span><span class="nx">addUser</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="nx">onSuccess</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">      </span><span class="c1">// Invalidate and refetch users query</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">      </span><span class="nx">queryClient</span><span class="p">.</span><span class="nx">invalidateQueries</span><span class="p">([</span><span class="s2">&quot;users&quot;</span><span class="p">]);</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="nx">onError</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">),</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="nx">mutation</span><span class="p">.</span><span class="nx">mutate</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">button</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Add</span><span class="w"> </span><span class="nx">User</span><span class="o">&lt;</span><span class="err">/button&gt;;</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="usequeryclient"><strong>useQueryClient</strong></h3>
+<ul>
+<li>Purpose: Access and manipulate the query cache manually.</li>
+<li>Common Use Cases:<ul>
+<li>Invalidate queries</li>
+<li>Prefetch queries</li>
+<li>Update cached data optimistically</li>
+</ul>
+</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useQueryClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query&quot;</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">queryClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useQueryClient</span><span class="p">();</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1">// refetch users</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nx">queryClient</span><span class="p">.</span><span class="nx">invalidateQueries</span><span class="p">([</span><span class="s2">&quot;users&quot;</span><span class="p">]);</span><span class="w"> </span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1">// optimistic update</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nx">queryClient</span><span class="p">.</span><span class="nx">setQueryData</span><span class="p">([</span><span class="s2">&quot;users&quot;</span><span class="p">],</span><span class="w"> </span><span class="nx">oldData</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[...</span><span class="nx">oldData</span><span class="p">,</span><span class="w"> </span><span class="nx">newUser</span><span class="p">]);</span><span class="w"> </span>
+</span></code></pre></div>
+<hr />
+<h2 id="2-query-keys-and-cache">2️⃣ Query Keys and Cache</h2>
+<ul>
+<li><strong>Query Keys</strong><ul>
+<li>Unique identifiers for each query.</li>
+<li>Simple (string) vs. complex (arrays, objects) keys.</li>
+</ul>
+</li>
+<li><strong>Cache Management</strong><ul>
+<li>Invalidation: <code>queryClient.invalidateQueries</code>.</li>
+<li>Refetching: <code>queryClient.refetchQueries</code>.</li>
+<li>Prefetching: <code>queryClient.prefetchQuery</code>.</li>
+<li>Manual cache updates: <code>queryClient.setQueryData</code>, <code>queryClient.getQueryData</code>.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="3-fetching-patterns">3️⃣ Fetching Patterns</h2>
+<ul>
+<li><strong>Basic GET requests</strong></li>
+<li><strong>Dependent Queries</strong><ul>
+<li>Fetch query B after query A succeeds.</li>
+</ul>
+</li>
+<li><strong>Paginated Queries</strong><ul>
+<li>Page-based fetching with <code>useQuery</code>.</li>
+</ul>
+</li>
+<li><strong>Infinite Queries</strong><ul>
+<li>Cursor-based infinite scrolling using <code>useInfiniteQuery</code>.</li>
+</ul>
+</li>
+<li><strong>Conditional Queries</strong><ul>
+<li><code>enabled</code> option to control execution.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="4-mutations">4️⃣ Mutations</h2>
+<ul>
+<li><strong>Basic Mutation</strong><ul>
+<li>Create, update, or delete data.</li>
+</ul>
+</li>
+<li><strong>Optimistic Updates</strong><ul>
+<li>Update UI before mutation is confirmed.</li>
+</ul>
+</li>
+<li><strong>Error Handling</strong><ul>
+<li>Rollback updates on failure.</li>
+</ul>
+</li>
+<li><strong>Invalidate Queries</strong><ul>
+<li>Automatically refresh related queries after mutation.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="5-query-lifecycle-refetching">5️⃣ Query Lifecycle &amp; Refetching</h2>
+<ul>
+<li><strong>Stale vs Fresh Data</strong></li>
+<li><strong>Refetch on window focus</strong></li>
+<li><strong>Refetch on reconnect</strong></li>
+<li><strong>Polling / Interval Refetching</strong></li>
+<li><strong>Suspense Mode</strong><ul>
+<li>Use with React Suspense for declarative loading states.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="6-error-handling">6️⃣ Error Handling</h2>
+<ul>
+<li>Global error handling via <code>QueryClient</code>.</li>
+<li>Per-query error handling using <code>onError</code>.</li>
+<li>Retry logic and exponential backoff.</li>
+</ul>
+<hr />
+<h2 id="7-devtools">7️⃣ DevTools</h2>
+<ul>
+<li><strong>React Query Devtools</strong><ul>
+<li>Inspect cache, queries, mutations, and state.</li>
+<li>Configure initial open/close state.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="8-advanced-features">8️⃣ Advanced Features</h2>
+<ul>
+<li><strong>Query Cancellation</strong><ul>
+<li>Cancel in-flight queries when component unmounts.</li>
+</ul>
+</li>
+<li><strong>Background Fetching</strong><ul>
+<li>Refresh data silently.</li>
+</ul>
+</li>
+<li><strong>Infinite Scrolling</strong><ul>
+<li>Load more data dynamically as user scrolls.</li>
+</ul>
+</li>
+<li><strong>Prefetching</strong><ul>
+<li>Preload data before user navigates.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="9-integration-with-axios-fetch">9️⃣ Integration with Axios / Fetch</h2>
+<ul>
+<li>Use Axios or Fetch as query functions.</li>
+<li>Handle headers, auth tokens, interceptors if needed.</li>
+</ul>
+<hr />
+<h2 id="best-practices">🔟 Best Practices</h2>
+<ul>
+<li>Keep query functions pure (no side-effects).</li>
+<li>Use unique query keys.</li>
+<li>Group related queries logically.</li>
+<li>Avoid unnecessary re-renders by memoizing components.</li>
+<li>Leverage <code>staleTime</code> and <code>cacheTime</code> for performance.</li>
+<li>Combine with global state management when needed (optional).</li>
+</ul>
+<hr />
+<p>This roadmap covers <strong>everything from basic fetching to advanced caching, mutations, pagination, optimistic updates, background updates, and best practices</strong>. Following this will make you <strong>job-ready in React Query for frontend API integration</strong>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../14.5.1.State%20Management%20with%20API%20Data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14.5.1.State Management with API Data">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14.5.1.State Management with API Data
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14.5.3.React%20Query%20Ref/" class="md-footer__link md-footer__link--next" aria-label="Next: 14.5.3.React Query Ref">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14.5.3.React Query Ref
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 S.Kumar
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://souravkumardash.vercel.app" target="_blank" rel="noopener" title="souravkumardash.vercel.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2m-4-7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m5-3h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/sourav183" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Captain-Rengoku" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

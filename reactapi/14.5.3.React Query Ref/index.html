@@ -1,0 +1,1702 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://stiename.example/reactapi/14.5.3.React%20Query%20Ref/">
+      
+      
+        <link rel="prev" href="../14.5.2.React%20Query/">
+      
+      
+        <link rel="next" href="../14.6.Real-Time%20Data/">
+      
+      
+      <link rel="icon" href="../../assets/code-solid-full.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>14.5.3.React Query Ref - My Frontend Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#react-query-references" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Frontend Guide" class="md-header__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Frontend Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              14.5.3.React Query Ref
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../react/react-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  React Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../14.API%20Integration/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ts/ts-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  TypeScript Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Frontend Guide" class="md-nav__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    My Frontend Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../react/react-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    React Docs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            API Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.API%20Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.API Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.0.JSON%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.0.JSON Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.1.Core%20Fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.1.Core Fundamentals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.0.Axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.2.0.Axios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.1.Axios%20Industry%20Standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.2.1.Axios Industry Standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.3.Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.3.Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.4.Advanced%20API%20Scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.4.Advanced API Scenarios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.1.State%20Management%20with%20API%20Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.5.1.State Management with API Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.2.React%20Query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.5.2.React Query
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    14.5.3.React Query Ref
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.5.3.React Query Ref
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-query-api-reference-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      React Query — API Reference Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-queryclientprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. QueryClientProvider
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-usequery" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. useQuery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. useQuery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#react-usequery-key-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      React useQuery: Key Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#react-usequery-returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      React useQuery: Returns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-usemutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. useMutation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.6.Real-Time%20Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.6.Real-Time Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.7.Security%20%26%20Best%20Practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.7.Security & Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.8.File%20Handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14.8.File Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../ts/ts-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    TypeScript Docs
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-query-api-reference-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      React Query — API Reference Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-queryclientprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. QueryClientProvider
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-usequery" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. useQuery
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. useQuery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#react-usequery-key-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      React useQuery: Key Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#react-usequery-returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      React useQuery: Returns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-usemutation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. useMutation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="react-query-references">React Query References</h1>
+<h2 id="react-query-api-reference-overview">React Query — API Reference Overview</h2>
+<p>To know more check TanStack Documentation here are links:</p>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Purpose / Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/QueryClientProvider">1. QueryClientProvider</a></strong></td>
+<td>Root provider for React Query. Must wrap your app for queries to work.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useQuery">2. useQuery</a></strong></td>
+<td>Core hook for fetching, caching, and updating server data.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useMutation">3. useMutation</a></strong></td>
+<td>Hook for performing create, update, or delete operations.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useQueryClient">4. useQueryClient</a></strong></td>
+<td>Access and manipulate the query cache manually.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useQueries">5 . useQueries</a></strong></td>
+<td>Run multiple independent queries in parallel.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useInfiniteQuery">6. useInfiniteQuery</a></strong></td>
+<td>Manage pagination or infinite scrolling of data.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useIsFetching">7. useIsFetching</a></strong></td>
+<td>Track ongoing query fetch operations globally.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useIsMutating">8. useIsMutating</a></strong></td>
+<td>Track ongoing mutation operations globally.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useMutationState">9. useMutationState</a></strong></td>
+<td>Track mutation states globally.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/usePrefetchQuery">10. usePrefetchQuery</a></strong></td>
+<td>Preload query data before component mount.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/usePrefetchInfiniteQuery">11. usePrefetchInfiniteQuery</a></strong></td>
+<td>Preload infinite query data before component mount.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useSuspenseQuery">12. useSuspenseQuery</a></strong></td>
+<td>Suspense-enabled version of <code>useQuery</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useSuspenseInfiniteQuery">13. useSuspenseInfiniteQuery</a></strong></td>
+<td>Suspense-enabled version of <code>useInfiniteQuery</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useSuspenseQueries">14. useSuspenseQueries</a></strong></td>
+<td>Suspense-enabled version of <code>useQueries</code>.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/useQueryErrorResetBoundary">15. useQueryErrorResetBoundary</a></strong></td>
+<td>Hook to integrate with error boundaries for queries.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/reference/QueryErrorResetBoundary">16. QueryErrorResetBoundary</a></strong></td>
+<td>Component for handling and resetting query errors.</td>
+</tr>
+<tr>
+<td><strong><a href="https://tanstack.com/query/latest/docs/framework/react/guides/ssr">17. Hydration Utilities</a></strong></td>
+<td>Functions for server-side rendering and hydration of queries.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-queryclientprovider">1. QueryClientProvider</h2>
+<div class="language-tsx highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QueryClientProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query&quot;</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ReactQueryDevtools</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@tanstack/react-query-devtools&quot;</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// Create a Client</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">queryClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QueryClient</span><span class="p">({</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nx">defaultOptions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">queries</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="c1">// every defalut query you want to give goes here.</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">});</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">&lt;</span><span class="nt">QueryClientProvider</span><span class="w"> </span><span class="na">client</span><span class="o">=</span><span class="p">{</span><span class="nx">queryClient</span><span class="p">}&gt;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">MyAppComponents</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="p">{</span><span class="cm">/* if you want to use react query devtools */</span><span class="p">}</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">ReactQueryDevtools</span><span class="w"> </span><span class="na">initialIsOpen</span><span class="o">=</span><span class="p">{</span><span class="kc">false</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">QueryClientProvider</span><span class="p">&gt;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="2-usequery">2. useQuery</h2>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">data</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">dataUpdatedAt</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nx">error</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nx">errorUpdatedAt</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nx">failureCount</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nx">failureReason</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nx">fetchStatus</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nx">isError</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nx">isFetched</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="nx">isFetchedAfterMount</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nx">isFetching</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nx">isInitialLoading</span><span class="p">,</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="nx">isLoading</span><span class="p">,</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="nx">isLoadingError</span><span class="p">,</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="nx">isPaused</span><span class="p">,</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="nx">isPending</span><span class="p">,</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="nx">isPlaceholderData</span><span class="p">,</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="nx">isRefetchError</span><span class="p">,</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nx">isRefetching</span><span class="p">,</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">  </span><span class="nx">isStale</span><span class="p">,</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="nx">isSuccess</span><span class="p">,</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span><span class="nx">isEnabled</span><span class="p">,</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">  </span><span class="nx">promise</span><span class="p">,</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span><span class="nx">refetch</span><span class="p">,</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span><span class="nx">status</span><span class="p">,</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useQuery</span><span class="p">(</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="nx">queryKey</span><span class="p">,</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="nx">queryFn</span><span class="p">,</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="nx">gcTime</span><span class="p">,</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="nx">enabled</span><span class="p">,</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">    </span><span class="nx">networkMode</span><span class="p">,</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="nx">initialData</span><span class="p">,</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="nx">initialDataUpdatedAt</span><span class="p">,</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">    </span><span class="nx">meta</span><span class="p">,</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="nx">notifyOnChangeProps</span><span class="p">,</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span><span class="nx">placeholderData</span><span class="p">,</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">    </span><span class="nx">queryKeyHashFn</span><span class="p">,</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">    </span><span class="nx">refetchInterval</span><span class="p">,</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">    </span><span class="nx">refetchIntervalInBackground</span><span class="p">,</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">    </span><span class="nx">refetchOnMount</span><span class="p">,</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="nx">refetchOnReconnect</span><span class="p">,</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">    </span><span class="nx">refetchOnWindowFocus</span><span class="p">,</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">    </span><span class="nx">retry</span><span class="p">,</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">    </span><span class="nx">retryOnMount</span><span class="p">,</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">    </span><span class="nx">retryDelay</span><span class="p">,</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">    </span><span class="nx">select</span><span class="p">,</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="nx">staleTime</span><span class="p">,</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">    </span><span class="nx">structuralSharing</span><span class="p">,</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">    </span><span class="nx">subscribed</span><span class="p">,</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">    </span><span class="nx">throwOnError</span><span class="p">,</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">  </span><span class="nx">queryClient</span><span class="p">,</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="react-usequery-key-options">React useQuery: Key Options</h3>
+<ul>
+<li>
+<p><strong>queryKey</strong>  </p>
+<ul>
+<li>Unique key identifying the query in the cache.  </li>
+<li>Can be a string or array (for dynamic keys).  </li>
+</ul>
+</li>
+<li>
+<p><strong>queryFn</strong>  </p>
+<ul>
+<li>Function that fetches the data.  </li>
+<li>Must return a promise.  </li>
+</ul>
+</li>
+<li>
+<p><strong>staleTime</strong>  </p>
+<ul>
+<li>Time (ms) that data is considered "fresh."  </li>
+<li>Default: 0 (data is stale immediately).  </li>
+</ul>
+</li>
+<li>
+<p><strong>cacheTime</strong>  </p>
+<ul>
+<li>Time (ms) that unused data stays in memory before garbage collection.  </li>
+<li>Default: 5 minutes.  </li>
+</ul>
+</li>
+<li>
+<p><strong>enabled</strong>  </p>
+<ul>
+<li>Boolean to enable/disable the query.  </li>
+<li>Useful for conditional queries.  </li>
+</ul>
+</li>
+<li>
+<p><strong>refetchOnMount</strong>  </p>
+<ul>
+<li>Controls whether to refetch when the component mounts.  </li>
+<li>Options: <code>true | false | 'always'</code>.  </li>
+</ul>
+</li>
+<li>
+<p><strong>refetchOnWindowFocus</strong>  </p>
+<ul>
+<li>Controls whether to refetch when the browser window gains focus.  </li>
+<li>Options: <code>true | false | 'always'</code>.  </li>
+</ul>
+</li>
+<li>
+<p><strong>refetchOnReconnect</strong>  </p>
+<ul>
+<li>Refetch when the network reconnects.  </li>
+<li>Options: <code>true | false | 'always'</code>.  </li>
+</ul>
+</li>
+<li>
+<p><strong>retry</strong>  </p>
+<ul>
+<li>Number of retry attempts if the query fails.  </li>
+<li>Can be a number or a function returning a boolean.  </li>
+<li>Default: 3.  </li>
+</ul>
+</li>
+<li>
+<p><strong>retryDelay</strong>  </p>
+<ul>
+<li>Delay (ms) between retry attempts.  </li>
+<li>Can be a number or a function.  </li>
+</ul>
+</li>
+<li>
+<p><strong>onSuccess</strong>  </p>
+<ul>
+<li>Callback fired when the query succeeds.  </li>
+</ul>
+</li>
+<li>
+<p><strong>onError</strong>  </p>
+<ul>
+<li>Callback fired when the query fails.  </li>
+</ul>
+</li>
+<li>
+<p><strong>onSettled</strong>  </p>
+<ul>
+<li>Callback fired when the query finishes, regardless of success or error.  </li>
+</ul>
+</li>
+<li>
+<p><strong>select</strong>  </p>
+<ul>
+<li>Transform or map the fetched data before returning it.  </li>
+</ul>
+</li>
+<li>
+<p><strong>initialData</strong>  </p>
+<ul>
+<li>Provides default data before the query resolves.  </li>
+</ul>
+</li>
+<li>
+<p><strong>placeholderData</strong>  </p>
+<ul>
+<li>Data to display while the query is loading.  </li>
+</ul>
+</li>
+<li>
+<p><strong>keepPreviousData</strong>  </p>
+<ul>
+<li>Keeps previous query data while fetching new data (useful for pagination).  </li>
+</ul>
+</li>
+<li>
+<p><strong>structuralSharing</strong>  </p>
+<ul>
+<li>Controls how updates to data affect reference equality (default: shallow).  </li>
+</ul>
+</li>
+<li>
+<p><strong>refetchInterval</strong>  </p>
+<ul>
+<li>Automatically refetch the query every X ms.  </li>
+<li>Can be a number or <code>false</code> to disable.  </li>
+</ul>
+</li>
+<li>
+<p><strong>refetchIntervalInBackground</strong>  </p>
+<ul>
+<li>If true, refetch interval continues even when the window is not focused.  </li>
+</ul>
+</li>
+<li>
+<p><strong>onSettled</strong>  </p>
+<ul>
+<li>Callback that runs after the query completes (success or error).  </li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="react-usequery-returns">React useQuery: Returns</h3>
+<ul>
+<li>
+<p><strong>data</strong></p>
+<ul>
+<li>The resolved data from the query function.</li>
+<li><code>undefined</code> if data hasn’t been fetched yet.</li>
+</ul>
+</li>
+<li>
+<p><strong>error</strong></p>
+<ul>
+<li>The error object if the query fails.</li>
+<li><code>null</code> if no error.</li>
+</ul>
+</li>
+<li>
+<p><strong>isLoading</strong></p>
+<ul>
+<li><code>true</code> while the query is in its initial loading state.</li>
+<li>Only true on the first fetch.</li>
+</ul>
+</li>
+<li>
+<p><strong>isFetching</strong></p>
+<ul>
+<li><code>true</code> whenever the query is fetching data (initial or background refetch).</li>
+<li>Useful to show loading indicators even on background updates.</li>
+</ul>
+</li>
+<li>
+<p><strong>isError</strong></p>
+<ul>
+<li><code>true</code> if the query has encountered an error.</li>
+</ul>
+</li>
+<li>
+<p><strong>isSuccess</strong></p>
+<ul>
+<li><code>true</code> if the query successfully fetched data.</li>
+</ul>
+</li>
+<li>
+<p><strong>isIdle</strong></p>
+<ul>
+<li><code>true</code> if the query is disabled (<code>enabled: false</code>) and hasn’t run yet.</li>
+</ul>
+</li>
+<li>
+<p><strong>refetch</strong></p>
+<ul>
+<li>Function to manually refetch the query.</li>
+</ul>
+</li>
+<li>
+<p><strong>status</strong></p>
+<ul>
+<li>Overall status of the query: <code>"idle" | "loading" | "error" | "success"</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>failureCount</strong></p>
+<ul>
+<li>Number of times the query has failed.</li>
+</ul>
+</li>
+<li>
+<p><strong>isFetched</strong></p>
+<ul>
+<li><code>true</code> if the query has been fetched at least once, regardless of success or error.</li>
+</ul>
+</li>
+<li>
+<p><strong>isFetchedAfterMount</strong></p>
+<ul>
+<li><code>true</code> if the query has been fetched after the component mounted.</li>
+</ul>
+</li>
+<li>
+<p><strong>dataUpdatedAt</strong></p>
+<ul>
+<li>Timestamp (ms) when the data was last updated.</li>
+</ul>
+</li>
+<li>
+<p><strong>errorUpdatedAt</strong></p>
+<ul>
+<li>Timestamp (ms) when the error was last updated.</li>
+</ul>
+</li>
+<li>
+<p><strong>remove</strong></p>
+<ul>
+<li>Function to manually remove the query from the cache.</li>
+</ul>
+</li>
+<li>
+<p><strong>refetchOnWindowFocus</strong></p>
+<ul>
+<li>Boolean indicating if the query will refetch when the window regains focus (from options).</li>
+</ul>
+</li>
+<li>
+<p><strong>refetchOnReconnect</strong></p>
+<ul>
+<li>Boolean indicating if the query will refetch when network reconnects.</li>
+</ul>
+</li>
+<li>
+<p><strong>isStale</strong></p>
+<ul>
+<li>Boolean indicating whether the data is stale according to <code>staleTime</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>isPlaceholderData</strong></p>
+<ul>
+<li>Boolean indicating whether the query is using placeholder data.</li>
+</ul>
+</li>
+<li>
+<p><strong>isPreviousData</strong></p>
+<ul>
+<li>Boolean indicating whether the data is from a previous query while fetching new data.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="3-usemutation">3. useMutation</h2>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../14.5.2.React%20Query/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14.5.2.React Query">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14.5.2.React Query
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14.6.Real-Time%20Data/" class="md-footer__link md-footer__link--next" aria-label="Next: 14.6.Real-Time Data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14.6.Real-Time Data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 S.Kumar
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://souravkumardash.vercel.app" target="_blank" rel="noopener" title="souravkumardash.vercel.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2m-4-7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m5-3h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/sourav183" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Captain-Rengoku" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
