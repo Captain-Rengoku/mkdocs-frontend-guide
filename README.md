@@ -1,4 +1,4 @@
-# Welcome to My Frontend Guide (:simple-react: :simple-typescript: :simple-nextdotjs:)
+# Welcome to My Frontend Guide
 
 This guide will walk you through everything you need to know to build **modern**, **scalable**, and **type-safe** web applications using **React**, **TypeScript**, and **Next.js**.
 
