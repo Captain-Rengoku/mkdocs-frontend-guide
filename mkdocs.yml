@@ -89,6 +89,7 @@ nav:
     - 9.React Router: react/9.React Router.md
     - 10.State Management in React: react/10.State Management in React.md
     - 10.5.Redux Toolkit: react/10.5.Redux Toolkit.md
+    - 10.6.Zustand: react/10.6.Zustand.md
     - Important Keywords: react/Important Keywords.md
     - React & Next Ecosystem: react/React & Next Ecosystem.md
     - Progress: react/Progress.md
