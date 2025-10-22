@@ -86,6 +86,7 @@ nav:
     - 5.State & Data Management: react/5.React State and Data Management.md
     - 6.Handling Events in React: react/6.Handling Events in React.md
     - 7.React Hooks: react/7.React Hooks.md
+    - 8.React Forms and Form Handling: react/8.React Forms.md
     - 9.React Router: react/9.React Router.md
     - 10.State Management in React: react/10.State Management in React.md
     - 10.5.Redux Toolkit: react/10.5.Redux Toolkit.md
@@ -172,4 +173,4 @@ extra:
     - icon: simple/github
       link: https://github.com/Captain-Rengoku
 
-copyright: Copyright &copy; 2024 S.Kumar
+copyright: Copyright &copy; 2025 S.Kumar
