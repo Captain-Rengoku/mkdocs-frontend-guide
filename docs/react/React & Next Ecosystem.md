@@ -21,7 +21,7 @@ date:
 | **🧪 Testing**                | Unit: {==Jest, React Testing Library==}, Vitest, Enzyme (legacy) |
 |                               | E2E: {==Cypress==}, Playwright, Puppeteer |
 |                               | Mocking: MSW (Mock Service Worker), jest.fn, jest.mock |
-| **📑 Forms & Validation**     | Form Libraries: {==React Hook Form==}, Formik, Final Form |
+| **📑 Forms & Validation**     | Form Libraries: {==React Hook Form, Formik==}, Final Form |
 |                               | Validation: {==Zod==}, Yup, Joi, Superstruct, Valibot |
 | **🔐 Authentication (UI)**    | {==Context Auth, Protected Routes, JWT/Cookies==} |
 |                               | Services: {==Firebase Auth, Auth0, Clerk==}, Magic.link |
@@ -54,6 +54,7 @@ date:
 | **🧬 API Routes**             | `pages/api/` (RESTful), `app/api/` (route handlers), {==Edge Functions==}, Middleware |
 | **🌍 Internationalization**   | Built-in `i18n` config, Domains & Subpaths, `next-i18next`, react-intl, LinguiJS |
 | **🔐 Middleware**            | `middleware.ts`, Matchers, Auth filters, {~~Logging~>Observability~~}, Redirects |
+| **📑 Forms & Validation**     | React Hook Form, Formik, Zod|
 | **🔐 Authentication**         | NextAuth.js, Clerk, Auth0, Firebase Auth, JWT + Middleware {>>Consider pairing with context or Zustand<<} |
 | **📦 State Management**       | Redux Toolkit, Zustand, Jotai, Recoil, {==TanStack Query==}, SWR, tRPC |
 | **📚 Styling**                | Tailwind CSS, SCSS/SASS, PostCSS, styled-components, Emotion, CSS Modules, {++Vanilla Extract++} |
