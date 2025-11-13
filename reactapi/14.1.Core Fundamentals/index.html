@@ -1,0 +1,2969 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://stiename.example/reactapi/14.1.Core%20Fundamentals/">
+      
+      
+        <link rel="prev" href="../14.0.JSON%20Server/">
+      
+      
+        <link rel="next" href="../14.2.0.Axios/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/code-solid-full.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>14.1.Core Fundamentals - My Frontend Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#core-fundamentals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Frontend Guide" class="md-header__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Frontend Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              14.1.Core Fundamentals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../react/react-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  React Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../14.API%20Integration/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ts/ts-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  TypeScript Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Github Repositories
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Frontend Guide" class="md-nav__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    My Frontend Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../react/react-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React Docs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.API%20Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.API Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.0.JSON%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.0.JSON Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.1.Core Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.1.Core Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an API?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-api-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an API Request?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components-of-an-api-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components of an API Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components-of-an-api-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components of an API Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-http-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. HTTP Basics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. HTTP Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-http-status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 HTTP Status Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-http-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 HTTP Headers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 HTTP Headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Request Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-response-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Response Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-custom-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Custom Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-parameters-path-query-and-body-param" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Parameters (Path, Query and Body Param)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Parameters (Path, Query and Body Param)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-request-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Request Body
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Differences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-api-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. API Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. API Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-rest-apis-restful-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 REST APIs (RESTful Apis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-websockets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 WebSockets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fetch-api-vs-axios-for-http-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Fetch API vs Axios for HTTP Requests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Fetch API vs Axios for HTTP Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-fetch-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Introduction to Fetch API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-axios-for-api-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Using Axios for API Requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pros-and-cons-of-fetch-api-vs-axios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Pros and Cons of Fetch API vs Axios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-axios-interceptors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Setting Up Axios Interceptors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-handling-promises-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Handling Promises &amp; Async/Await
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Handling Promises &amp; Async/Await">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-promises-with-then" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Using Promises with .then()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-asynchronous-code-with-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Writing Asynchronous Code with async/await
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-in-async-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Error Handling in Async Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-useeffect-with-api-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. useEffect with API Calls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. useEffect with API Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fetching-data-inside-useeffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Fetching Data Inside useEffect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-array-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Dependency Array and Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Cleanup Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preventing-memory-leaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Preventing Memory Leaks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-handling-api-errors-and-loading-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Handling API Errors and Loading States
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Handling API Errors and Loading States">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Error Handling Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showing-loading-spinners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Showing Loading Spinners
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retry-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Retry Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Handling Rate Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.0.Axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.2.0.Axios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.1.Axios%20Industry%20Standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.2.1.Axios Industry Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.3.Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.3.Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.4.Advanced%20API%20Scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.4.Advanced API Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.1.State%20Management%20with%20API%20Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.5.1.State Management with API Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.2.React%20Query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.5.2.React Query
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.3.React%20Query%20Ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.5.3.React Query Ref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.6.Real-Time%20Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.6.Real-Time Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.7.Security%20%26%20Best%20Practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.7.Security &amp; Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.8.File%20Handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.8.File Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../ts/ts-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript Docs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Github Repositories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an API?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-api-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an API Request?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components-of-an-api-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components of an API Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components-of-an-api-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Components of an API Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-http-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. HTTP Basics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. HTTP Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-http-status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 HTTP Status Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-http-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 HTTP Headers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 HTTP Headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Request Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-response-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Response Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-custom-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Custom Headers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-parameters-path-query-and-body-param" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Parameters (Path, Query and Body Param)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Parameters (Path, Query and Body Param)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-request-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Request Body
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Differences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-api-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. API Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. API Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-rest-apis-restful-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 REST APIs (RESTful Apis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-websockets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 WebSockets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fetch-api-vs-axios-for-http-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Fetch API vs Axios for HTTP Requests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Fetch API vs Axios for HTTP Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-fetch-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Introduction to Fetch API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-axios-for-api-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Using Axios for API Requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pros-and-cons-of-fetch-api-vs-axios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Pros and Cons of Fetch API vs Axios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-axios-interceptors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Setting Up Axios Interceptors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-handling-promises-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Handling Promises &amp; Async/Await
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Handling Promises &amp; Async/Await">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-promises-with-then" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Using Promises with .then()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-asynchronous-code-with-asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Writing Asynchronous Code with async/await
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-in-async-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Error Handling in Async Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-useeffect-with-api-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. useEffect with API Calls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. useEffect with API Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fetching-data-inside-useeffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Fetching Data Inside useEffect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-array-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Dependency Array and Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Cleanup Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preventing-memory-leaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Preventing Memory Leaks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-handling-api-errors-and-loading-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Handling API Errors and Loading States
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Handling API Errors and Loading States">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Error Handling Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showing-loading-spinners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Showing Loading Spinners
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retry-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Retry Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔹 Handling Rate Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../14.API%20Integration/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    API Integration
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="core-fundamentals">Core Fundamentals</h1>
+<h2 id="0-api">0. API</h2>
+<h3 id="what-is-an-api">What is an API?</h3>
+<p>An <strong>API</strong> (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate with each other.<br>
+It defines <strong>how</strong> requests should be made, <strong>what</strong> data should be sent, and <strong>how</strong> responses should be structured.</p>
+<p>Example use cases:</p>
+<ul>
+<li>A frontend web app fetching data from a backend server.</li>
+<li>A mobile app retrieving weather updates from a weather API.</li>
+<li>Payment gateways processing transactions through APIs.</li>
+</ul>
+<h3 id="what-is-an-api-request">What is an API Request?</h3>
+<p>An <strong>API request</strong> is when a client (such as a browser, mobile app, or server) sends a request to an API to either:</p>
+<ul>
+<li><strong>Retrieve data</strong> (e.g., get user profile)</li>
+<li><strong>Send data</strong> (e.g., submit a form)</li>
+<li><strong>Update data</strong> (e.g., edit a profile)</li>
+<li><strong>Delete data</strong> (e.g., remove an account)</li>
+</ul>
+<h3 id="components-of-an-api-request">Components of an API Request</h3>
+<p><strong>Endpoint (URL)</strong>
+The specific address where the API is hosted.</p>
+<ul>
+<li><a href="https://restful-booker.herokuapp.com/user/123">https://restful-booker.herokuapp.com/user/123</a></li>
+</ul>
+<p><strong>HTTP Method</strong>
+Defines the action to perform:</p>
+<ul>
+<li><code>GET</code> → Retrieve data</li>
+<li><code>POST</code> → Send data</li>
+<li><code>PUT/PATCH</code> → Update data</li>
+<li><code>DELETE</code> → Remove data</li>
+</ul>
+<p><strong>Headers</strong>
+Extra information sent with the request, such as:</p>
+<ul>
+<li><strong>Authorization</strong>: Access tokens, API keys<br>
+<code>Authorization: Bearer &lt;token&gt;</code></li>
+<li><strong>Content-Type</strong>: Format of the request body (e.g., JSON)<br>
+<code>Content-Type: application/json</code></li>
+<li><strong>Accept</strong>: Expected response format<br>
+<code>Accept: application/json</code></li>
+</ul>
+<p><strong>Parameters</strong>
+Extra information to customize the request.</p>
+<ul>
+<li>Types:<ul>
+<li><strong>Path Parameters</strong> → Part of the endpoint (e.g., <code>/users/{id}</code>)</li>
+<li><strong>Query Parameters</strong> → Added to URL (e.g., <code>?page=2&amp;limit=10</code>)</li>
+<li><strong>Body Parameters</strong> → Sent inside the request body (for <code>POST</code>, <code>PUT</code>, <code>PATCH</code>).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Body (Payload)</strong>
+The actual data sent with <code>POST</code>, <code>PUT</code>, or <code>PATCH</code> requests.<br>
+Example (JSON):</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kinvu"</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rathor"</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kinvurathor123@example.com"</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">"totalprice"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">"depositpaid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">"bokingdates"</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">"chekin"</span><span class="p">:</span><span class="s2">"2018-01-01"</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">"checkout"</span><span class="p">:</span><span class="s2">"2019-01-01"</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nt">"additionalneeds"</span><span class="p">:</span><span class="s2">"Breakfast"</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="components-of-an-api-response">Components of an API Response</h3>
+<p>An <strong>API response</strong> is the message the server sends back to the client after processing a request.</p>
+<ul>
+<li>
+<p><strong>Status Code</strong></p>
+</li>
+<li>
+<p>Indicates the result of the request.</p>
+</li>
+<li>
+<p>Examples:</p>
+<ul>
+<li><code>200 OK</code>: Request successful.</li>
+<li><code>201 Created</code>: Resource successfully created.</li>
+<li><code>400 Bad Request</code>: Invalid request.</li>
+<li><code>401 Unauthorized</code>: Missing/invalid credentials.</li>
+<li><code>404 Not Found</code>: Resource doesn’t exist.</li>
+<li><code>500 Internal Server Error</code>: Server-side issue.</li>
+</ul>
+</li>
+<li>
+<p><strong>Headers</strong></p>
+</li>
+<li>
+<p>Metadata about the response.</p>
+</li>
+<li>
+<p>Examples:</p>
+<ul>
+<li><code>Content-Type</code>: Type of the returned content (e.g., <code>application/json</code>).</li>
+<li><code>Cache-Control</code>: How the response should be cached.</li>
+</ul>
+</li>
+<li>
+<p><strong>Body (Payload)</strong></p>
+</li>
+<li>
+<p>The main content/data returned by the API.</p>
+<ul>
+<li>Usually in JSON, XML, or other formats.</li>
+<li>Example JSON:</li>
+</ul>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Message</strong></p>
+</li>
+<li>
+<p>Optional text explaining the result or error.</p>
+</li>
+<li>Often included in the response body for clarity.</li>
+</ul>
+<h3 id="request-flow"><strong>Request Flow</strong></h3>
+<ul>
+<li>
+<p>Request flow</p>
+<ul>
+<li><code>Client sends</code> an <code>API request</code> (method, URL, headers, optional body).</li>
+<li><code>Server</code> processes the <code>request</code>.</li>
+<li><code>Server sends</code> back a <code>response</code> (status code, headers, and data).</li>
+</ul>
+</li>
+<li>
+<p><strong>Common Response Elements</strong></p>
+<ul>
+<li>Status Code: HTTP status (e.g., 200 OK, 404 Not Found, 500 Internal Server Error).</li>
+<li>Headers: Metadata about the response.</li>
+<li>Body: The actual returned data (usually in JSON or XML format).</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-http-basics">1. HTTP Basics</h2>
+<h3 id="11-http-methods">1.1 HTTP Methods</h3>
+<p>HTTP methods define the type of action you want to perform on a resource.</p>
+<ul>
+<li><strong>GET</strong> – Retrieve data from the server (read-only, no side effects).</li>
+<li><strong>POST</strong> – Send new data to the server (creates a new resource).</li>
+<li><strong>PUT</strong> – Update an entire resource on the server.</li>
+<li><strong>PATCH</strong> – Update part of a resource (partial update).</li>
+<li><strong>DELETE</strong> – Remove a resource from the server.</li>
+<li><strong>OPTIONS</strong> – Check which HTTP methods are available for a resource.</li>
+<li><strong>HEAD</strong> – Same as GET, but returns only headers (no response body).</li>
+</ul>
+<hr>
+<h3 id="12-http-status-codes">1.2 HTTP Status Codes</h3>
+<p>Status codes indicate the result of the HTTP request and are grouped by their first digit.</p>
+<hr>
+<ul>
+<li>
+<p><strong>2xx (Success)</strong></p>
+</li>
+<li>
+<p><code>200 OK</code> – Request processed successfully.</p>
+</li>
+<li><code>201 Created</code> – Resource created successfully.</li>
+<li><code>202 Accepted</code> – Request accepted for processing, but not completed yet.</li>
+<li><code>204 No Content</code> – Request succeeded, but no data returned.</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>3xx (Redirection)</strong></p>
+</li>
+<li>
+<p><code>301 Moved Permanently</code> – Resource has been permanently moved to a new URL.</p>
+</li>
+<li><code>302 Found</code> – Temporary redirect.</li>
+<li><code>304 Not Modified</code> – Resource has not changed since last request (used in caching).</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>4xx (Client Errors)</strong></p>
+</li>
+<li>
+<p><code>400 Bad Request</code> – Invalid request syntax or parameters.</p>
+</li>
+<li><code>401 Unauthorized</code> – Authentication required or failed.</li>
+<li><code>403 Forbidden</code> – Client is authenticated but not allowed to access the resource.</li>
+<li><code>404 Not Found</code> – Resource not found.</li>
+<li><code>405 Method Not Allowed</code> – Request method is not supported for the resource.</li>
+<li><code>429 Too Many Requests</code> – Client sent too many requests in a short period (rate limiting).</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>5xx (Server Errors)</strong></p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code> – Generic server-side error.</p>
+</li>
+<li><code>502 Bad Gateway</code> – Server received an invalid response from an upstream server.</li>
+<li><code>503 Service Unavailable</code> – Server is temporarily down or overloaded.</li>
+<li><code>504 Gateway Timeout</code> – Server did not receive a timely response from another server.</li>
+</ul>
+<hr>
+<h3 id="13-http-headers">1.3 HTTP Headers</h3>
+<p>HTTP headers provide <strong>metadata</strong> about a request or response. They are sent as key-value pairs and can control how data is processed, cached, authenticated, or presented.</p>
+<h4 id="a-request-headers"><strong>A. Request Headers</strong></h4>
+<p>Headers sent <strong>from client to server</strong>.</p>
+<ol>
+<li>
+<p><strong>Content-Type</strong></p>
+<ul>
+<li>Describes the format of the request body.</li>
+<li>Common values:<ul>
+<li><code>application/json</code> – JSON data</li>
+<li><code>application/x-www-form-urlencoded</code> – Form data</li>
+<li><code>multipart/form-data</code> – File uploads</li>
+<li><code>text/plain</code> – Plain text</li>
+</ul>
+</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Authorization</strong></p>
+<ul>
+<li>Sends authentication credentials.</li>
+<li>Common schemes:<ul>
+<li><code>Bearer &lt;token&gt;</code> – Token-based authentication (JWT, OAuth)</li>
+<li><code>Basic &lt;base64&gt;</code> – Username and password (less secure)</li>
+<li><code>ApiKey &lt;key&gt;</code> – Custom API key</li>
+</ul>
+</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="nx">Bearer</span><span class="w"> </span><span class="nx">eyJhbGciOiJIUzI1NiIs</span><span class="p">...</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Accept</strong></p>
+<ul>
+<li>Specifies the content format the client expects from the server.</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nx">Accept</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>User-Agent</strong></p>
+<ul>
+<li>Identifies the client application or browser making the request.</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nx">User</span><span class="o">-</span><span class="nx">Agent</span><span class="o">:</span><span class="w"> </span><span class="nx">Mozilla</span><span class="o">/</span><span class="mf">5.0</span><span class="w"> </span><span class="p">(</span><span class="nx">Windows</span><span class="w"> </span><span class="nx">NT</span><span class="w"> </span><span class="mf">10.0</span><span class="p">;</span><span class="w"> </span><span class="nx">Win64</span><span class="p">;</span><span class="w"> </span><span class="nx">x64</span><span class="p">)</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Cookie</strong></p>
+<ul>
+<li>Sends cookies from the browser to the server for session tracking.</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">Cookie</span><span class="o">:</span><span class="w"> </span><span class="nx">sessionId</span><span class="o">=</span><span class="nx">abc123</span><span class="p">;</span><span class="w"> </span><span class="nx">theme</span><span class="o">=</span><span class="nx">dark</span>
+</span></code></pre></div>
+</li>
+</ol>
+<hr>
+<h4 id="b-response-headers"><strong>B. Response Headers</strong></h4>
+<p>Headers sent <strong>from server to client</strong>.</p>
+<ol>
+<li>
+<p><strong>Content-Type</strong></p>
+<ul>
+<li>Specifies the format of the response body.</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Content-Length</strong></p>
+<ul>
+<li>The size of the response body in bytes.</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nx">Content</span><span class="o">-</span><span class="nx">Length</span><span class="o">:</span><span class="w"> </span><span class="mf">256</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Cache-Control</strong></p>
+<ul>
+<li>Controls caching behavior.</li>
+<li>Examples:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nx">Cache</span><span class="o">-</span><span class="nx">Control</span><span class="o">:</span><span class="w"> </span><span class="nx">no</span><span class="o">-</span><span class="nx">cache</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nx">Cache</span><span class="o">-</span><span class="nx">Control</span><span class="o">:</span><span class="w"> </span><span class="nx">max</span><span class="o">-</span><span class="nx">age</span><span class="o">=</span><span class="mf">3600</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Set-Cookie</strong></p>
+<ul>
+<li>Sends cookies from the server to the client.</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">Set</span><span class="o">-</span><span class="nx">Cookie</span><span class="o">:</span><span class="w"> </span><span class="nx">sessionId</span><span class="o">=</span><span class="nx">abc123</span><span class="p">;</span><span class="w"> </span><span class="nx">HttpOnly</span><span class="p">;</span><span class="w"> </span><span class="nx">Secure</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Access-Control-Allow-Origin</strong> (CORS)</p>
+<ul>
+<li>Defines which origins are allowed to access the resource.</li>
+<li>Example:</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nx">Access</span><span class="o">-</span><span class="nx">Control</span><span class="o">-</span><span class="nx">Allow</span><span class="o">-</span><span class="nx">Origin</span><span class="o">:</span><span class="w"> </span><span class="o">*</span>
+</span></code></pre></div>
+</li>
+</ol>
+<hr>
+<h4 id="c-custom-headers"><strong>C. Custom Headers</strong></h4>
+<ul>
+<li>Developers can create <strong>custom headers</strong> prefixed with <code>X-</code> or any name.</li>
+<li>Example:<ul>
+<li>X-Request-ID – Track requests across systems.</li>
+<li>X-API-Version – Indicate API version used.</li>
+<li>X-Client-Type – Identify app type (mobile, web, etc.).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-parameters-path-query-and-body-param">2. Parameters (Path, Query and Body Param)</h2>
+<p>Parameters provide additional information for the server to process a request. They can be sent in the <strong>URL</strong> or <strong>request body</strong>, depending on the API design.</p>
+<h3 id="21-path-parameters">2.1 Path Parameters</h3>
+<ul>
+<li><strong>Definition</strong> – Variable parts of the URL path used to identify <strong>specific resources</strong>. Defined in API documentation with placeholders like <code>/users/{id}</code>.</li>
+<li><strong>Purpose</strong> – Ideal for resource identification when the parameter is essential to the path.</li>
+<li><strong>Visibility</strong> – Always visible in the URL.</li>
+<li><strong>Characteristics</strong>:<ul>
+<li>Fixed position in the URL</li>
+<li>Usually required</li>
+<li>Cannot contain spaces (must be URL-encoded if special characters are needed)</li>
+</ul>
+</li>
+<li><strong>Example:</strong></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>GET<span class="w"> </span>/users/123<span class="w">  </span>
+</span></code></pre></div>
+<p><strong>Breakdown:</strong>
+      - <code>123</code> → ID of the user to fetch.  </p>
+<p>Path parameters are often defined in API documentation like: <code>/users/{id}</code></p>
+<h3 id="22-query-parameters">2.2 Query Parameters</h3>
+<ul>
+<li><strong>Definition</strong> – Appended to the end of a URL after a <code>?</code>, with multiple parameters separated by <code>&amp;</code>.</li>
+<li><strong>Purpose</strong> – Commonly used for:<ul>
+<li>Filtering results (e.g., <code>status=active</code>)</li>
+<li>Searching (e.g., <code>search=keyword</code>)</li>
+<li>Pagination (e.g., <code>page=2&amp;limit=10</code>)</li>
+<li>Sorting (e.g., <code>sort=asc</code>)</li>
+<li>Optional configuration settings</li>
+</ul>
+</li>
+<li><strong>Visibility</strong> – Visible in the browser's address bar and easy to share or bookmark.</li>
+<li><strong>Data Types</strong> – Strings, numbers, booleans, arrays (comma-separated or repeated keys).</li>
+<li><strong>Example:</strong></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>GET<span class="w"> </span>/users?page<span class="o">=</span><span class="m">2</span><span class="p">&amp;</span><span class="nv">limit</span><span class="o">=</span><span class="m">10</span><span class="p">&amp;</span><span class="nv">sort</span><span class="o">=</span>desc<span class="p">&amp;</span><span class="nv">status</span><span class="o">=</span>active
+</span></code></pre></div>
+<ul>
+<li><strong>Breakdown:</strong><ul>
+<li><code>page=2</code> → Second page of results</li>
+<li><code>limit=10</code> → Limit each page to 10 results</li>
+<li><code>sort=desc</code> → Sort results in descending order</li>
+<li><code>status=active</code> → Return only active users</li>
+</ul>
+</li>
+</ul>
+<h3 id="23-request-body">2.3 Request Body</h3>
+<ul>
+<li><strong>Definition</strong> – The main content payload sent with HTTP requests (mainly POST, PUT, PATCH) containing data for processing.</li>
+<li><strong>Purpose</strong> – Used when sending:<ul>
+<li>Structured data (e.g., user profile details)</li>
+<li>Bulk data (e.g., file uploads)</li>
+<li>Sensitive data (avoiding URL exposure)</li>
+</ul>
+</li>
+<li><strong>Formats</strong> – Commonly <code>application/json</code>, <code>application/xml</code>, <code>multipart/form-data</code> (file uploads), <code>application/x-www-form-urlencoded</code> (HTML form submissions).</li>
+<li><strong>Visibility</strong> – Not visible in the URL; sent as the request payload.</li>
+<li><strong>Structure</strong> – Can contain:
+        - Strings, numbers, booleans
+        - Arrays and nested objects</li>
+<li><strong>Example (JSON)</strong>:</li>
+</ul>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="err">POST</span><span class="w"> </span><span class="err">/users</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">{</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="nt">"roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"editor"</span><span class="p">],</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Main Street"</span><span class="p">,</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001"</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Breakdown:</strong>
+      - <code>"name"</code> and <code>"email"</code> → Basic user info
+      - <code>"age"</code> → Integer field
+      - <code>"roles"</code> → Array of role names
+      - <code>"address"</code> → Nested object for location details</p>
+<hr>
+<h3 id="key-differences">Key Differences</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter Type</th>
+<th>Location</th>
+<th>Common Use Cases</th>
+<th>Visible in URL?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query Parameters</td>
+<td>After <code>?</code> in URL</td>
+<td>Filtering, sorting, pagination</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Path Parameters</td>
+<td>Inside the URL path</td>
+<td>Resource identification</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Request Body</td>
+<td>HTTP request payload</td>
+<td>Sending structured or large data</td>
+<td>❌ No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-api-types">3. API Types</h2>
+<h3 id="31-rest-apis-restful-apis">3.1 REST APIs (RESTful Apis)</h3>
+<ul>
+<li><strong>What is REST</strong> – Representational State Transfer is an architectural style that defines a set of constraints and principles for designing web services.</li>
+<li><strong>Format</strong> – Primarily use JSON for data exchange, though XML and other formats are also possible.</li>
+<li><strong>Structure</strong> – Built around standard HTTP methods (GET, POST, PUT, PATCH, DELETE) and clearly defined resource URLs.</li>
+<li><strong>Resource Based</strong> – resources, which can be data or services available on the server have a unique identifier, URI(Uniform Resource Identifier)</li>
+<li><strong>Statelessness</strong> – Each request is independent and contains all necessary information; the server does not store client session data between requests.</li>
+<li><strong>Client-Server Architecture</strong> – Client and server operate independently, allowing each other to be developed and replaced independently.</li>
+<li><strong>Scalability</strong> – REST APIs are widely used due to their simplicity and scalability in distributed systems.</li>
+<li><strong>Common Usage</strong> – Suitable for most CRUD operations, integrations, and data-driven applications.</li>
+</ul>
+<hr>
+<h3 id="32-websockets">3.2 WebSockets</h3>
+<ul>
+<li><strong>Purpose</strong> – Enables full-duplex, real-time communication between client and server.</li>
+<li><strong>How it Works</strong> – Establishes a persistent connection after an initial HTTP handshake, allowing both sides to send and receive messages at any time without re-establishing connections.</li>
+<li><strong>Advantages</strong> – Low latency, efficient for continuous data exchange, reduces the overhead of repeated HTTP requests.</li>
+<li><strong>Common Usage</strong> – Ideal for use cases that require instant updates, such as:</li>
+<li>Chat and messaging applications</li>
+<li>Live notifications or alerts</li>
+<li>Multiplayer online games</li>
+<li>Real-time analytics dashboards</li>
+</ul>
+<hr>
+<h2 id="4-fetch-api-vs-axios-for-http-requests">4. Fetch API vs Axios for HTTP Requests</h2>
+<h3 id="introduction-to-fetch-api">🔹 Introduction to Fetch API</h3>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.example.com/data'</span><span class="p">)</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">));</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="p">},</span><span class="w"> </span><span class="p">[]);</span>
+</span></code></pre></div>
+<h3 id="using-axios-for-api-requests">🔹 Using Axios for API Requests</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>npm<span class="w"> </span>install<span class="w"> </span>axios
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'axios'</span><span class="p">;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nx">axios</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.example.com/data'</span><span class="p">)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">))</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">));</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="p">},</span><span class="w"> </span><span class="p">[]);</span>
+</span></code></pre></div>
+<h3 id="pros-and-cons-of-fetch-api-vs-axios">🔹 Pros and Cons of Fetch API vs Axios</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Fetch API</th>
+<th>Axios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default in browser</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Interceptors</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>JSON auto transform</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Error handling</td>
+<td>Manual</td>
+<td>Built-in</td>
+</tr>
+</tbody>
+</table>
+<h3 id="setting-up-axios-interceptors">🔹 Setting Up Axios Interceptors</h3>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nx">axios</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">config</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nx">config</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">Authorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Bearer token`</span><span class="p">;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">config</span><span class="p">;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">});</span>
+</span></code></pre></div>
+<hr>
+<h2 id="5-handling-promises-asyncawait">5. Handling Promises &amp; Async/Await</h2>
+<h3 id="using-promises-with-then">🔹 Using Promises with <code>.then()</code></h3>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</span></code></pre></div>
+<h3 id="writing-asynchronous-code-with-asyncawait">🔹 Writing Asynchronous Code with <code>async/await</code></h3>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fetchData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="error-handling-in-async-functions">🔹 Error Handling in Async Functions</h3>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="c1">// code</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'API error:'</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="best-practices">🔹 Best Practices</h3>
+<ul>
+<li>Always handle errors</li>
+<li>Use <code>try/catch</code> inside async functions</li>
+<li>Keep async logic out of render</li>
+</ul>
+<hr>
+<h2 id="6-useeffect-with-api-calls">6. useEffect with API Calls</h2>
+<h3 id="fetching-data-inside-useeffect">🔹 Fetching Data Inside <code>useEffect</code></h3>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">loadData</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="nx">setData</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="nx">loadData</span><span class="p">();</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="p">},</span><span class="w"> </span><span class="p">[]);</span>
+</span></code></pre></div>
+<h3 id="dependency-array-and-performance">🔹 Dependency Array and Performance</h3>
+<ul>
+<li>Use dependencies wisely to avoid infinite loops</li>
+<li>Avoid unnecessary re-renders</li>
+</ul>
+<h3 id="cleanup-functions">🔹 Cleanup Functions</h3>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AbortController</span><span class="p">();</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">signal</span><span class="o">:</span><span class="w"> </span><span class="nx">controller</span><span class="p">.</span><span class="nx">signal</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">controller</span><span class="p">.</span><span class="nx">abort</span><span class="p">();</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="p">},</span><span class="w"> </span><span class="p">[]);</span>
+</span></code></pre></div>
+<h3 id="preventing-memory-leaks">🔹 Preventing Memory Leaks</h3>
+<ul>
+<li>Use <code>AbortController</code></li>
+<li>Track component mounted state with <code>let isMounted = true</code></li>
+</ul>
+<hr>
+<h2 id="7-handling-api-errors-and-loading-states">7. Handling API Errors and Loading States</h2>
+<h3 id="error-handling-best-practices">🔹 Error Handling Best Practices</h3>
+<ul>
+<li>Graceful fallbacks</li>
+<li>Display user-friendly messages</li>
+</ul>
+<h3 id="showing-loading-spinners">🔹 Showing Loading Spinners</h3>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span><span class="nx">loading</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">Spinner</span><span class="w"> </span><span class="p">/&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">DataView</span><span class="w"> </span><span class="na">data</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;}</span>
+</span></code></pre></div>
+<h3 id="retry-logic">🔹 Retry Logic</h3>
+<ul>
+<li>Use exponential backoff strategy</li>
+<li>Retry with a maximum count</li>
+</ul>
+<h3 id="handling-rate-limits">🔹 Handling Rate Limits</h3>
+<ul>
+<li>Respect API rate limits</li>
+<li>Use headers like <code>Retry-After</code></li>
+</ul>
+<hr>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../14.0.JSON%20Server/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14.0.JSON Server">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14.0.JSON Server
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14.2.0.Axios/" class="md-footer__link md-footer__link--next" aria-label="Next: 14.2.0.Axios">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14.2.0.Axios
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 S.Kumar
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://souravkumardash.vercel.app" target="_blank" rel="noopener" title="souravkumardash.vercel.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2m-4-7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m5-3h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/sourav183" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Captain-Rengoku" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

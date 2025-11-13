@@ -1,0 +1,1884 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://stiename.example/react/React%20%26%20Next%20Ecosystem/">
+      
+      
+        <link rel="prev" href="../Important%20Keywords/">
+      
+      
+        <link rel="next" href="../Progress/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/code-solid-full.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>React &amp; Next Ecosystem - My Frontend Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#react-next-ecosystem" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Frontend Guide" class="md-header__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Frontend Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              React &amp; Next Ecosystem
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../react-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  React Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reactapi/14.API%20Integration/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ts/ts-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  TypeScript Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Github Repositories
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Frontend Guide" class="md-nav__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    My Frontend Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    React Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../react-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.List of Content
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Introduction%20to%20React/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.Introduction to React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Setting%20Up%20the%20Environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.Setting Up the Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Understanding%20jsx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.Understanding jsx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.React%20Components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.React Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.React%20State%20and%20Data%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.State &amp; Data Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Handling%20Events%20in%20React/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.Handling Events in React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.React%20Hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.React Hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.React%20Forms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.React Forms and Form Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.React%20Router/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.React Router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.State%20Management%20in%20React/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.State Management in React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.5.Redux%20Toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.5.Redux Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.6.Zustand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.6.Zustand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Important%20Keywords/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React &amp; Next Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React &amp; Next Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚛️ React Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nextjs-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡️ Next.js Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nextjs-ecosystem-alternatives-to-react-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Next.js Ecosystem — Alternatives to React Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Next.js Ecosystem — Alternatives to React Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-major-nextjs-advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Summary of Major Next.js Advantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Progress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progress
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../reactapi/14.API%20Integration/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Integration
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../ts/ts-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript Docs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Github Repositories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚛️ React Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nextjs-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡️ Next.js Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nextjs-ecosystem-alternatives-to-react-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Next.js Ecosystem — Alternatives to React Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Next.js Ecosystem — Alternatives to React Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary-of-major-nextjs-advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Summary of Major Next.js Advantages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../react-list/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    React Docs
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="react-next-ecosystem">React &amp; Next Ecosystem</h1>
+<h2 id="react-ecosystem">⚛️ React Ecosystem</h2>
+<table>
+<thead>
+<tr>
+<th>🧱 Category</th>
+<th>🧰 Tools, APIs, Techniques</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔹 Core React (Built-in)</strong></td>
+<td><code>useState</code>, <code>useEffect</code>, <code>useRef</code>, <code>useContext</code>, <code>useReducer</code>, <code>useCallback</code>, <code>useMemo</code>, <code>useLayoutEffect</code>, <code>useImperativeHandle</code>, <code>useId</code>, <code>useTransition</code>, <code>useDeferredValue</code>, <code>useSyncExternalStore</code>, <code>useInsertionEffect</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Functional Components, Class Components (legacy), Custom Hooks, Error Boundaries, Portals, <code>React.lazy</code>, <code>Suspense</code>, <code>React.memo</code>, <code>PureComponent</code></td>
+</tr>
+<tr>
+<td><strong>🛣️ Routing</strong></td>
+<td><mark class="critic">React Router</mark> : <code>&lt;BrowserRouter&gt;</code>, <code>&lt;Routes&gt;</code>, <code>&lt;Route&gt;</code>, <code>useNavigate</code>, <code>useLocation</code>, <code>useParams</code>, <code>useSearchParams</code>, Nested Routes, Redirects, Loaders, Protected Routes</td>
+</tr>
+<tr>
+<td><strong>🔁 State Management</strong></td>
+<td>Built-in: <code>useState</code>, <code>useReducer</code>, <code>useContext</code></td>
+</tr>
+<tr>
+<td></td>
+<td>External: <mark class="critic">Redux Toolkit, Zustand</mark>, Recoil, Jotai, MobX, Valtio, Effector, Nanostores, Hookstate</td>
+</tr>
+<tr>
+<td><strong>📦 Data Fetching &amp; Sync</strong></td>
+<td><mark class="critic">fetch, axios, React Query (TanStack)</mark>, SWR, Apollo Client, urql, Relay, tRPC</td>
+</tr>
+<tr>
+<td><strong>🎨 Styling</strong></td>
+<td>CSS-in-JS: styled-components, Emotion, Stitches, Linaria, Vanilla Extract</td>
+</tr>
+<tr>
+<td></td>
+<td>Utility CSS: <mark class="critic">Tailwind CSS</mark>, UnoCSS, Windi CSS</td>
+</tr>
+<tr>
+<td></td>
+<td>Traditional: CSS Modules, SCSS/SASS, PostCSS</td>
+</tr>
+<tr>
+<td><strong>🧪 Testing</strong></td>
+<td>Unit: <mark class="critic">Jest, React Testing Library</mark>, Vitest, Enzyme (legacy)</td>
+</tr>
+<tr>
+<td></td>
+<td>E2E: <mark class="critic">Cypress</mark>, Playwright, Puppeteer</td>
+</tr>
+<tr>
+<td></td>
+<td>Mocking: MSW (Mock Service Worker), jest.fn, jest.mock</td>
+</tr>
+<tr>
+<td><strong>📑 Forms &amp; Validation</strong></td>
+<td>Form Libraries: <mark class="critic">React Hook Form, Formik</mark>, Final Form</td>
+</tr>
+<tr>
+<td></td>
+<td>Validation: <mark class="critic">Zod</mark>, Yup, Joi, Superstruct, Valibot</td>
+</tr>
+<tr>
+<td><strong>🔐 Authentication (UI)</strong></td>
+<td><mark class="critic">Context Auth, Protected Routes, JWT/Cookies</mark></td>
+</tr>
+<tr>
+<td></td>
+<td>Services: <mark class="critic">Firebase Auth, Auth0, Clerk</mark>, Magic.link</td>
+</tr>
+<tr>
+<td><strong>🌍 i18n (Internationalization)</strong></td>
+<td><mark class="critic">react-i18next</mark>, LinguiJS, FormatJS/react-intl, rosetta, polyglot.js</td>
+</tr>
+<tr>
+<td><strong>🎞️ Animation</strong></td>
+<td><mark class="critic">Framer Motion, GSAP</mark>, React Spring, React Transition Group, Lottie, Motion One</td>
+</tr>
+<tr>
+<td><strong>🧩 Component Libraries</strong></td>
+<td><mark class="critic">MUI, Chakra UI, ShadCN UI</mark>, Ant Design, Radix UI, Headless UI, React Bootstrap, Evergreen, Grommet</td>
+</tr>
+<tr>
+<td><strong>📚 Component Tooling</strong></td>
+<td><mark class="critic">Storybook</mark>, Ladle, Bit.dev, Docz, Styleguidist</td>
+</tr>
+<tr>
+<td><strong>⚙️ Developer Experience</strong></td>
+<td><mark class="critic">React DevTools, Redux DevTools, Zustand Devtools, React Query Devtools, React Profiler</mark></td>
+</tr>
+<tr>
+<td></td>
+<td><mark class="critic">ESLint (with react plugin), Prettier, Stylelint</mark></td>
+</tr>
+<tr>
+<td></td>
+<td><mark class="critic">TypeScript support</mark>: <code>React.FC</code>, <code>JSX.Element</code>, <code>HTMLInputElement</code>, <code>ReactNode</code>, etc.</td>
+</tr>
+<tr>
+<td><strong>📈 Analytics &amp; Monitoring</strong></td>
+<td><mark class="critic">Sentry</mark>, LogRocket, Bugsnag, PostHog, Mixpanel, <mark class="critic">Google Analytics</mark></td>
+</tr>
+<tr>
+<td><strong>Build Tools</strong></td>
+<td><mark class="critic">Vite</mark>, Create React App (CRA), Parcel, Webpack, Turbopack, react-snap</td>
+</tr>
+<tr>
+<td><strong>☁️ Hosting Tools</strong></td>
+<td><mark class="critic">GitHub Pages, Firebase Hosting, Netlify</mark>, Railway</td>
+</tr>
+<tr>
+<td><strong>🔌 Utilities &amp; Helpers</strong></td>
+<td><mark class="critic">clsx, date-fns, lodash, uuid, dotenv</mark>, nanoid, faker.js, classnames, ramda, slugify, dayjs</td>
+</tr>
+<tr>
+<td><strong>🧰 CLI &amp; Tooling</strong></td>
+<td>create-react-app, <mark class="critic">Vite template</mark>, plop.js, hygen, create-react-library</td>
+</tr>
+<tr>
+<td><strong>📘 Learning Resources</strong></td>
+<td><mark class="critic">react.dev, EpicReact.dev, UI.Dev</mark>, Kent C. Dodds Blog, reactpatterns.com, beta.reactjs.org</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nextjs-ecosystem">⚡️ Next.js Ecosystem</h2>
+<table>
+<thead>
+<tr>
+<th>🧱 Category</th>
+<th>🧰 Tools, APIs, Techniques</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🚀 Core Features</strong></td>
+<td>File-system routing (<code>pages/</code>, <code>app/</code>), Dynamic routes <code>[slug]</code>, <mark class="critic">Optional catch-all <code>[...slug]</code></mark>, Layouts (<code>layout.tsx</code>), Metadata, Error &amp; Loading UI</td>
+</tr>
+<tr>
+<td><strong>📁 App Router (New)</strong></td>
+<td>Server Components (RSC), <code>page.tsx</code>, <code>layout.tsx</code>, <code>loading.tsx</code>, <code>error.tsx</code>, <mark class="critic">Route Groups <code>(group)/</code></mark>, <code>usePathname()</code>, <code>useSearchParams()</code></td>
+</tr>
+<tr>
+<td><strong>📦 Pages Router (<del class="critic">Legacy</del><ins class="critic">Classic</ins>)</strong></td>
+<td><code>getStaticProps</code>, <code>getServerSideProps</code>, <code>getInitialProps</code>, <code>getStaticPaths</code>, <code>useRouter()</code></td>
+</tr>
+<tr>
+<td><strong>🧵 Data Fetching</strong></td>
+<td><mark class="critic">Static Generation (SSG)</mark>, <mark class="critic">Server-side Rendering (SSR)</mark>, <mark class="critic">Incremental Static Regeneration (ISR)</mark>, Client-side fetching (<del class="critic">SWR</del><ins class="critic">TanStack Query/SWR</ins>, <code>useEffect</code>)</td>
+</tr>
+<tr>
+<td><strong>🔗 Routing &amp; Navigation</strong></td>
+<td><code>&lt;Link /&gt;</code>, <code>useRouter()</code>, <code>usePathname()</code>, <code>useParams()</code>, <code>next/navigation</code>, <mark class="critic">Nested Layouts</mark>, <ins class="critic">Client &amp; Server Navigation Separation</ins></td>
+</tr>
+<tr>
+<td><strong>🖼️ Images &amp; Assets</strong></td>
+<td><code>next/image</code>, <mark class="critic">Lazy loading</mark>, Blur-up, Responsive images, CDN optimization</td>
+</tr>
+<tr>
+<td><strong>🔠 Fonts</strong></td>
+<td><code>next/font</code>, Google Fonts integration, Local fonts, <mark class="critic">Automatic optimization</mark></td>
+</tr>
+<tr>
+<td><strong>🧠 Metadata &amp; SEO</strong></td>
+<td><code>Metadata</code> object (<mark class="critic">App Router</mark>), <code>next/head</code> (<mark class="critic">Pages Router</mark>), <code>next-seo</code></td>
+</tr>
+<tr>
+<td><strong>🧬 API Routes</strong></td>
+<td><code>pages/api/</code> (RESTful), <code>app/api/</code> (route handlers), <mark class="critic">Edge Functions</mark>, Middleware</td>
+</tr>
+<tr>
+<td><strong>🌍 Internationalization</strong></td>
+<td>Built-in <code>i18n</code> config, Domains &amp; Subpaths, <code>next-i18next</code>, react-intl, LinguiJS</td>
+</tr>
+<tr>
+<td><strong>🔐 Middleware</strong></td>
+<td><code>middleware.ts</code>, Matchers, Auth filters, <del class="critic">Logging</del><ins class="critic">Observability</ins>, Redirects</td>
+</tr>
+<tr>
+<td><strong>📑 Forms &amp; Validation</strong></td>
+<td>React Hook Form, Formik, Zod</td>
+</tr>
+<tr>
+<td><strong>🔐 Authentication</strong></td>
+<td>NextAuth.js, Clerk, Auth0, Firebase Auth, JWT + Middleware <span class="critic comment">Consider pairing with context or Zustand</span></td>
+</tr>
+<tr>
+<td><strong>📦 State Management</strong></td>
+<td>Redux Toolkit, Zustand, Jotai, Recoil, <mark class="critic">TanStack Query</mark>, SWR, tRPC</td>
+</tr>
+<tr>
+<td><strong>📚 Styling</strong></td>
+<td>Tailwind CSS, SCSS/SASS, PostCSS, styled-components, Emotion, CSS Modules, <ins class="critic">Vanilla Extract</ins></td>
+</tr>
+<tr>
+<td><strong>🎞️ Animation</strong></td>
+<td>Framer Motion, GSAP, React Spring <span class="critic comment">Avoid using heavy animation libraries on server components</span></td>
+</tr>
+<tr>
+<td><strong>🧩 Component Libraries</strong></td>
+<td>ShadCN UI, Radix UI, Headless UI, MUI, Chakra UI, Ant Design</td>
+</tr>
+<tr>
+<td><strong>🧪 Testing</strong></td>
+<td>Jest, Vitest, React Testing Library, Cypress, Playwright, MSW</td>
+</tr>
+<tr>
+<td><strong>📈 Analytics &amp; Monitoring</strong></td>
+<td>Vercel Analytics, Google Analytics, PostHog, Mixpanel, Sentry, LogRocket</td>
+</tr>
+<tr>
+<td><strong>🔧 Dev Tools &amp; Linting</strong></td>
+<td>ESLint (<code>next/core-web-vitals</code>), Prettier, TypeScript, React DevTools, <mark class="critic">Vercel Speed Insights</mark></td>
+</tr>
+<tr>
+<td><strong>🛠️ Build System</strong></td>
+<td>SWC (default compiler), Webpack (fallback), <del class="critic">Turbopack (experimental)</del><ins class="critic">Turbopack (Vercel’s next-gen bundler)</ins>, <span class="critic comment">Avoid mixing Vite with App Router</span></td>
+</tr>
+<tr>
+<td><strong>📦 Image Providers</strong></td>
+<td>Cloudinary, ImageKit, Imgix, Akamai</td>
+</tr>
+<tr>
+<td><strong>🧰 Deployment Platforms</strong></td>
+<td>Vercel (<mark class="critic">official host</mark>), Netlify, Railway, Render, Docker</td>
+</tr>
+<tr>
+<td><strong>🧪 Preview &amp; CI/CD</strong></td>
+<td>Preview Deployments (Vercel), GitHub Actions, GitLab CI, CircleCI, Deployment Hooks</td>
+</tr>
+<tr>
+<td><strong>🧱 CMS &amp; Content</strong></td>
+<td>Sanity.io, Strapi, Contentful, Hygraph, Storyblok, <code>next-mdx-remote</code>, MDX</td>
+</tr>
+<tr>
+<td><strong>📘 Learning Resources</strong></td>
+<td>nextjs.org/docs, Vercel blog, Next.js GitHub, <mark class="critic">Lee Robinson’s talks</mark>, Frontend Masters</td>
+</tr>
+<tr>
+<td><strong>🔌 Utilities &amp; Helpers</strong></td>
+<td>clsx, classnames, dotenv, lodash, dayjs, slugify, uuid, faker</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nextjs-ecosystem-alternatives-to-react-tools">🚀 Next.js Ecosystem — Alternatives to React Tools</h2>
+<table>
+<thead>
+<tr>
+<th>🧱 <strong>Category</strong></th>
+<th>✅ <strong>React (Best)</strong></th>
+<th>🔁 <strong>Next.js Alternative / Native</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🛣️ Routing</strong></td>
+<td><mark class="critic">React Router</mark></td>
+<td><ins class="critic">Built-in File-based Routing</ins> (<code>pages/</code> or <code>app/</code> dir)</td>
+</tr>
+<tr>
+<td><strong>🔁 State Management</strong></td>
+<td><mark class="critic">Redux Toolkit, Zustand</mark></td>
+<td>✅ Same libraries work seamlessly in Next.js</td>
+</tr>
+<tr>
+<td><strong>📦 Data Fetching &amp; Sync</strong></td>
+<td><mark class="critic">fetch, axios, React Query</mark></td>
+<td><ins class="critic"><code>getServerSideProps</code>, <code>getStaticProps</code>, <code>app-router</code> fetch</ins> + React Query</td>
+</tr>
+<tr>
+<td><strong>🎨 Styling</strong></td>
+<td><mark class="critic">Tailwind CSS</mark></td>
+<td>✅ Same (First-class Tailwind support)</td>
+</tr>
+<tr>
+<td><strong>🧪 Testing</strong></td>
+<td><mark class="critic">Jest, React Testing Library, Cypress</mark></td>
+<td>✅ Same (with extra config for SSR/Edge)</td>
+</tr>
+<tr>
+<td><strong>📑 Forms &amp; Validation</strong></td>
+<td><mark class="critic">React Hook Form + Zod</mark></td>
+<td>✅ Same (with server-side Zod validation in actions/API routes)</td>
+</tr>
+<tr>
+<td><strong>🔐 Authentication</strong></td>
+<td><mark class="critic">Context Auth, Protected Routes, JWT/Cookies, Clerk, Auth0, Firebase Auth</mark></td>
+<td><ins class="critic">NextAuth , Clerk, Auth0</ins> (first-class SSR support)</td>
+</tr>
+<tr>
+<td><strong>🌍 i18n</strong></td>
+<td><mark class="critic">react-i18next</mark></td>
+<td><ins class="critic">Built-in i18n routing config</ins> or use <code>react-i18next</code></td>
+</tr>
+<tr>
+<td><strong>🎞️ Animation</strong></td>
+<td><mark class="critic">Framer Motion, GSAP</mark></td>
+<td>✅ Same</td>
+</tr>
+<tr>
+<td><strong>🧩 Component Libraries</strong></td>
+<td><mark class="critic">MUI, Chakra UI, ShadCN UI</mark></td>
+<td>✅ Same (ShadCN recommended in <code>app/</code> dir)</td>
+</tr>
+<tr>
+<td><strong>📚 Component Tooling</strong></td>
+<td><mark class="critic">Storybook</mark></td>
+<td>✅ Same</td>
+</tr>
+<tr>
+<td><strong>⚙️ Developer Experience</strong></td>
+<td><mark class="critic">React DevTools, Redux DevTools, Zustand Devtools, React Query Devtools, React Profiler,</mark> <mark class="critic">ESLint (with react plugin), Prettier, Stylelint</mark></td>
+<td>✅ Same + <ins class="critic">Built-in ESLint, TypeScript, SWC compiler</ins></td>
+</tr>
+<tr>
+<td><strong>📈 Analytics &amp; Monitoring</strong></td>
+<td><mark class="critic">Sentry, Google Analytics</mark></td>
+<td>✅ Same + <ins class="critic">Vercel Analytics++ (first-party)}</ins></td>
+</tr>
+<tr>
+<td><strong>🔧 Build Tools</strong></td>
+<td>{<mark>Vite</mark>}</td>
+<td>{++Next.js compiler (SWC, Turbopack++)}</td>
+</tr>
+<tr>
+<td><strong>☁️ Hosting</strong></td>
+<td>{<mark>GitHub Pages, Firebase Hosting, Netlify</mark>}</td>
+<td>{++Vercel (official hosting), Netlify, Railway</td>
+</tr>
+<tr>
+<td><strong>🔌 Utilities &amp; Helpers</strong></td>
+<td><mark class="critic">clsx, date-fns, lodash, uuid,  dotenv</mark></td>
+<td>✅ Same</td>
+</tr>
+<tr>
+<td><strong>🧰 CLI &amp; Tooling</strong></td>
+<td><mark class="critic">Vite template</mark></td>
+<td><ins class="critic"><code>npx create-next-app</code></ins></td>
+</tr>
+<tr>
+<td><strong>📘 Learning Resources</strong></td>
+<td><mark class="critic">react.dev, EpicReact.dev, UI.Dev</mark></td>
+<td><ins class="critic">nextjs.org/docs, Vercel Blog, Fireship</ins></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="summary-of-major-nextjs-advantages">✅ Summary of Major Next.js Advantages</h3>
+<ul>
+<li><mark class="critic">Built-in Routing</mark> (no need for React Router)</li>
+<li><mark class="critic">Built-in SSR/SSG/ISR</mark> (no need for extra data fetching tools in some cases)</li>
+<li><mark class="critic">File-system-based APIs</mark> (<code>/api/</code> folder)</li>
+<li><mark class="critic">First-class TypeScript, ESLint, and Tailwind support</mark></li>
+<li><mark class="critic">Optimized deployment with Vercel</mark></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../Important%20Keywords/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Important Keywords">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Important Keywords
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Progress/" class="md-footer__link md-footer__link--next" aria-label="Next: Progress">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Progress
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 S.Kumar
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://souravkumardash.vercel.app" target="_blank" rel="noopener" title="souravkumardash.vercel.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2m-4-7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m5-3h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/sourav183" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Captain-Rengoku" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

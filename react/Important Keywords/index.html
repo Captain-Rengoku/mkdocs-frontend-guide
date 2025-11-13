@@ -1,0 +1,3216 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://stiename.example/react/Important%20Keywords/">
+      
+      
+        <link rel="prev" href="../10.6.Zustand/">
+      
+      
+        <link rel="next" href="../React%20%26%20Next%20Ecosystem/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/code-solid-full.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Important Keywords - My Frontend Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#react-ecosystem-comprehensive-keywords-list" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Frontend Guide" class="md-header__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Frontend Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Important Keywords
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../react-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  React Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reactapi/14.API%20Integration/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ts/ts-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  TypeScript Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Github Repositories
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Frontend Guide" class="md-nav__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    My Frontend Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    React Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../react-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.List of Content
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Introduction%20to%20React/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.Introduction to React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Setting%20Up%20the%20Environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.Setting Up the Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Understanding%20jsx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.Understanding jsx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.React%20Components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.React Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.React%20State%20and%20Data%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.State &amp; Data Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Handling%20Events%20in%20React/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.Handling Events in React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.React%20Hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.React Hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.React%20Forms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.React Forms and Form Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.React%20Router/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9.React Router
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.State%20Management%20in%20React/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.State Management in React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.5.Redux%20Toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.5.Redux Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.6.Zustand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.6.Zustand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Keywords
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Keywords
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-virtual-dom-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Virtual DOM &amp; Rendering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-component-based-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Component-Based Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-component-lifecycle-class-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Component Lifecycle (Class Components)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-hooks-function-components-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Hooks (Function Components Lifecycle)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Hooks (Function Components Lifecycle)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-basic-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Basic Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-performance-optimization-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Performance Optimization Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-advanced-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Advanced Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-concurrent-rendering-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Concurrent Rendering Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Performance Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-rendering-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Rendering Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-avoiding-re-renders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Avoiding Re-renders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-browser-rendering-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Browser Rendering Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React State Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React State Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-react-built-in-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 React Built-in State Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-redux-external-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Redux (External State Management)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-context-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Context API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-other-state-management-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Other State Management Libraries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-routing-react-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Routing (React Router)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Routing (React Router)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-routing-essentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Routing Essentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Navigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-dynamic-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Dynamic Routing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nextjs-react-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next.js (React Framework)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next.js (React Framework)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-rendering-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Rendering Strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-data-fetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Data Fetching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-api-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 API Routes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-forms-user-input-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Forms &amp; User Input Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Forms &amp; User Input Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-controlled-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Controlled Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-uncontrolled-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Uncontrolled Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-form-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Form Libraries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-apis-for-ui-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React APIs for UI Enhancements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React APIs for UI Enhancements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-context-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Context API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-portals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Portals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-suspense-lazy-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Suspense &amp; Lazy Loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-fragments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Fragments (&lt; &gt;...&lt;/ &gt;)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-ui-libraries-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React UI Libraries &amp; Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React UI Libraries &amp; Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-ui-component-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 UI Component Libraries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-state-data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 State &amp; Data Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-testing-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Testing in React
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-react-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced React Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced React Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-server-side-rendering-ssr-vs-client-side-rendering-csr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Server-Side Rendering (SSR) vs Client-Side Rendering (CSR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-react-concurrent-mode-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 React Concurrent Mode Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-deployment-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Deployment &amp; Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous-react-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miscellaneous React Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous React Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-event-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Event Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-render-props-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Render Props Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-prop-drilling-vs-context-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Prop Drilling vs Context API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-web-components-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Web Components &amp; React
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-react-development-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important React Development Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important React Development Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-higher-order-components-hoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 Higher-Order Components (HOC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-compound-components-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 Compound Components Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-render-props-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 Render Props Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-controlled-vs-uncontrolled-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 Controlled vs Uncontrolled Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-apps-pwa-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Web Apps (PWA) in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Web Apps (PWA) in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-pwa-features-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 PWA Features in React
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-react-libraries-for-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 React Libraries for PWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-authentication-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security &amp; Authentication in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security &amp; Authentication in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-common-security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1 Common Security Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-authentication-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2 Authentication &amp; Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-native-for-mobile-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Native (For Mobile Development)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Native (For Mobile Development)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-core-react-native-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1 Core React Native Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-react-native-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2 React Native APIs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153-navigation-in-react-native" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3 Navigation in React Native
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../React%20%26%20Next%20Ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React &amp; Next Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Progress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progress
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../reactapi/14.API%20Integration/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Integration
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../ts/ts-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript Docs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Github Repositories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#react-core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-virtual-dom-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Virtual DOM &amp; Rendering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-component-based-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Component-Based Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-component-lifecycle-class-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Component Lifecycle (Class Components)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-hooks-function-components-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Hooks (Function Components Lifecycle)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Hooks (Function Components Lifecycle)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-basic-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Basic Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-performance-optimization-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Performance Optimization Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-advanced-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Advanced Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-concurrent-rendering-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Concurrent Rendering Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Performance Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-rendering-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Rendering Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-avoiding-re-renders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Avoiding Re-renders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-browser-rendering-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Browser Rendering Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React State Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React State Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-react-built-in-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 React Built-in State Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-redux-external-state-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Redux (External State Management)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-context-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Context API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-other-state-management-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Other State Management Libraries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-routing-react-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Routing (React Router)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Routing (React Router)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-routing-essentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Routing Essentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Navigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-dynamic-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Dynamic Routing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nextjs-react-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next.js (React Framework)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next.js (React Framework)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-rendering-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Rendering Strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-data-fetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Data Fetching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-api-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 API Routes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-forms-user-input-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Forms &amp; User Input Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Forms &amp; User Input Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-controlled-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Controlled Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-uncontrolled-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Uncontrolled Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-form-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Form Libraries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-apis-for-ui-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React APIs for UI Enhancements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React APIs for UI Enhancements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-context-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Context API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-portals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Portals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-suspense-lazy-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Suspense &amp; Lazy Loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-fragments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Fragments (&lt; &gt;...&lt;/ &gt;)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-ui-libraries-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React UI Libraries &amp; Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React UI Libraries &amp; Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-ui-component-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 UI Component Libraries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-state-data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 State &amp; Data Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-testing-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Testing in React
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-react-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced React Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced React Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-server-side-rendering-ssr-vs-client-side-rendering-csr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 Server-Side Rendering (SSR) vs Client-Side Rendering (CSR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-react-concurrent-mode-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 React Concurrent Mode Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-deployment-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 Deployment &amp; Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous-react-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miscellaneous React Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Miscellaneous React Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-event-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Event Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-render-props-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Render Props Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-prop-drilling-vs-context-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.3 Prop Drilling vs Context API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-web-components-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.4 Web Components &amp; React
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-react-development-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important React Development Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important React Development Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-higher-order-components-hoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.1 Higher-Order Components (HOC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-compound-components-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.2 Compound Components Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-render-props-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.3 Render Props Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-controlled-vs-uncontrolled-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12.4 Controlled vs Uncontrolled Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-apps-pwa-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Web Apps (PWA) in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Web Apps (PWA) in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-pwa-features-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 PWA Features in React
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-react-libraries-for-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 React Libraries for PWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-authentication-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security &amp; Authentication in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security &amp; Authentication in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-common-security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1 Common Security Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-authentication-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2 Authentication &amp; Authorization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#react-native-for-mobile-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        React Native (For Mobile Development)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="React Native (For Mobile Development)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-core-react-native-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1 Core React Native Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-react-native-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2 React Native APIs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153-navigation-in-react-native" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3 Navigation in React Native
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../react-list/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    React Docs
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="react-ecosystem-comprehensive-keywords-list">React Ecosystem – Comprehensive Keywords List</h1>
+<h2 id="react-core-concepts">React Core Concepts</h2>
+<h3 id="11-virtual-dom-rendering">1.1 Virtual DOM &amp; Rendering</h3>
+<p><strong>Virtual DOM</strong> – A lightweight copy of the real DOM that React updates efficiently.</p>
+<p><strong>Diffing Algorithm</strong> – Compares Virtual DOM trees to identify changes.</p>
+<p><strong>Reconciliation</strong> – Process of updating the real DOM based on Virtual DOM changes.</p>
+<p><strong>React Fiber</strong> – React's new reconciliation engine for faster updates.</p>
+<p><strong>Hydration</strong> – Merging server-rendered HTML with client-side React.</p>
+<p><strong>React Concurrent Mode</strong> – Allows React to work on rendering updates without blocking the main thread.</p>
+<p><strong>Asynchronous Rendering</strong> – React prioritizes UI updates for a smoother user experience.</p>
+<h3 id="12-component-based-architecture">1.2 Component-Based Architecture</h3>
+<p><strong>Functional Components</strong> – Components that use functions instead of classes.</p>
+<p><strong>Class Components</strong> – Components defined using ES6 classes with lifecycle methods.</p>
+<p><strong>Stateless Components</strong> – Components that do not manage their own state.</p>
+<p><strong>Stateful Components</strong> – Components that hold and manage state.</p>
+<p><strong>Higher-Order Components (HOC)</strong> – Functions that take a component and return an enhanced version.</p>
+<p><strong>Controlled Components</strong> – Form elements whose state is controlled by React.</p>
+<p><strong>Uncontrolled Components</strong> – Form elements that store their state in the DOM.</p>
+<h3 id="13-component-lifecycle-class-components">1.3 Component Lifecycle (Class Components)</h3>
+<p>Mounting Phase<strong>
+constructor</strong> – Initializes state and binds methods.</p>
+<p><strong>componentDidMount</strong> – Runs after the component is added to the DOM.</p>
+<p>Updating Phase
+<strong>shouldComponentUpdate</strong> – Determines whether a re-render is needed.</p>
+<p><strong>componentDidUpdate</strong> – Runs after a component updates.</p>
+<p><strong>getDerivedStateFromProps</strong> – Updates state based on props before re-render.</p>
+<p><strong>getSnapshotBeforeUpdate</strong> – Captures the previous DOM state before updates.</p>
+<p>Unmounting Phase
+<strong>componentWillUnmount</strong> – Cleanup operations like event listeners or timers.</p>
+<p>Error Handling
+<strong>Error Boundaries</strong> – Special components that catch UI errors.</p>
+<h2 id="react-hooks-function-components-lifecycle">React Hooks (Function Components Lifecycle)</h2>
+<h3 id="21-basic-hooks">2.1 Basic Hooks</h3>
+<p><strong>useState</strong> – Manages component-level state.</p>
+<p><strong>useEffect</strong> – Runs side effects like fetching data or subscriptions.</p>
+<p><strong>useContext</strong> – Accesses global values without prop drilling.</p>
+<h3 id="22-performance-optimization-hooks">2.2 Performance Optimization Hooks</h3>
+<p><strong>useMemo</strong> – Caches computed values to prevent unnecessary calculations.</p>
+<p><strong>useCallback</strong> – Caches functions to prevent re-renders.</p>
+<p><strong>React.memo</strong> – Prevents unnecessary re-renders of functional components.</p>
+<h3 id="23-advanced-hooks">2.3 Advanced Hooks</h3>
+<p><strong>useReducer</strong> – Manages complex state logic using a reducer function.</p>
+<p><strong>useRef</strong> – Creates a reference to store mutable values without triggering re-renders.</p>
+<p><strong>useLayoutEffect</strong> – Runs synchronously after all DOM updates.</p>
+<h3 id="24-concurrent-rendering-hooks">2.4 Concurrent Rendering Hooks</h3>
+<p><strong>useTransition</strong> – Defers updates for better responsiveness.</p>
+<p><strong>useDeferredValue</strong> – Postpones non-urgent value updates.</p>
+<p><strong>useId</strong> – Generates unique IDs for accessibility.</p>
+<h2 id="react-performance-optimization">React Performance Optimization</h2>
+<h3 id="31-rendering-optimizations">3.1 Rendering Optimizations</h3>
+<p><strong>Event Delegation</strong> – Uses a single event listener for multiple child elements.</p>
+<p><strong>Lazy Loading</strong> – Loads components only when needed (React.lazy).</p>
+<p><strong>Code Splitting</strong> – Divides code into smaller chunks to improve load times.</p>
+<p><strong>Tree Shaking</strong> – Removes unused JavaScript code for optimization.</p>
+<h3 id="32-avoiding-re-renders">3.2 Avoiding Re-renders</h3>
+<p><strong>React.memo</strong> – Prevents re-rendering if props remain the same.</p>
+<p><strong>useMemo</strong> – Avoids re-computation of expensive calculations.</p>
+<p><strong>useCallback</strong> – Prevents function recreation on every render.</p>
+<p><strong>shouldComponentUpdate</strong> – Controls whether a component should re-render.</p>
+<h3 id="33-browser-rendering-optimizations">3.3 Browser Rendering Optimizations</h3>
+<p><strong>Repaints</strong> – Redrawing visible elements when styles change.</p>
+<p><strong>Reflows</strong> – Layout recalculations when elements change position.</p>
+<p><strong>Virtualization</strong> – Renders only visible elements to improve performance.</p>
+<h2 id="react-state-management">React State Management</h2>
+<h3 id="41-react-built-in-state-management">4.1 React Built-in State Management</h3>
+<p><strong>useState</strong> – Local state within a component.</p>
+<p><strong>useReducer</strong> – Manages complex state changes.</p>
+<p><strong>useContext</strong> – Shares state globally across components.</p>
+<h3 id="42-redux-external-state-management">4.2 Redux (External State Management)</h3>
+<p>Core Concepts
+<strong>Redux Store</strong> – Centralized state container.</p>
+<p><strong>Actions</strong> – Describe state changes.</p>
+<p><strong>Reducers</strong> – Functions that modify the store based on actions.</p>
+<p><strong>Dispatch</strong> – Sends actions to the reducer.</p>
+<p><strong>Selectors</strong> – Extracts specific data from the Redux store.</p>
+<p>Middleware &amp; E<strong>nhancers
+Redux Thunk</strong> – Handles async operations in Redux.</p>
+<p><strong>Redux Saga</strong> – Uses generator functions for managing side effects.</p>
+<p><strong>Redux Logger</strong> – Logs dispatched actions and state changes.</p>
+<p>Redux Toolkit <strong>(RTK)
+createSlice</strong> – Combines reducers and actions in a single function.</p>
+<p><strong>createAsyncThunk</strong> – Simplifies async logic in Redux.</p>
+<p><strong>configureStore</strong> – Sets up a Redux store with default middleware.</p>
+<h3 id="43-context-api">4.3 Context API</h3>
+<p><strong>React Context</strong> – Shares state without prop drilling.</p>
+<p><strong>Provider &amp; Consumer</strong> – Provides and consumes shared state.</p>
+<h3 id="44-other-state-management-libraries">4.4 Other State Management Libraries</h3>
+<p><strong>Zustand</strong> – Simple, minimalistic state management.</p>
+<p><strong>Recoil</strong> – React’s experimental state management library.</p>
+<p><strong>Jotai</strong> – Atom-based state management.</p>
+<p><strong>MobX</strong> – Reactive state management with observables.</p>
+<h2 id="react-routing-react-router">React Routing (React Router)</h2>
+<h3 id="51-routing-essentials">5.1 Routing Essentials</h3>
+<p><strong>BrowserRouter</strong> – Enables routing in React apps.</p>
+<p><strong>HashRouter</strong> – Uses URL hash for routing.</p>
+<p><strong>MemoryRouter</strong> – Stores routes in memory (useful for testing).</p>
+<p><strong>StaticRouter</strong> – Predefined routes for server-side rendering.</p>
+<h3 id="52-navigation">5.2 Navigation</h3>
+<p><strong>Route</strong> – Defines a route and its component.</p>
+<p><strong>Link &amp; NavLink</strong> – Navigates between routes.</p>
+<p><strong>Redirect</strong> – Redirects to another route.</p>
+<p><strong>useNavigate</strong> – Programmatically navigates users.</p>
+<h3 id="53-dynamic-routing">5.3 Dynamic Routing</h3>
+<p><strong>useParams</strong> – Retrieves URL parameters.</p>
+<p><strong>useLocation</strong> – Gets the current URL path.</p>
+<h2 id="nextjs-react-framework">Next.js (React Framework)</h2>
+<h3 id="61-rendering-strategies">6.1 Rendering Strategies</h3>
+<p><strong>SSR (Server-Side Rendering)</strong> – Fetches and renders pages on the server per request.</p>
+<p><strong>CSR (Client-Side Rendering)</strong> – Renders content dynamically in the browser.</p>
+<p><strong>SSG (Static Site Generation)</strong> – Pre-builds pages for performance.</p>
+<p><strong>ISR (Incremental Static Regeneration)</strong> – Updates static pages without full re-builds.</p>
+<h3 id="62-data-fetching">6.2 Data Fetching</h3>
+<p><strong>getServerSideProps</strong> – Fetches data on each request (SSR).</p>
+<p><strong>getStaticProps</strong> – Fetches data at build time (SSG).</p>
+<p><strong>getStaticPaths</strong> – Generates dynamic paths for static pages.</p>
+<h3 id="63-api-routes">6.3 API Routes</h3>
+<p><strong>API Middleware</strong> – Runs logic before serving requests.</p>
+<p><strong>Middleware Functions</strong> – Handles authentication and logging.</p>
+<h2 id="react-forms-user-input-handling">React Forms &amp; User Input Handling</h2>
+<h3 id="71-controlled-components">7.1 Controlled Components</h3>
+<p><strong>onChange Event</strong> – Updates state whenever an input value changes.</p>
+<p><strong>value Attribute</strong> – Controls the input field value using state.</p>
+<h3 id="72-uncontrolled-components">7.2 Uncontrolled Components</h3>
+<p><strong>useRef for Form Handling</strong> – Directly accesses form elements without React state.</p>
+<h3 id="73-form-libraries">7.3 Form Libraries</h3>
+<p><strong>React Hook Form</strong> – Lightweight form library with built-in validation.</p>
+<p><strong>Formik</strong> – Form management library with validation support.</p>
+<p><strong>Yup</strong> – Schema validation library for form data.</p>
+<h2 id="react-apis-for-ui-enhancements">React APIs for UI Enhancements</h2>
+<h3 id="81-context-api">8.1 Context API</h3>
+<p><strong>React.createContext</strong> – Creates a shared context for global state.</p>
+<p><strong>useContext</strong> – Consumes context data in functional components.</p>
+<h3 id="82-portals">8.2 Portals</h3>
+<p><strong>ReactDOM.createPortal</strong> – Renders child components outside the parent hierarchy (useful for modals).</p>
+<h3 id="83-suspense-lazy-loading">8.3 Suspense &amp; Lazy Loading</h3>
+<p><strong>React.lazy</strong> – Loads components dynamically when needed.</p>
+<p><strong>Suspense</strong> – Displays fallback UI while a component is loading.</p>
+<p><strong>Fallback UI</strong> – A loading indicator or placeholder displayed during component fetch.</p>
+<h3 id="84-fragments">8.4 Fragments (&lt; &gt;...&lt;/ &gt;)</h3>
+<p><strong>Shorthand Fragment</strong> – Groups multiple elements without adding an extra DOM node.</p>
+<h2 id="react-ui-libraries-tools">React UI Libraries &amp; Tools</h2>
+<h3 id="91-ui-component-libraries">9.1 UI Component Libraries</h3>
+<p><strong>Material UI</strong> – A popular React UI framework with ready-made components.</p>
+<p><strong>Ant Design</strong> – Enterprise-level UI design framework for React.</p>
+<p><strong>Chakra UI</strong> – A flexible and accessible component library.</p>
+<p><strong>Tailwind CSS</strong> – Utility-first CSS framework for styling React components.</p>
+<p><strong>Bootstrap</strong> – CSS framework with React support for responsive design.</p>
+<h3 id="92-state-data-handling">9.2 State &amp; Data Handling</h3>
+<p><strong>Apollo Client (GraphQL)</strong> – Manages state with GraphQL queries and mutations.</p>
+<p><strong>SWR (Stale-While-Revalidate)</strong> – Fetches, caches, and revalidates data automatically.</p>
+<p><strong>React Query</strong> – Data-fetching and state management library for asynchronous operations.</p>
+<h3 id="93-testing-in-react">9.3 Testing in React</h3>
+<p><strong>Jest</strong> – JavaScript testing framework for unit and integration testing.</p>
+<p><strong>React Testing Library</strong> – Utility for testing React components in a real-world scenario.</p>
+<p><strong>Cypress</strong> – End-to-end testing framework for React applications.</p>
+<h2 id="advanced-react-concepts">Advanced React Concepts</h2>
+<h3 id="101-server-side-rendering-ssr-vs-client-side-rendering-csr">10.1 Server-Side Rendering (SSR) vs Client-Side Rendering (CSR)</h3>
+<p><strong>Server Components</strong> – Components that render on the server and do not require client-side JavaScript.</p>
+<p><strong>Client Components</strong> – Components that execute in the browser and handle user interactions.</p>
+<p><strong>Hydration</strong> – Process of attaching event handlers to server-rendered HTML.</p>
+<h3 id="102-react-concurrent-mode-features">10.2 React Concurrent Mode Features</h3>
+<p><strong>Time-Slicing</strong> – Breaks rendering tasks into small chunks to improve responsiveness.</p>
+<p><strong>Suspense for Data Fetching</strong> – Handles asynchronous data fetching with fallback UI.</p>
+<h3 id="103-deployment-optimization">10.3 Deployment &amp; Optimization</h3>
+<p><strong>Webpack</strong> – Bundles JavaScript files for production.</p>
+<p><strong>Babel</strong> – Transpiles modern JavaScript (ES6+) to older browser-compatible versions.</p>
+<p><strong>Code Minification</strong> – Removes unnecessary characters to reduce file size and improve performance.</p>
+<h2 id="miscellaneous-react-concepts">Miscellaneous React Concepts</h2>
+<h3 id="111-event-handling">11.1 Event Handling</h3>
+<p><strong>Synthetic Events</strong> – React’s wrapper around native browser events for cross-browser compatibility.</p>
+<p><strong>Event Pooling</strong> – React reuses event objects to improve performance.</p>
+<p><strong>Event Delegation</strong> – Uses a single event listener to manage multiple child events.</p>
+<h3 id="112-render-props-pattern">11.2 Render Props Pattern</h3>
+<p><strong>Render Props</strong> – Passes a function as a prop to share logic between components.</p>
+<h3 id="113-prop-drilling-vs-context-api">11.3 Prop Drilling vs Context API</h3>
+<p><strong>Prop Drilling</strong> – Passing props through multiple nested components.</p>
+<p><strong>Context API</strong> – Avoids prop drilling by providing global state management.</p>
+<h3 id="114-web-components-react">11.4 Web Components &amp; React</h3>
+<p><strong>Custom Elements</strong> – HTML elements that can be used inside React components.</p>
+<p><strong>Shadow DOM</strong> – Encapsulates styles and structure in web components.</p>
+<h2 id="important-react-development-patterns">Important React Development Patterns</h2>
+<h3 id="121-higher-order-components-hoc">12.1 Higher-Order Components (HOC)</h3>
+<p><strong>Definition</strong> – A function that takes a component and returns an enhanced version.</p>
+<p><strong>Example</strong> – Used for authentication, logging, or modifying props dynamically.</p>
+<h3 id="122-compound-components-pattern">12.2 Compound Components Pattern</h3>
+<p><strong>Definition</strong> – A pattern where multiple components work together (e.g., a Tabs component).</p>
+<h3 id="123-render-props-pattern">12.3 Render Props Pattern</h3>
+<p><strong>Definition</strong> – Uses a function prop to share logic across multiple components.</p>
+<h3 id="124-controlled-vs-uncontrolled-components">12.4 Controlled vs Uncontrolled Components</h3>
+<p><strong>Controlled Components</strong> – Form inputs controlled by React state.</p>
+<p><strong>Uncontrolled Components</strong> – Form inputs controlled by the DOM using refs.</p>
+<h2 id="progressive-web-apps-pwa-in-react">Progressive Web Apps (PWA) in React</h2>
+<h3 id="131-pwa-features-in-react">13.1 PWA Features in React</h3>
+<p><strong>Service Workers</strong> – Caches files for offline usage.</p>
+<p><strong>Web App Manifest</strong> – Defines metadata like app name, icons, and colors.</p>
+<p><strong>IndexedDB &amp; Cache API</strong> – Stores data in the browser for offline access.</p>
+<h3 id="132-react-libraries-for-pwa">13.2 React Libraries for PWA</h3>
+<p><strong>Workbox</strong> – Simplifies service worker implementation.</p>
+<p><strong>Next.js PWA Plugin</strong> – Adds PWA support to Next.js projects.</p>
+<h2 id="security-authentication-in-react">Security &amp; Authentication in React</h2>
+<h3 id="141-common-security-best-practices">14.1 Common Security Best Practices</h3>
+<p><strong>Cross-Site Scripting (XSS) Prevention</strong> – Avoids injecting malicious scripts into the app.</p>
+<p><strong>Cross-Site Request Forgery (CSRF) Protection</strong> – Prevents unauthorized actions on behalf of a user.</p>
+<p><strong>Content Security Policy (CSP)</strong> – Restricts script execution to prevent XSS attacks.</p>
+<h3 id="142-authentication-authorization">14.2 Authentication &amp; Authorization</h3>
+<p><strong>JWT (JSON Web Token)</strong> – Token-based authentication system.</p>
+<p><strong>OAuth</strong> – Secure authentication standard using third-party providers (Google, Facebook, GitHub).</p>
+<p><strong>Firebase Authentication</strong> – Google’s authentication solution for React apps.</p>
+<p><strong>Auth0</strong> – Authentication-as-a-service provider for React applications.</p>
+<h2 id="react-native-for-mobile-development">React Native (For Mobile Development)</h2>
+<h3 id="151-core-react-native-components">15.1 Core React Native Components</h3>
+<p><strong>View</strong> – Equivalent to &lt; div&gt; in web applications.</p>
+<p><strong>Text</strong> – Renders text elements (like &lt; p&gt;).</p>
+<p><strong>ScrollView</strong> – Enables scrolling content.</p>
+<p><strong>FlatList</strong> – Optimized for rendering long lists.</p>
+<h3 id="152-react-native-apis">15.2 React Native APIs</h3>
+<p><strong>AsyncStorage</strong> – Local storage API for persisting data.</p>
+<p><strong>Camera &amp; Location APIs</strong> – Accessing device hardware features.</p>
+<p><strong>Gesture Handling</strong> – Detecting touch gestures and interactions.</p>
+<h3 id="153-navigation-in-react-native">15.3 Navigation in React Native</h3>
+<p><strong>React Navigation</strong> – Library for routing and navigation in React Native apps.</p>
+<p><strong>Stack Navigator</strong> – Manages screens in a stack-based navigation.</p>
+<p><strong>Drawer Navigator</strong> – Creates side menu navigation.</p>
+<p><strong>Tab Navigator</strong> – Implements bottom tab navigation.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../10.6.Zustand/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 10.6.Zustand">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                10.6.Zustand
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../React%20%26%20Next%20Ecosystem/" class="md-footer__link md-footer__link--next" aria-label="Next: React &amp; Next Ecosystem">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                React &amp; Next Ecosystem
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 S.Kumar
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://souravkumardash.vercel.app" target="_blank" rel="noopener" title="souravkumardash.vercel.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2m-4-7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m5-3h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/sourav183" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Captain-Rengoku" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

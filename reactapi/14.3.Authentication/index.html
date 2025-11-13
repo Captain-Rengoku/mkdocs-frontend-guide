@@ -1,0 +1,3225 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://stiename.example/reactapi/14.3.Authentication/">
+      
+      
+        <link rel="prev" href="../14.2.1.Axios%20Industry%20Standards/">
+      
+      
+        <link rel="next" href="../14.4.Advanced%20API%20Scenarios/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/code-solid-full.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>14.3.Authentication - My Frontend Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#authentication-authorization-in-react-topics-list" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Frontend Guide" class="md-header__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Frontend Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              14.3.Authentication
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange" aria-label="Dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal" aria-label="Light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../react/react-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  React Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../14.API%20Integration/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ts/ts-list/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  TypeScript Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Github Repositories
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Frontend Guide" class="md-nav__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    My Frontend Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../react/react-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React Docs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.API%20Integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.API Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.0.JSON%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.0.JSON Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.1.Core%20Fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.1.Core Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.0.Axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.2.0.Axios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.1.Axios%20Industry%20Standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.2.1.Axios Industry Standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.3.Authentication
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.3.Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentals-of-authentication-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fundamentals of Authentication &amp; Authorization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fundamentals of Authentication &amp; Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Authorization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorization-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-vs-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication vs Authorization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication vs Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-flow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Flow Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-authentication-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Authentication Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Authentication Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session-based-authentication-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session-Based Authentication Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-based-authentication-overview-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token-Based Authentication Overview (JWT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth-login-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth Login Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openid-connect-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenID Connect Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-login-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passwordless Login Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-factor-authentication-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Factor Authentication Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spa-authentication-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPA Authentication Challenges
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SPA Authentication Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-storage-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Storage Concerns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-protection-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route Protection Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-expiry-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Expiry Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-flash-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Flash Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors-configuration-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CORS Configuration Concerns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-methods-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Methods in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Methods in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie-based-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookie-Based Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cookie-Based Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie-authentication-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookie Authentication Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cookie-authentication-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookie Authentication Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-based-authentication-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token-Based Authentication (JWT)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token-Based Authentication (JWT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-authentication-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT Authentication Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwt-authentication-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT Authentication Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth2-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth2 Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth2 Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oauth2-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth2 Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth2-flow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth2 Flow Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openid-connect-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenID Connect Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenID Connect Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oidc-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OIDC Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-login-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Social Login Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Social Login Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#social-login-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Social Login Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passwordless Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passwordless Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passwordless Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-login-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passwordless Login Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magic-link-and-otp-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magic Link and OTP Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Magic Link and OTP Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magic-link-otp-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magic Link / OTP Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otp-example-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTP Example Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-jwt-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling JWT in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling JWT in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-access-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Access Tokens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Access Tokens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-token-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Token Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-token-request-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Token Request Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-refresh-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Refresh Tokens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Refresh Tokens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#refresh-token-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refresh Token Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refresh-token-flow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refresh Token Flow Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-token-expiry-and-auto-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Token Expiry and Auto-Refresh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Token Expiry and Auto-Refresh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-refresh-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Refresh Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axios-auto-refresh-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Axios Auto-Refresh Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secure-token-storage-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secure Token Storage in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secure Token Storage in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-storage-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Storage Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httponly-cookies-in-jwt-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HttpOnly Cookies in JWT Auth
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HttpOnly Cookies in JWT Auth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httponly-cookie-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HttpOnly Cookie Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httponly-cookie-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HttpOnly Cookie Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.4.Advanced%20API%20Scenarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.4.Advanced API Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.1.State%20Management%20with%20API%20Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.5.1.State Management with API Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.2.React%20Query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.5.2.React Query
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.3.React%20Query%20Ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.5.3.React Query Ref
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.6.Real-Time%20Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.6.Real-Time Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.7.Security%20%26%20Best%20Practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.7.Security &amp; Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.8.File%20Handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14.8.File Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../ts/ts-list/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TypeScript Docs
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Github Repositories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentals-of-authentication-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fundamentals of Authentication &amp; Authorization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fundamentals of Authentication &amp; Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Authorization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorization-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-vs-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication vs Authorization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication vs Authorization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-flow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Flow Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-authentication-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Authentication Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Authentication Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session-based-authentication-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session-Based Authentication Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-based-authentication-overview-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token-Based Authentication Overview (JWT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth-login-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth Login Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openid-connect-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenID Connect Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-login-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passwordless Login Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-factor-authentication-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Factor Authentication Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spa-authentication-challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPA Authentication Challenges
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SPA Authentication Challenges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-storage-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Storage Concerns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-protection-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route Protection Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-expiry-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Expiry Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-flash-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Flash Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors-configuration-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CORS Configuration Concerns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-methods-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Methods in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Methods in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie-based-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookie-Based Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cookie-Based Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie-authentication-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookie Authentication Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cookie-authentication-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookie Authentication Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-based-authentication-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token-Based Authentication (JWT)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token-Based Authentication (JWT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-authentication-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT Authentication Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwt-authentication-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JWT Authentication Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth2-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth2 Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth2 Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oauth2-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth2 Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth2-flow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth2 Flow Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openid-connect-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenID Connect Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenID Connect Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oidc-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OIDC Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-login-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Social Login Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Social Login Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#social-login-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Social Login Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passwordless Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passwordless Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passwordless Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-login-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passwordless Login Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magic-link-and-otp-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magic Link and OTP Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Magic Link and OTP Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magic-link-otp-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magic Link / OTP Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otp-example-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OTP Example Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-jwt-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling JWT in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling JWT in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-access-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Access Tokens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Access Tokens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-token-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Token Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-token-request-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Token Request Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-refresh-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Refresh Tokens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Refresh Tokens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#refresh-token-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refresh Token Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refresh-token-flow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refresh Token Flow Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-token-expiry-and-auto-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Token Expiry and Auto-Refresh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Token Expiry and Auto-Refresh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-refresh-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Refresh Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#axios-auto-refresh-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Axios Auto-Refresh Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secure-token-storage-in-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secure Token Storage in React
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secure Token Storage in React">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-storage-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Token Storage Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httponly-cookies-in-jwt-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HttpOnly Cookies in JWT Auth
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HttpOnly Cookies in JWT Auth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httponly-cookie-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HttpOnly Cookie Characteristics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httponly-cookie-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HttpOnly Cookie Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation">
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../14.API%20Integration/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    API Integration
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="authentication-authorization-in-react-topics-list">Authentication &amp; Authorization in React — Topics List</h1>
+<!-- - **1. Fundamentals**
+      - What is Authentication?
+      - What is Authorization?
+      - Differences Between Auth & AuthZ
+      - Types of Authentication (Session, Token, OAuth, etc.)
+      - SPA Authentication Challenges
+- **2. Authentication Methods in React**
+      - Cookie-Based Authentication
+      - Token-Based Authentication (JWT)
+      - OAuth 2.0
+      - OpenID Connect
+      - Social Login (Google, GitHub, Facebook)
+      - Passwordless Authentication
+      - Magic Links / OTP Auth
+- **3. Handling JWT in React**
+      - Access Token
+      - Refresh Token
+      - Token Expiry & Auto-Refresh
+      - Secure Storage (Cookie vs LocalStorage)
+      - HttpOnly Cookies
+- **4. Authorization Concepts**
+      - Role-Based Access Control (RBAC)
+      - Permission-Based Access Control (PBAC)
+      - Attribute-Based Access Control (ABAC)
+      - Route-Level Authorization
+      - Component-Level Authorization
+- **5. State Management for Auth**
+      - Auth Context API
+      - Redux Toolkit for Auth
+      - Zustand Auth Store
+      - React Query + JWT
+      - Using React Query for Protected Data Fetching
+- **6. Protecting Routes in React**
+      - Private Routes (React Router)
+      - Public vs Protected Routes
+      - Conditional Rendering based on Auth State
+      - Redirects (Unauthenticated → Login)
+      - Preventing Authenticated Users from Visiting Login/Register
+- **7. Secure API Communication**
+      - Attaching Tokens to Requests
+      - Axios Interceptors for Auth
+      - Fetch API with Auth Headers
+      - Refresh Token Logic in Interceptors
+- **8. Security Best Practices**
+      - Avoid Storing JWT in LocalStorage
+      - CSRF vs XSS
+      - HttpOnly Cookies
+      - Rate Limiting & Brute Force Protection (Backend)
+      - Secure Logout (Token Invalidation)
+      - Checking Token Signature & Expiry
+- **9. Authentication Libraries for React**
+      - Firebase Authentication
+      - Auth0
+      - Supertokens
+      - Clerk
+      - NextAuth.js (for Next.js)
+      - AWS Cognito
+      - Supabase Auth
+- **10. Building a Custom Auth System**
+      - Building Login with API
+      - Signup + Validation
+      - Storing Tokens Securely
+      - Maintaining Auth State Globally
+      - Auto Login on Page Refresh
+      - Logout Flow
+- **11. Handling Edge Cases**
+      - Token Expired Mid-Session
+      - Token Tampering
+      - Slow Network & Suspense UI
+      - Network Errors on Protected Routes
+      - Protecting Sensitive UI from Flashing
+- **12. Advanced Topics**
+      - Authorization Middleware (React Router)
+      - Access Control Using Higher Order Components (HOCs)
+      - Authentication Guards
+      - Multi-Tenant Authorization
+      - Role-Based UI Rendering
+      - Using Server-Side Authorization (Next.js)
+- **13. Testing Auth**
+      - Unit Testing Auth Context / Store
+      - Integration Testing Protected Routes
+      - Mocking Tokens
+      - Mocking Auth API
+      - E2E Testing with Auth (Cypress / Playwright) -->
+
+<hr>
+<h2 id="fundamentals-of-authentication-authorization"><ins class="critic"> Fundamentals of Authentication &amp; Authorization </ins></h2>
+<p>This section covers the essential concepts of authentication and authorization in React and modern web applications.</p>
+<h3 id="understanding-authentication">Understanding Authentication</h3>
+<p>Authentication means <strong>verifying who the user is</strong>.<br>
+It ensures the user is a real, valid identity before giving access.</p>
+<h4 id="authentication-examples">Authentication Examples</h4>
+<ul>
+<li>Email + password login  </li>
+<li>OTP login  </li>
+<li>Google / GitHub login  </li>
+<li>Magic link login  </li>
+<li>Biometric login (FaceID, fingerprint)</li>
+</ul>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Login.jsx</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"react"</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"axios"</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Login</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">setEmail</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">setPassword</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">handleLogin</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">"/api/login"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withCredentials</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">&lt;</span><span class="nt">form</span><span class="w"> </span><span class="na">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleLogin</span><span class="p">}&gt;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">input</span><span class="w"> </span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">email</span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setEmail</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span><span class="w"> </span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="na">placeholder</span><span class="o">=</span><span class="s">"email"</span><span class="w"> </span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="p">/&gt;</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">input</span><span class="w"> </span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="na">type</span><span class="o">=</span><span class="s">"password"</span><span class="w"> </span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">password</span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setPassword</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span><span class="w"> </span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="na">placeholder</span><span class="o">=</span><span class="s">"password"</span><span class="w"> </span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="p">/&gt;</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span><span class="w"> </span><span class="na">type</span><span class="o">=</span><span class="s">"submit"</span><span class="p">&gt;</span><span class="nx">Login</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="understanding-authorization">Understanding Authorization</h3>
+<p>Authorization means <strong>deciding what an authenticated user is allowed to do</strong>.</p>
+<p>It determines:</p>
+<ul>
+<li>Which pages users can view  </li>
+<li>Which actions they can perform  </li>
+<li>What information they can access  </li>
+</ul>
+<h4 id="authorization-examples">Authorization Examples</h4>
+<ul>
+<li>Admin can delete users  </li>
+<li>Students can view only their own marks  </li>
+<li>Logged-out users cannot access dashboards  </li>
+</ul>
+<h3 id="authentication-vs-authorization">Authentication vs Authorization</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Authentication</th>
+<th>Authorization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meaning</td>
+<td>Verifies identity</td>
+<td>Verifies permissions</td>
+</tr>
+<tr>
+<td>Question</td>
+<td>"Who are you?"</td>
+<td>"What can you access?"</td>
+</tr>
+<tr>
+<td>Happens</td>
+<td>First</td>
+<td>Second</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Login form</td>
+<td>Accessing admin panel</td>
+</tr>
+</tbody>
+</table>
+<h4 id="access-flow-diagram">Access Flow Diagram</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>User → Authentication (identity check) → Authorization (permissions check) → Access Granted
+</span></code></pre></div>
+<h3 id="types-of-authentication-methods">Types of Authentication Methods</h3>
+<h4 id="session-based-authentication-overview">Session-Based Authentication Overview</h4>
+<ul>
+<li>Server stores a session ID  </li>
+<li>Browser stores a session cookie  </li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Client → sessionID cookie → Server checks session → Access Granted
+</span></code></pre></div>
+<h4 id="token-based-authentication-overview-jwt">Token-Based Authentication Overview (JWT)</h4>
+<ul>
+<li>Common in React apps  </li>
+<li>Server generates a JWT  </li>
+<li>Token stored in <strong>HttpOnly cookies</strong></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Client → JWT token → Server verifies signature → Access Granted
+</span></code></pre></div>
+<h4 id="oauth-login-overview">OAuth Login Overview</h4>
+<ul>
+<li>Used for “Login with Google”  </li>
+<li>Third-party authentication provider  </li>
+</ul>
+<h4 id="openid-connect-overview">OpenID Connect Overview</h4>
+<ul>
+<li>Extension on OAuth  </li>
+<li>Provides identity info (email, profile, etc.)</li>
+</ul>
+<h4 id="passwordless-login-overview">Passwordless Login Overview</h4>
+<ul>
+<li>OTP login  </li>
+<li>Magic link login  </li>
+<li>Biometric login  </li>
+</ul>
+<h4 id="multi-factor-authentication-overview">Multi-Factor Authentication Overview</h4>
+<ul>
+<li>Requires more than one verification step (password + OTP)</li>
+</ul>
+<h3 id="spa-authentication-challenges">SPA Authentication Challenges</h3>
+<p>React apps run entirely in the browser, so they face unique issues.</p>
+<h4 id="token-storage-concerns">Token Storage Concerns</h4>
+<ul>
+<li>❌ Avoid using localStorage due to XSS  </li>
+<li>✔️ Prefer HttpOnly cookies  </li>
+</ul>
+<h4 id="route-protection-logic">Route Protection Logic</h4>
+<p>React must hide private content from unauthenticated users.</p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// ProtectedRoute.jsx</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Navigate</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"react-router-dom"</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">ProtectedRoute</span><span class="p">({</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">loggedIn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s2">"token="</span><span class="p">);</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">loggedIn</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">Navigate</span><span class="w"> </span><span class="na">to</span><span class="o">=</span><span class="s">"/login"</span><span class="w"> </span><span class="p">/&gt;;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="token-expiry-handling">Token Expiry Handling</h4>
+<p>SPAs must manage:</p>
+<ul>
+<li>Token expiration  </li>
+<li>Silent re-login  </li>
+<li>Refresh tokens  </li>
+</ul>
+<h4 id="ui-flash-problem">UI Flash Problem</h4>
+<p>Protected UI may show briefly before auth loads.</p>
+<p>Solutions:</p>
+<ul>
+<li>Loading placeholders  </li>
+<li>Initial auth checking  </li>
+</ul>
+<h4 id="cors-configuration-concerns">CORS Configuration Concerns</h4>
+<p>When frontend &amp; backend have different origins:</p>
+<ul>
+<li>Enable <code>withCredentials: true</code>  </li>
+<li>Configure backend CORS properly  </li>
+</ul>
+<hr>
+<h2 id="authentication-methods-in-react"><ins class="critic"> Authentication Methods in React </ins></h2>
+<p>This section explains the main ways authentication is implemented in React applications, from traditional cookies to modern passwordless login.</p>
+<h3 id="cookie-based-authentication">Cookie-Based Authentication</h3>
+<p>In cookie-based auth, the <strong>server stores the session</strong>, and the browser stores a <strong>session cookie</strong>.<br>
+React automatically sends cookies with requests (if <code>withCredentials</code> is enabled).</p>
+<h4 id="cookie-authentication-characteristics">Cookie Authentication Characteristics</h4>
+<ul>
+<li>Server-managed session  </li>
+<li>HttpOnly cookies recommended  </li>
+<li>Automatic cookie handling  </li>
+<li>Protected from XSS (when HttpOnly)</li>
+</ul>
+<h4 id="cookie-authentication-example">Cookie Authentication Example</h4>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// login route (server)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s2">"sessionId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nx">httpOnly</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nx">secure</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">});</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Logged in"</span><span class="w"> </span><span class="p">});</span>
+</span></code></pre></div>
+<h3 id="token-based-authentication-jwt">Token-Based Authentication (JWT)</h3>
+<p>In JWT authentication, the server returns a <strong>signed token</strong>.<br>
+React sends this token back with each request (usually stored in cookies).</p>
+<h4 id="jwt-authentication-characteristics">JWT Authentication Characteristics</h4>
+<ul>
+<li>Stateless (no server session)  </li>
+<li>Token contains user data (id, role)  </li>
+<li>Works well with SPAs  </li>
+<li>Must be stored securely (HttpOnly cookie recommended)</li>
+</ul>
+<h4 id="jwt-authentication-example">JWT Authentication Example</h4>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// server</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createJwt</span><span class="p">({</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s2">"token"</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">httpOnly</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+</span></code></pre></div>
+<h3 id="oauth2-authentication">OAuth2 Authentication</h3>
+<p>OAuth2 is used when logging in with <strong>third-party providers</strong> (e.g., Google, GitHub).<br>
+The provider verifies identity and redirects back with an authorization code.</p>
+<h4 id="oauth2-characteristics">OAuth2 Characteristics</h4>
+<ul>
+<li>User authenticates at provider  </li>
+<li>Backend exchanges code for access token  </li>
+<li>No password needed in your app  </li>
+<li>Very secure and standardized  </li>
+</ul>
+<h4 id="oauth2-flow-example">OAuth2 Flow Example</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>React → Provider Login Page → User Authorizes → Backend → Token Issued
+</span></code></pre></div>
+<h3 id="openid-connect-authentication">OpenID Connect Authentication</h3>
+<p>OpenID Connect (OIDC) sits on top of OAuth2 and provides <strong>identity information</strong> (email, name, picture).</p>
+<h4 id="oidc-characteristics">OIDC Characteristics</h4>
+<ul>
+<li>Uses ID Token (JWT)  </li>
+<li>Provides verified user identity  </li>
+<li>Ideal for modern “Login with …” systems  </li>
+</ul>
+<h3 id="social-login-authentication">Social Login Authentication</h3>
+<p>React apps commonly support login using:</p>
+<ul>
+<li>Google  </li>
+<li>GitHub  </li>
+<li>Facebook  </li>
+<li>Twitter  </li>
+<li>Microsoft  </li>
+</ul>
+<h4 id="social-login-characteristics">Social Login Characteristics</h4>
+<ul>
+<li>Quick login  </li>
+<li>No password needed  </li>
+<li>Uses OAuth or OIDC under the hood  </li>
+</ul>
+<h3 id="passwordless-authentication">Passwordless Authentication</h3>
+<p>Passwordless login removes passwords entirely.<br>
+User verifies using a one-time method.</p>
+<h4 id="passwordless-characteristics">Passwordless Characteristics</h4>
+<ul>
+<li>No password stored  </li>
+<li>No password to forget  </li>
+<li>Uses email or phone  </li>
+</ul>
+<h4 id="passwordless-login-example">Passwordless Login Example</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>User enters email → App sends OTP/magic link → User clicks → Logged in
+</span></code></pre></div>
+<h3 id="magic-link-and-otp-authentication">Magic Link and OTP Authentication</h3>
+<p>Magic links and OTPs are modern and widely used.<br>
+User receives a one-time login link or code.</p>
+<h4 id="magic-link-otp-characteristics">Magic Link / OTP Characteristics</h4>
+<ul>
+<li>Secure and user-friendly  </li>
+<li>No passwords required  </li>
+<li>Common in SaaS and mobile apps  </li>
+</ul>
+<h4 id="otp-example-flow">OTP Example Flow</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Enter phone/email → Receive OTP → Submit OTP → Verify → Logged in
+</span></code></pre></div>
+<hr>
+<h2 id="handling-jwt-in-react"><ins class="critic"> Handling JWT in React </ins></h2>
+<p>JWT (JSON Web Token) is one of the most common authentication methods in modern React applications.<br>
+This section explains how JWT works, how to store it safely, and how to handle expiry.</p>
+<h3 id="understanding-access-tokens">Understanding Access Tokens</h3>
+<p>Access Tokens are short-lived tokens used to access protected APIs.<br>
+They contain user identity and permissions in a signed format.</p>
+<h4 id="access-token-characteristics">Access Token Characteristics</h4>
+<ul>
+<li>Short-lived (5–15 minutes recommended)  </li>
+<li>Sent automatically by cookies or manually via headers  </li>
+<li>Validated on every request  </li>
+<li>Used only for authorization, not identity storage in React state  </li>
+</ul>
+<h4 id="access-token-request-example">Access Token Request Example</h4>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Axios request sending access token (if stored manually)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"/profile"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="sb">`Bearer </span><span class="si">${</span><span class="nx">accessToken</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">});</span>
+</span></code></pre></div>
+<h3 id="understanding-refresh-tokens">Understanding Refresh Tokens</h3>
+<p>Refresh Tokens are long-lived tokens used to <strong>get new access tokens</strong> when they expire.<br>
+React does not store refresh tokens — the <strong>server stores it in HttpOnly cookies</strong>.</p>
+<h4 id="refresh-token-characteristics">Refresh Token Characteristics</h4>
+<ul>
+<li>Long-lived (days or weeks)  </li>
+<li>Must be stored in HttpOnly cookies  </li>
+<li>Never exposed to JavaScript  </li>
+<li>Used only on a <code>/refresh</code> endpoint  </li>
+</ul>
+<h4 id="refresh-token-flow-example">Refresh Token Flow Example</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Access Token expired → React calls /refresh → Server verifies refresh token → New access token returned
+</span></code></pre></div>
+<h3 id="handling-token-expiry-and-auto-refresh">Handling Token Expiry and Auto-Refresh</h3>
+<p>React must detect when the Access Token expires and automatically refresh it.</p>
+<h4 id="auto-refresh-flow">Auto Refresh Flow</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Request → 401 Unauthorized → React triggers /refresh → Retry original request
+</span></code></pre></div>
+<h4 id="axios-auto-refresh-example">Axios Auto-Refresh Example</h4>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// axios interceptor</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nx">api</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nx">res</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">401</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">"/refresh"</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">withCredentials</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">api</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">config</span><span class="p">);</span><span class="w"> </span><span class="c1">// retry request</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="secure-token-storage-in-react">Secure Token Storage in React</h3>
+<p>Choosing where to store tokens is critical for security.</p>
+<h4 id="token-storage-comparison">Token Storage Comparison</h4>
+<p><strong>localStorage:</strong>  </p>
+<ul>
+<li>❌ Vulnerable to XSS  </li>
+<li>❌ Token can be stolen  </li>
+<li>❌ Not recommended for JWT auth  </li>
+</ul>
+<p><strong>HttpOnly Cookies:</strong>  </p>
+<ul>
+<li>✔️ Cannot be read by JavaScript  </li>
+<li>✔️ Protection from XSS  </li>
+<li>✔️ Automatically sent with requests  </li>
+<li>⭐ Recommended for React apps  </li>
+</ul>
+<h3 id="httponly-cookies-in-jwt-auth">HttpOnly Cookies in JWT Auth</h3>
+<p>An HttpOnly cookie prevents JavaScript from accessing the token.</p>
+<h4 id="httponly-cookie-characteristics">HttpOnly Cookie Characteristics</h4>
+<ul>
+<li>Invisible to JS (<code>document.cookie</code> cannot read it)  </li>
+<li>Safe from XSS attacks  </li>
+<li>Sent automatically with <code>withCredentials: true</code>  </li>
+<li>Should always be paired with <code>SameSite</code> and <code>Secure</code> flags  </li>
+</ul>
+<h4 id="httponly-cookie-example">HttpOnly Cookie Example</h4>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// server sets HttpOnly cookie</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s2">"token"</span><span class="p">,</span><span class="w"> </span><span class="nx">jwt</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nx">httpOnly</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nx">secure</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="nx">sameSite</span><span class="o">:</span><span class="w"> </span><span class="s2">"strict"</span><span class="p">,</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="p">});</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">"Logged in"</span><span class="w"> </span><span class="p">});</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../14.2.1.Axios%20Industry%20Standards/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14.2.1.Axios Industry Standards">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14.2.1.Axios Industry Standards
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14.4.Advanced%20API%20Scenarios/" class="md-footer__link md-footer__link--next" aria-label="Next: 14.4.Advanced API Scenarios">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14.4.Advanced API Scenarios
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 S.Kumar
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://souravkumardash.vercel.app" target="_blank" rel="noopener" title="souravkumardash.vercel.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2m-4-7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m5-3h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/sourav183" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Captain-Rengoku" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
