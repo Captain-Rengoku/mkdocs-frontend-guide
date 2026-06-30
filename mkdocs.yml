@@ -134,6 +134,22 @@ nav:
     - 15.Testing in TypeScript: ts/15.Testing in TypeScript.md
     - 16.Troubleshooting and Debugging: ts/16.Troubleshooting and Debugging.md
     - 17.Appendix: ts/17.Appendix.md
+  - Next.js Docs:
+    - 0.List of Content: nextjs/nextjs-list.md
+    - 1.Introduction to Next.js: nextjs/1.Introduction to Next.js.md
+    - 2.Routing (App Router): nextjs/2.Routing in Next.js.md
+    - 3.Rendering - Server & Client Components: nextjs/3.Rendering Server and Client Components.md
+    - 4.Data Fetching & Caching: nextjs/4.Data Fetching and Caching.md
+    - 5.Server Actions & Mutations: nextjs/5.Server Actions and Mutations.md
+    - 6.Route Handlers (API): nextjs/6.Route Handlers.md
+    - 7.Styling & Fonts: nextjs/7.Styling and Fonts.md
+    - 8.Optimizations: nextjs/8.Optimizations.md
+    - 9.Database Integration: nextjs/9.Database Integration.md
+    - 10.Authentication: nextjs/10.Authentication.md
+    - 11.Middleware & Edge: nextjs/11.Middleware and Edge.md
+    - 12.State Management: nextjs/12.State Management.md
+    - 13.Testing Next.js Apps: nextjs/13.Testing Nextjs Apps.md
+    - 14.Deployment: nextjs/14.Deployment.md
   - Github Repositories: Github Repositories/React Learning Journey.md
   # - Blog:
     # - blog/index.md
