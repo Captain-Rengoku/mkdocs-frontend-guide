@@ -40,7 +40,7 @@ date:
       - npm vs Yarn
       - Setting Up Yarn
       - Using pnpm as an Alternative
-- {==Creating a React App using CRA (Create React App)==}
+- {==Creating a React App using CRA (Create React App)==} {>>Note: CRA is deprecated; prefer Vite (or a framework like Next.js) for new projects<<}
       - Creating and Running a New Project
       - Understanding Default Folder Structure
       - Customizing CRA Configuration
@@ -247,17 +247,17 @@ date:
 - {==Setting Up React Router==}
       - Installing React Router
       - Configuring BrowserRouter
-- {==Route, Switch, and Link Components==}
+- {==Route, Routes, and Link Components==}
       - Defining Routes
       - Navigating with Link and NavLink
-      - Using Switch for Exclusive Routes
+      - Using Routes for Exclusive Routes (replaces v5 `Switch`)
 - {==Dynamic Routing & Nested Routes==}
       - Creating Dynamic Routes with URL Parameters
       - Rendering Nested Routes
       - Using useParams Hook
-- {==Programmatic Navigation (useNavigate, useHistory)==}
+- {==Programmatic Navigation (useNavigate)==}
       - Navigating Programmatically
-      - Using useNavigate in React Router v6
+      - Using useNavigate in React Router v6 (replaces v5 `useHistory`)
       - Handling Navigation State
 - {==Redirects and 404 Handling==}
       - Implementing Redirects
@@ -327,7 +327,7 @@ date:
       - Handling Asynchronous Logic
       - Dispatching Multiple Actions
       - Fetching Data with Redux Thunk
-- Introduction to Redux Query
+- Introduction to RTK Query
 
 ### {==5. Zustand ==}
 
@@ -338,8 +338,6 @@ date:
 - Using Middleware with Zustand
 
 ---
-
-##
 
 ## 11. React Styling Techniques
 
@@ -374,7 +372,7 @@ date:
 - Installing Tailwind CSS in a React Project
 - Using Utility Classes for Styling
 - Customizing Tailwind Configurations
-- Optimizing Performance with PurgeCSS
+- Optimizing Performance with Tailwind's built-in JIT engine (PurgeCSS is no longer needed)
 - Comparing Tailwind with Traditional CSS Approaches
 
 ### 4. Emotion.js for CSS-in-JS
@@ -471,7 +469,7 @@ date:
 
 ---
 
-## 15. React Performance Optimization
+## 14. React Performance Optimization
 
 ### 1. React.memo for Component Optimization
 
@@ -519,7 +517,7 @@ date:
 
 ---
 
-## 16. React Testing and Debugging
+## 15. React Testing and Debugging
 
 ### Introduction to Testing in React
 

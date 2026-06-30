@@ -77,7 +77,7 @@ Next.js builds on React by adding routing, data fetching, API routes, and full-s
 
 ## 📬 Get in touch
 
-- Email: [souravkumardash183@gmail.com](https://souravkumardash183@gmail.com)
+- Email: [souravkumardash183@gmail.com](mailto:souravkumardash183@gmail.com)
 - Portfolio: [My Portfolio](https://souravkumardash.vercel.app)
 - LinkedIn: [S.Kumar](https://www.linkedin.com/in/sourav183)
 - GitHub: [Captain-Rengoku](https://github.com/Captain-Rengoku)

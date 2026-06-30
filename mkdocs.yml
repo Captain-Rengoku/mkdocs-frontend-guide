@@ -1,5 +1,5 @@
 site_name: My Frontend Guide
-site_url: https://stiename.example
+site_url: https://captain-rengoku.github.io/mkdocs-frontend-guide/
 theme:
   name: material
   font:
@@ -146,7 +146,6 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - admonition

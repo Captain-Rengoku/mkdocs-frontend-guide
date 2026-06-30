@@ -15,11 +15,11 @@ date:
 
 **Reconciliation** – Process of updating the real DOM based on Virtual DOM changes.
 
-**React Fiber** – React's new reconciliation engine for faster updates.
+**React Fiber** – React's reconciliation engine for incremental, interruptible rendering (shipped in React 16).
 
 **Hydration** – Merging server-rendered HTML with client-side React.
 
-**React Concurrent Mode** – Allows React to work on rendering updates without blocking the main thread.
+**React Concurrent Features / Rendering** – Lets React work on rendering updates without blocking the main thread. (The experimental "Concurrent Mode" name was dropped; React 18 ships these as opt-in concurrent features via `createRoot`, `startTransition`, etc.)
 
 **Asynchronous Rendering** – React prioritizes UI updates for a smoother user experience.
 
@@ -41,8 +41,8 @@ date:
 
 ### 1.3 Component Lifecycle (Class Components)
 
-Mounting Phase**
-constructor** – Initializes state and binds methods.
+Mounting Phase
+**constructor** – Initializes state and binds methods.
 
 **componentDidMount** – Runs after the component is added to the DOM.
 
@@ -142,21 +142,21 @@ Core Concepts
 
 **Actions** – Describe state changes.
 
-**Reducers** – Functions that modify the store based on actions.
+**Reducers** – Pure functions that take the current state and an action and return a **new** state (they never mutate the existing state).
 
 **Dispatch** – Sends actions to the reducer.
 
 **Selectors** – Extracts specific data from the Redux store.
 
-Middleware & E**nhancers
-Redux Thunk** – Handles async operations in Redux.
+Middleware & Enhancers
+**Redux Thunk** – Handles async operations in Redux.
 
 **Redux Saga** – Uses generator functions for managing side effects.
 
 **Redux Logger** – Logs dispatched actions and state changes.
 
-Redux Toolkit **(RTK)
-createSlice** – Combines reducers and actions in a single function.
+Redux Toolkit (RTK)
+**createSlice** – Combines reducers and actions in a single function.
 
 **createAsyncThunk** – Simplifies async logic in Redux.
 
@@ -172,7 +172,7 @@ createSlice** – Combines reducers and actions in a single function.
 
 **Zustand** – Simple, minimalistic state management.
 
-**Recoil** – React’s experimental state management library.
+**Recoil** – An atom-based state management library from Meta. Note: it was archived (deprecated) by Meta in 2025; consider Jotai, Zustand, or Redux Toolkit instead.
 
 **Jotai** – Atom-based state management.
 
@@ -196,7 +196,7 @@ createSlice** – Combines reducers and actions in a single function.
 
 **Link & NavLink** – Navigates between routes.
 
-**Redirect** – Redirects to another route.
+**Redirect** – Redirects to another route. (This is the React Router **v5** API; in **v6+** use the `<Navigate />` component, or `redirect()` inside loaders/actions.)
 
 **useNavigate** – Programmatically navigates users.
 
@@ -316,7 +316,7 @@ createSlice** – Combines reducers and actions in a single function.
 
 **Hydration** – Process of attaching event handlers to server-rendered HTML.
 
-### 10.2 React Concurrent Mode Features
+### 10.2 React Concurrent Rendering Features
 
 **Time-Slicing** – Breaks rendering tasks into small chunks to improve responsiveness.
 
@@ -336,7 +336,7 @@ createSlice** – Combines reducers and actions in a single function.
 
 **Synthetic Events** – React’s wrapper around native browser events for cross-browser compatibility.
 
-**Event Pooling** – React reuses event objects to improve performance.
+**Event Pooling** – A legacy optimization where React reused synthetic event objects. **Removed in React 17**, so events are no longer nullified and `event.persist()` is now a no-op.
 
 **Event Delegation** – Uses a single event listener to manage multiple child events.
 

@@ -13,7 +13,7 @@ date:
 |                               | Functional Components, Class Components (legacy), Custom Hooks, Error Boundaries, Portals, `React.lazy`, `Suspense`, `React.memo`, `PureComponent` |
 | **🛣️ Routing**                | {==React Router==} : `<BrowserRouter>`, `<Routes>`, `<Route>`, `useNavigate`, `useLocation`, `useParams`, `useSearchParams`, Nested Routes, Redirects, Loaders, Protected Routes |
 | **🔁 State Management**       | Built-in: `useState`, `useReducer`, `useContext` |
-|                               | External: {==Redux Toolkit, Zustand==}, Recoil, Jotai, MobX, Valtio, Effector, Nanostores, Hookstate |
+|                               | External: {==Redux Toolkit, Zustand==}, Recoil ({--archived by Meta in 2025--}), Jotai, MobX, Valtio, Effector, Nanostores, Hookstate |
 | **📦 Data Fetching & Sync**   | {==fetch, axios, React Query (TanStack)==}, SWR, Apollo Client, urql, Relay, tRPC |
 | **🎨 Styling**                | CSS-in-JS: styled-components, Emotion, Stitches, Linaria, Vanilla Extract |
 |                               | Utility CSS: {==Tailwind CSS==}, UnoCSS, Windi CSS |
@@ -33,10 +33,10 @@ date:
 |                               | {==ESLint (with react plugin), Prettier, Stylelint==} |
 |                               | {==TypeScript support==}: `React.FC`, `JSX.Element`, `HTMLInputElement`, `ReactNode`, etc. |
 | **📈 Analytics & Monitoring** | {==Sentry==}, LogRocket, Bugsnag, PostHog, Mixpanel, {==Google Analytics==} |
-| **Build Tools** | {==Vite==}, Create React App (CRA), Parcel, Webpack, Turbopack, react-snap |
+| **Build Tools** | {==Vite==}, Create React App (CRA — {--deprecated--}, use Vite or a framework like Next.js), Parcel, Webpack, Turbopack, react-snap |
 | **☁️ Hosting Tools** | {==GitHub Pages, Firebase Hosting, Netlify==}, Railway |
 | **🔌 Utilities & Helpers**   | {==clsx, date-fns, lodash, uuid, dotenv==}, nanoid, faker.js, classnames, ramda, slugify, dayjs |
-| **🧰 CLI & Tooling**         | create-react-app, {==Vite template==}, plop.js, hygen, create-react-library |
+| **🧰 CLI & Tooling**         | create-react-app ({--deprecated--}), {==Vite template==} (`npm create vite@latest`), `create-next-app`, plop.js, hygen, create-react-library |
 | **📘 Learning Resources**     | {==react.dev, EpicReact.dev, UI.Dev==}, Kent C. Dodds Blog, reactpatterns.com, beta.reactjs.org |
 
 ## ⚡️ Next.js Ecosystem
@@ -87,8 +87,8 @@ date:
 | **🧩 Component Libraries**   | {==MUI, Chakra UI, ShadCN UI==}                     | ✅ Same (ShadCN recommended in `app/` dir)                          |
 | **📚 Component Tooling**     | {==Storybook==}                                      | ✅ Same                                                             |
 | **⚙️ Developer Experience** | {==React DevTools, Redux DevTools, Zustand Devtools, React Query Devtools, React Profiler,==} {==ESLint (with react plugin), Prettier, Stylelint==}            | ✅ Same + {++Built-in ESLint, TypeScript, SWC compiler++}           |
-| **📈 Analytics & Monitoring**| {==Sentry, Google Analytics==}                      | ✅ Same + {++Vercel Analytics++ (first-party)}                      |
-| **🔧 Build Tools**           | {==Vite==}                                           | {++Next.js compiler (SWC, Turbopack++)}                            |
+| **📈 Analytics & Monitoring**| {==Sentry, Google Analytics==}                      | ✅ Same + {++Vercel Analytics (first-party)++}                      |
+| **🔧 Build Tools**           | {==Vite==}                                           | {++Next.js compiler (SWC, Turbopack)++}                            |
 | **☁️ Hosting**              | {==GitHub Pages, Firebase Hosting, Netlify==}                     | {++Vercel (official hosting)++}, Netlify, Railway                  |
 | **🔌 Utilities & Helpers**   | {==clsx, date-fns, lodash, uuid,  dotenv==}                | ✅ Same                                                             |
 | **🧰 CLI & Tooling**         | {==Vite template==}                                  | {++`npx create-next-app`++}                                        |
