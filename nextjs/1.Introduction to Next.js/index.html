@@ -1,0 +1,2260 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://captain-rengoku.github.io/mkdocs-frontend-guide/nextjs/1.Introduction%20to%20Next.js/">
+      
+      
+        <link rel="prev" href="../nextjs-list/">
+      
+      
+        <link rel="next" href="../2.Routing%20in%20Next.js/">
+      
+      
+      <link rel="icon" href="../../assets/code-solid-full.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>1.Introduction to Next.js - My Frontend Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-nextjs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My Frontend Guide" class="md-header__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Frontend Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.Introduction to Next.js
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="deep-orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../react/react-list/" class="md-tabs__link">
+          
+  
+    
+  
+  React Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reactapi/14.API%20Integration/" class="md-tabs__link">
+          
+  
+    
+  
+  API Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ts/ts-list/" class="md-tabs__link">
+          
+  
+    
+  
+  TypeScript Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../nextjs-list/" class="md-tabs__link">
+          
+  
+    
+  
+  Next.js Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-tabs__link">
+        
+  
+    
+  
+  Github Repositories
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My Frontend Guide" class="md-nav__button md-logo" aria-label="My Frontend Guide" data-md-component="logo">
+      
+  <img src="../../assets/code-solid-full.svg" alt="logo">
+
+    </a>
+    My Frontend Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../react/react-list/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    React Docs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../reactapi/14.API%20Integration/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    API Integration
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../ts/ts-list/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    TypeScript Docs
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Next.js Docs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Next.js Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nextjs-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.List of Content
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1.Introduction to Next.js
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1.Introduction to Next.js
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-nextjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is Next.js?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What is Next.js?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-adds-over-plain-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      What it adds over plain React
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why use it
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-and-when-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Why and when to use it
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Why and when to use it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reach-for-nextjs-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reach for Next.js when…
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-lighter-tool-may-be-enough-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      A lighter tool may be enough when…
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rendering-strategies-recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Rendering strategies recap
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Rendering strategies recap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csr-client-side-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSR — Client-Side Rendering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssr-server-side-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSR — Server-Side Rendering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssg-static-site-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSG — Static Site Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isr-incremental-static-regeneration" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISR — Incremental Static Regeneration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-nextjs-fits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where Next.js fits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-app-router-vs-pages-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. App Router vs Pages Router
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. App Router vs Pages Router">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pages-router-legacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pages Router (legacy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-router-default-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      App Router (default &amp; recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-the-app-router-is-recommended-for-new-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why the App Router is recommended for new code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-creating-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Creating a project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Creating a project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-next-app-with-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      create-next-app with TypeScript
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-structure-file-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project structure &amp; file conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dev-build-start-scripts-and-turbopack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dev / build / start scripts and Turbopack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Additional Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Routing%20in%20Next.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.Routing (App Router)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Rendering%20Server%20and%20Client%20Components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.Rendering - Server & Client Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.Data%20Fetching%20and%20Caching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.Data Fetching & Caching
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Server%20Actions%20and%20Mutations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.Server Actions & Mutations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Route%20Handlers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.Route Handlers (API)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.Styling%20and%20Fonts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7.Styling & Fonts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8.Optimizations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8.Optimizations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.Database%20Integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9.Database Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10.Authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.Middleware%20and%20Edge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11.Middleware & Edge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.State%20Management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12.State Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13.Testing%20Nextjs%20Apps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13.Testing Next.js Apps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14.Deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14.Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Github%20Repositories/React%20Learning%20Journey/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github Repositories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-nextjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. What is Next.js?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What is Next.js?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-adds-over-plain-react" class="md-nav__link">
+    <span class="md-ellipsis">
+      What it adds over plain React
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why use it
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-why-and-when-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Why and when to use it
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Why and when to use it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reach-for-nextjs-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reach for Next.js when…
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-lighter-tool-may-be-enough-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      A lighter tool may be enough when…
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rendering-strategies-recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Rendering strategies recap
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Rendering strategies recap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csr-client-side-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSR — Client-Side Rendering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssr-server-side-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSR — Server-Side Rendering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssg-static-site-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSG — Static Site Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isr-incremental-static-regeneration" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISR — Incremental Static Regeneration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-nextjs-fits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where Next.js fits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-app-router-vs-pages-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. App Router vs Pages Router
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. App Router vs Pages Router">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pages-router-legacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pages Router (legacy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#app-router-default-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      App Router (default &amp; recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-the-app-router-is-recommended-for-new-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why the App Router is recommended for new code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-creating-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Creating a project
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Creating a project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-next-app-with-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      create-next-app with TypeScript
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-structure-file-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project structure &amp; file conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dev-build-start-scripts-and-turbopack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dev / build / start scripts and Turbopack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Additional Resources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduction-to-nextjs"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.665 21.978A11.94 11.94 0 0 1 12 24C5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251zm-3.332-8.533 1.6 2.061V7.2h-1.6z"/></svg></span> Introduction to Next.js</h1>
+<p>Plain React gives you a component model and nothing else. The moment you need routing, server rendering, data fetching, bundling, and a deployment story, you assemble those yourself from a dozen libraries. <strong>Next.js</strong> is the framework that packages all of it—and, crucially, lets you render on the server so your HTML ships fast and is fully crawlable.</p>
+<p>This chapter introduces Next.js: what it is, what it adds over plain React, when to reach for it, a quick recap of the rendering strategies (CSR / SSR / SSG / ISR), the two routers (App vs Pages), and how to scaffold and run a project. We target <strong>Next.js 15</strong> with the <strong>App Router</strong> and <strong>TypeScript</strong> throughout.</p>
+<blockquote>
+<p>📚 For more: <a href="https://nextjs.org/docs">https://nextjs.org/docs</a> · <a href="https://react.dev/learn/start-a-new-react-project">https://react.dev/learn/start-a-new-react-project</a></p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Builds on the React section</p>
+<p>This assumes you're comfortable with React components, hooks, and the rendering-strategy concepts. If SSR/SSG/ISR or React Server Components are new, read <strong>React → SSR &amp; SSG</strong> first; this chapter recaps them but doesn't re-teach them from scratch.</p>
+</div>
+<hr />
+<h2 id="1-what-is-nextjs">1. What is Next.js?</h2>
+<p><strong>Next.js</strong> is a full-stack React framework, maintained by <strong>Vercel</strong>, built on top of React. Where a tool like Vite gives you a fast dev server and a bundler and leaves the rest to you, Next.js is <em>opinionated</em>: it provides a complete, integrated set of answers to the questions every real React app eventually asks.</p>
+<p>You still write React components. Next.js adds the framework <em>around</em> them.</p>
+<h3 id="what-it-adds-over-plain-react">What it adds over plain React</h3>
+<p>A "plain React" app (Vite, or the old Create React App) is a <strong>client-side single-page app</strong>: the browser downloads a JS bundle and React builds the page on the user's device. That's it—no server, no routing, no rendering choices. Next.js layers the following on top:</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Plain React (Vite/CRA)</th>
+<th>Next.js</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Routing</strong></td>
+<td>Add React Router, configure routes manually</td>
+<td>File-system routing—folders <em>are</em> routes</td>
+</tr>
+<tr>
+<td><strong>Rendering</strong></td>
+<td>Client-side only (CSR)</td>
+<td>CSR, SSR, SSG, ISR—<strong>chosen per route</strong></td>
+</tr>
+<tr>
+<td><strong>Server code</strong></td>
+<td>Separate backend project</td>
+<td>Route Handlers &amp; Server Actions in the same app</td>
+</tr>
+<tr>
+<td><strong>Data fetching</strong></td>
+<td><code>useEffect</code> + a client library</td>
+<td><code>await</code> directly inside Server Components</td>
+</tr>
+<tr>
+<td><strong>Server Components</strong></td>
+<td>Not available</td>
+<td>Default—components that ship <strong>zero JS</strong></td>
+</tr>
+<tr>
+<td><strong>Image optimization</strong></td>
+<td>DIY / external service</td>
+<td><code>next/image</code> (resize, lazy-load, modern formats)</td>
+</tr>
+<tr>
+<td><strong>Font optimization</strong></td>
+<td>Manual <code>&lt;link&gt;</code> tags</td>
+<td><code>next/font</code> (self-hosted, no layout shift)</td>
+</tr>
+<tr>
+<td><strong>Code splitting</strong></td>
+<td>Manual <code>React.lazy</code></td>
+<td>Automatic per-route + <code>next/dynamic</code></td>
+</tr>
+<tr>
+<td><strong>SEO / metadata</strong></td>
+<td><code>react-helmet</code> or manual</td>
+<td>Built-in Metadata API</td>
+</tr>
+<tr>
+<td><strong>Deployment</strong></td>
+<td>Build static files, host an API yourself</td>
+<td>Zero-config on Vercel; adapters elsewhere</td>
+</tr>
+</tbody>
+</table>
+<p>The headline additions are <strong>server rendering</strong> and <strong>React Server Components</strong>. Plain React can only run in the browser; Next.js can run your components on the server—at build time, at request time, or a blend—so users (and crawlers) receive real HTML instead of an empty <code>&lt;div id="root"&gt;</code>.</p>
+<h3 id="why-use-it">Why use it</h3>
+<ul>
+<li><strong>Routing</strong> — Create a folder and a <code>page.tsx</code> file and you have a route. Nested layouts, dynamic segments, and loading/error states are all file conventions, not boilerplate.</li>
+<li><strong>Rendering</strong> — Each route picks how its HTML is produced (static, dynamic, or streamed), so you get the right trade-off of speed, freshness, and cost per page.</li>
+<li><strong>Data</strong> — Server Components fetch data with plain <code>async</code>/<code>await</code>, with a built-in caching layer. Mutations use Server Actions—no hand-written API for forms.</li>
+<li><strong>Optimizations</strong> — Images, fonts, scripts, and code splitting are optimized by default, which directly improves Core Web Vitals.</li>
+<li><strong>Deployment</strong> — A Next.js app deploys to Vercel with zero config (SSR, ISR, and API routes become serverless/edge functions automatically), and to other hosts via adapters or a Node server.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Next.js is React, not an alternative to it</p>
+<p>You don't choose <em>between</em> React and Next.js. Next.js <strong>is</strong> a way to build React apps—it adds the framework scaffolding that React deliberately leaves out. If you know React, you already know most of Next.js.</p>
+</div>
+<hr />
+<h2 id="2-why-and-when-to-use-it">2. Why and when to use it</h2>
+<p>Next.js is the default choice for most production React apps today, but it isn't mandatory. Match the tool to the job.</p>
+<h3 id="reach-for-nextjs-when">Reach for Next.js when…</h3>
+<ul>
+<li><strong>SEO matters</strong> — marketing sites, blogs, docs, e-commerce, landing pages. Pre-rendered HTML gives crawlers and social scrapers complete content and Open Graph tags immediately.</li>
+<li><strong>You want fast first paint</strong> — server-rendered or static HTML shows real content before any app JS runs, which helps LCP on slow networks and low-end devices.</li>
+<li><strong>You need a backend too</strong> — Route Handlers and Server Actions let you build the API in the same project, no separate server.</li>
+<li><strong>You're deploying full-stack</strong> — auth, databases, server-side data fetching, and a frontend in one deployable unit.</li>
+<li><strong>You want batteries included</strong> — image/font optimization, routing, and caching without wiring up libraries.</li>
+</ul>
+<h3 id="a-lighter-tool-may-be-enough-when">A lighter tool may be enough when…</h3>
+<ul>
+<li><strong>It's a purely client-side, auth-gated app</strong> with no SEO needs—an internal admin dashboard behind a login. A Vite SPA is simpler and cheaper to host.</li>
+<li><strong>You're building a component library or embeddable widget</strong>, not an application.</li>
+<li><strong>You need an existing non-React backend</strong> and just want a frontend bundler—Vite is leaner.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">SSR is not automatically faster end-to-end</p>
+<p>Server rendering adds server work on every request plus a hydration step on the client. A poorly-cached SSR page with a heavy data fetch can have a <em>worse</em> time-to-first-byte than a static SPA. Next.js wins on <strong>first contentful paint and SEO</strong>, not unconditionally on total cost—prefer static/ISR whenever the data doesn't truly need to be per-request.</p>
+</div>
+<hr />
+<h2 id="3-rendering-strategies-recap">3. Rendering strategies recap</h2>
+<p>The <strong>rendering strategy</strong> answers: <em>who turns my components into HTML, and at what moment?</em> Next.js supports all four of the common strategies, and in the App Router you choose <strong>per route</strong>—not once for the whole app.</p>
+<h3 id="csr-client-side-rendering">CSR — Client-Side Rendering</h3>
+<p>The browser downloads a near-empty HTML shell plus a JS bundle, then React builds the DOM on the user's device. The classic SPA model.</p>
+<ul>
+<li>✅ Cheap to host, great for highly interactive, auth-gated apps where SEO is irrelevant.</li>
+<li>❌ Blank screen until JS loads and runs; weaker SEO; performance depends on the user's device.</li>
+</ul>
+<h3 id="ssr-server-side-rendering">SSR — Server-Side Rendering</h3>
+<p>The server runs your components <strong>on every request</strong> and returns fully-formed HTML, which the browser then <strong>hydrates</strong> into an interactive page.</p>
+<ul>
+<li>✅ Always-fresh, personalized content; good SEO.</li>
+<li>❌ Server compute on every request → higher cost and latency than serving a static file.</li>
+</ul>
+<h3 id="ssg-static-site-generation">SSG — Static Site Generation</h3>
+<p>HTML is generated <strong>once at build time</strong> and served from a CDN. Every visitor gets the same pre-built file.</p>
+<ul>
+<li>✅ Fastest delivery, cheapest hosting, excellent SEO.</li>
+<li>❌ Data is frozen at build time; rebuilding a huge site is slow.</li>
+</ul>
+<h3 id="isr-incremental-static-regeneration">ISR — Incremental Static Regeneration</h3>
+<p>SSG's pragmatic upgrade: pages are static but <strong>regenerate in the background</strong> on a schedule or on demand, without a full rebuild. CDN speed with data that stays reasonably fresh.</p>
+<ul>
+<li>✅ Static performance with content that updates—ideal for blogs, docs, catalogs.</li>
+<li>❌ Visitors may briefly see stale content until the next regeneration completes.</li>
+</ul>
+<h3 id="where-nextjs-fits">Where Next.js fits</h3>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>HTML generated</th>
+<th>Data freshness</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CSR</strong></td>
+<td>In the browser</td>
+<td>Live (client fetch)</td>
+<td>Auth-only apps, dashboards</td>
+</tr>
+<tr>
+<td><strong>SSR</strong></td>
+<td>Per request on the server</td>
+<td>Always fresh</td>
+<td>Personalized, request-time data</td>
+</tr>
+<tr>
+<td><strong>SSG</strong></td>
+<td>Once at build</td>
+<td>Frozen at build</td>
+<td>Marketing, docs, rarely-changing content</td>
+</tr>
+<tr>
+<td><strong>ISR</strong></td>
+<td>At build, refreshed in background</td>
+<td>Stale-then-fresh</td>
+<td>Blogs, catalogs, content that changes sometimes</td>
+</tr>
+</tbody>
+</table>
+<p>In the App Router you don't pick one of these for the whole site. A route is <strong>static by default</strong> and becomes dynamic when it reads request-time data (cookies, headers, an uncached <code>fetch</code>); ISR is a per-route or per-<code>fetch</code> <code>revalidate</code> setting; and you can even stream a static shell with dynamic regions inside it. Think of CSR/SSR/SSG/ISR as a <strong>spectrum</strong>, not four separate buckets.</p>
+<div class="admonition tip">
+<p class="admonition-title">The throughline: ship less JavaScript</p>
+<p>Across SEO and Core Web Vitals, the recurring win is shipping less JS to the client. React Server Components (the App Router default) render data-only components on the server and send zero JS for them—making "less JS" the default rather than an optimization you bolt on later.</p>
+</div>
+<blockquote>
+<p>The full mechanics of these strategies—hydration, caching, <code>generateStaticParams</code>, <code>revalidate</code>—are covered in <strong>Rendering</strong> and <strong>Data Fetching &amp; Caching</strong> later in this section.</p>
+</blockquote>
+<hr />
+<h2 id="4-app-router-vs-pages-router">4. App Router vs Pages Router</h2>
+<p>Next.js has <strong>two routers</strong>, and which one you use determines the entire programming model. You'll meet both, but they are not equal in 2025.</p>
+<h3 id="pages-router-legacy">Pages Router (legacy)</h3>
+<p>The original model, living in a <code>pages/</code> directory. Routing is file-based, but rendering is configured with special exported functions—<code>getServerSideProps</code> (SSR), <code>getStaticProps</code> + <code>getStaticPaths</code> (SSG/ISR)—and API endpoints live in <code>pages/api/</code>. It predates React Server Components. It's still fully supported and extremely common in existing codebases.</p>
+<h3 id="app-router-default-recommended">App Router (default &amp; recommended)</h3>
+<p>Introduced in Next.js 13, stable since 13.4, and the <strong>default in 14 and 15</strong>. It lives in an <code>app/</code> directory and is built on <strong>React Server Components</strong>.</p>
+<ul>
+<li><strong>Components are Server Components by default</strong>—they run only on the server, can be <code>async</code>, can <code>await</code> data directly, and ship <strong>zero JavaScript</strong> to the browser. Opt into the client with <code>"use client"</code>.</li>
+<li><strong>Data fetching is just <code>await</code></strong> inside a component—no <code>getServerSideProps</code>/<code>getStaticProps</code>.</li>
+<li><strong>Nested layouts</strong> let route segments share UI that persists across navigation without re-rendering.</li>
+<li><strong>Streaming and Suspense</strong> are first-class via <code>loading.tsx</code> and <code>&lt;Suspense&gt;</code>.</li>
+<li><strong>Mutations</strong> use Server Actions (<code>"use server"</code>), often without any hand-written API endpoint.</li>
+</ul>
+<h3 id="why-the-app-router-is-recommended-for-new-code">Why the App Router is recommended for new code</h3>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Pages Router</th>
+<th>App Router</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data fetching</td>
+<td><code>getServerSideProps</code> / <code>getStaticProps</code></td>
+<td><code>async</code> Server Component + <code>await</code></td>
+</tr>
+<tr>
+<td>Server Components</td>
+<td>Not available</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Layouts</td>
+<td>One <code>_app.tsx</code>; manual per-page wrappers</td>
+<td>Nested <code>layout.tsx</code>, persist across navigation</td>
+</tr>
+<tr>
+<td>Loading / error UI</td>
+<td>Manual</td>
+<td><code>loading.tsx</code> / <code>error.tsx</code> conventions</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td>Limited</td>
+<td>Built in via Suspense</td>
+</tr>
+<tr>
+<td>Mutations</td>
+<td>API route + client <code>fetch</code></td>
+<td>Server Actions</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Maintained, legacy</td>
+<td><strong>Default &amp; actively developed</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Don't mix them carelessly—and prefer one model</p>
+<p>A single project <em>can</em> contain both <code>app/</code> and <code>pages/</code> (Next.js routes <code>app/</code> first), which is useful for incrementally migrating. But for <strong>new</strong> projects, use the App Router exclusively. The Pages Router data functions (<code>getServerSideProps</code>, etc.) <strong>do not exist</strong> in the App Router—they're replaced by <code>async</code> components, <code>fetch</code> caching, <code>generateStaticParams</code>, and <code>revalidate</code>. This chapter and the rest of the section are App Router-first; Pages Router is noted only where it still matters for existing code.</p>
+</div>
+<hr />
+<h2 id="5-creating-a-project">5. Creating a project</h2>
+<p>The official scaffolding tool is <strong><code>create-next-app</code></strong>. It sets up the project structure, TypeScript, linting, and dependencies for you.</p>
+<h3 id="create-next-app-with-typescript"><code>create-next-app</code> with TypeScript</h3>
+<p>Run the interactive scaffolder with <code>npx</code> (no global install needed):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>npx<span class="w"> </span>create-next-app@latest<span class="w"> </span>my-app
+</span></code></pre></div>
+<p>It will ask a series of questions. For a modern App Router + TypeScript project, answer roughly like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>✔ Would you like to use TypeScript? … Yes
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>✔ Would you like to use ESLint? … Yes
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>✔ Would you like to use Tailwind CSS? … (your choice)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>✔ Would you like your code inside a `src/` directory? … (your choice)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>✔ Would you like to use App Router? (recommended) … Yes
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>✔ Would you like to use Turbopack? (recommended) … Yes
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>✔ Would you like to customize the import alias (`@/*`)? … No
+</span></code></pre></div>
+<p>To skip the prompts and accept those defaults non-interactively, pass flags:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>npx<span class="w"> </span>create-next-app@latest<span class="w"> </span>my-app<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--typescript<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--eslint<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--app<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--src-dir<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>--import-alias<span class="w"> </span><span class="s2">&quot;@/*&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>--use-npm
+</span></code></pre></div>
+<p>Then start the dev server:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>my-app
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>npm<span class="w"> </span>run<span class="w"> </span>dev
+</span></code></pre></div>
+<p>Open <strong>http://localhost:3000</strong> and you'll see the starter page.</p>
+<div class="admonition note">
+<p class="admonition-title">The <code>@/*</code> import alias</p>
+<p><code>create-next-app</code> configures a path alias in <code>tsconfig.json</code> so you can write <code>import { db } from "@/lib/db"</code> instead of brittle <code>../../../lib/db</code> relative paths. With <code>--src-dir</code>, <code>@/*</code> points at <code>src/*</code>; without it, at the project root. Examples in this guide use the <code>@/</code> alias.</p>
+</div>
+<h3 id="project-structure-file-conventions">Project structure &amp; file conventions</h3>
+<p>A fresh App Router project (with <code>src/</code>) looks roughly like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>my-app/
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── src/
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>│   └── app/                 # App Router — folders are routes
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│       ├── layout.tsx       # Root layout (required) — wraps &lt;html&gt;/&lt;body&gt;
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>│       ├── page.tsx         # UI for &quot;/&quot;
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│       ├── globals.css      # Global styles
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│       └── favicon.ico
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>├── public/                  # Static assets served from &quot;/&quot;
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>├── next.config.ts           # Next.js configuration
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>├── tsconfig.json            # TypeScript config (incl. the @/* alias)
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>├── eslint.config.mjs        # ESLint flat config
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>├── package.json
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>└── next-env.d.ts            # Next.js TS types (auto-generated, don&#39;t edit)
+</span></code></pre></div>
+<p><strong><code>app/</code></strong> is where your routing and UI live. Folders define URL segments; specially-named files give those segments behavior. <strong><code>public/</code></strong> holds static files (images, fonts, <code>robots.txt</code>) served from the root—<code>public/logo.png</code> is reachable at <code>/logo.png</code>.</p>
+<p>The power of the App Router is in its <strong>special files</strong>. Each is a convention: drop a file with the right name into a route folder and Next.js wires it up automatically.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>layout.tsx</code></td>
+<td>Shared UI wrapping a segment and its children; persists across navigation. The <strong>root layout is required</strong>.</td>
+</tr>
+<tr>
+<td><code>page.tsx</code></td>
+<td>The unique UI for a route (makes the segment publicly routable).</td>
+</tr>
+<tr>
+<td><code>loading.tsx</code></td>
+<td>Instant loading UI for a segment, shown via an automatic Suspense boundary while it loads.</td>
+</tr>
+<tr>
+<td><code>error.tsx</code></td>
+<td>Error boundary for a segment (must be a Client Component).</td>
+</tr>
+<tr>
+<td><code>not-found.tsx</code></td>
+<td>UI rendered for <code>notFound()</code> calls or unmatched routes.</td>
+</tr>
+<tr>
+<td><code>template.tsx</code></td>
+<td>Like a layout, but re-mounts on every navigation (fresh state each time).</td>
+</tr>
+<tr>
+<td><code>route.ts</code></td>
+<td>A <strong>Route Handler</strong>—an API endpoint, using Web <code>Request</code>/<code>Response</code>.</td>
+</tr>
+<tr>
+<td><code>[folder]</code></td>
+<td>A <strong>dynamic</strong> route segment, e.g. <code>[slug]</code> → <code>/blog/:slug</code>.</td>
+</tr>
+<tr>
+<td><code>(folder)</code></td>
+<td>A <strong>route group</strong>—organizes files without affecting the URL.</td>
+</tr>
+<tr>
+<td><code>_folder</code></td>
+<td>A <strong>private folder</strong>—opted out of routing (for colocated helpers/components).</td>
+</tr>
+</tbody>
+</table>
+<p>Here's the minimal pair that every App Router app starts with—a root layout and a home page:</p>
+<div class="language-tsx highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// src/app/layout.tsx — the required root layout</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">import</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Metadata</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;next&quot;</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">import</span><span class="w"> </span><span class="s2">&quot;./globals.css&quot;</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="kt">Metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;My App&quot;</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Built with Next.js 15 and the App Router&quot;</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">};</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">RootLayout</span><span class="p">({</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="nx">children</span><span class="p">,</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span><span class="o">:</span><span class="w"> </span><span class="nx">Readonly</span><span class="o">&lt;</span><span class="p">{</span><span class="w"> </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="kt">React.ReactNode</span><span class="w"> </span><span class="p">}</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="p">&lt;</span><span class="nt">html</span><span class="w"> </span><span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;{</span><span class="nx">children</span><span class="p">}&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-tsx highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// src/app/page.tsx — a Server Component (no &quot;use client&quot;), the UI for &quot;/&quot;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">HomePage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Hello</span><span class="p">,</span><span class="w"> </span><span class="nx">Next</span><span class="p">.</span><span class="nx">js</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="err">👋</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Edit</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">page</span><span class="w"> </span><span class="nx">updates</span><span class="w"> </span><span class="nx">instantly</span><span class="p">.&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">The root layout is mandatory and owns <code>&lt;html&gt;</code>/<code>&lt;body&gt;</code></p>
+<p>Every App Router app <strong>must</strong> have <code>app/layout.tsx</code>, and it must render the <code>&lt;html&gt;</code> and <code>&lt;body&gt;</code> tags—Next.js does not add them for you. Don't add a <code>&lt;head&gt;</code> tag manually; use the <strong>Metadata API</strong> (the <code>metadata</code> export above) so Next.js manages it. Routing, layouts, and the full set of special files get their own deep dive in the <strong>Routing</strong> chapter.</p>
+</div>
+<h3 id="dev-build-start-scripts-and-turbopack">Dev / build / start scripts and Turbopack</h3>
+<p><code>create-next-app</code> adds these scripts to <code>package.json</code>:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&quot;dev&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;next dev --turbopack&quot;</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;next build&quot;</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;next start&quot;</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">&quot;lint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;next lint&quot;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm run dev</code></td>
+<td>Starts the <strong>development server</strong> (default port 3000) with Hot Module Replacement and Fast Refresh. Use this while coding.</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>Creates an <strong>optimized production build</strong> in <code>.next/</code>—bundles, minifies, and pre-renders static routes.</td>
+</tr>
+<tr>
+<td><code>npm run start</code></td>
+<td>Serves the <strong>production build</strong> (<code>next start</code>). Run <code>build</code> first; this is what runs in production on a Node server.</td>
+</tr>
+<tr>
+<td><code>npm run lint</code></td>
+<td>Runs ESLint over the project.</td>
+</tr>
+</tbody>
+</table>
+<p>The dev and production servers are distinct: <code>next dev</code> prioritizes fast feedback (no minification, instant updates), while <code>next build</code> + <code>next start</code> produces the optimized output you actually ship.</p>
+<p><strong>Turbopack</strong> is Next.js's Rust-based bundler, the successor to Webpack. It's the default for <code>next dev</code> in Next.js 15 (hence the <code>--turbopack</code> flag in the <code>dev</code> script) and delivers dramatically faster cold starts and HMR on large apps. Production builds (<code>next build --turbopack</code>) are also available and increasingly stable in Next.js 15.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Dev with Turbopack (the create-next-app default)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>next<span class="w"> </span>dev<span class="w"> </span>--turbopack
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Production build with Turbopack</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>next<span class="w"> </span>build<span class="w"> </span>--turbopack
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">If a tool chokes on Turbopack, drop the flag</p>
+<p>Turbopack is the recommended default, but a few legacy Webpack plugins and <code>next.config</code> customizations aren't fully supported yet. If something breaks, remove <code>--turbopack</code> to fall back to the stable Webpack pipeline while you investigate—your app code doesn't change either way.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Node version</p>
+<p>Next.js 15 requires <strong>Node.js 18.18 or later</strong>. Check with <code>node -v</code>; if you're behind, use a version manager like <code>nvm</code> or <code>fnm</code> to upgrade before scaffolding.</p>
+</div>
+<hr />
+<h2 id="summary">📚 Summary</h2>
+<table>
+<thead>
+<tr>
+<th>🔹 Concept</th>
+<th>🧠 Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Next.js</strong></td>
+<td>A full-stack React framework (by Vercel) adding routing, rendering, data, and optimization to React</td>
+</tr>
+<tr>
+<td><strong>vs plain React</strong></td>
+<td>Plain React is client-only; Next.js adds server rendering, Server Components, file routing, and a backend</td>
+</tr>
+<tr>
+<td><strong>When to use</strong></td>
+<td>SEO-sensitive, fast-first-paint, or full-stack apps; a Vite SPA may suffice for auth-only dashboards</td>
+</tr>
+<tr>
+<td><strong>CSR / SSR / SSG / ISR</strong></td>
+<td>Per-route rendering strategies—where and when HTML is generated</td>
+</tr>
+<tr>
+<td><strong>App Router</strong></td>
+<td>Default <code>app/</code> model built on Server Components; recommended for all new projects</td>
+</tr>
+<tr>
+<td><strong>Pages Router</strong></td>
+<td>Legacy <code>pages/</code> model with <code>getServerSideProps</code>/<code>getStaticProps</code>; known for existing code</td>
+</tr>
+<tr>
+<td><strong><code>create-next-app</code></strong></td>
+<td>Official scaffolder; use <code>--typescript --app</code> for a modern setup</td>
+</tr>
+<tr>
+<td><strong><code>app/</code></strong></td>
+<td>Routing + UI; folders are routes, special files add behavior</td>
+</tr>
+<tr>
+<td><strong><code>public/</code></strong></td>
+<td>Static assets served from <code>/</code></td>
+</tr>
+<tr>
+<td><strong>Special files</strong></td>
+<td><code>layout</code>, <code>page</code>, <code>loading</code>, <code>error</code>, <code>not-found</code>, <code>template</code>, <code>route</code></td>
+</tr>
+<tr>
+<td><strong>Root layout</strong></td>
+<td>Required <code>app/layout.tsx</code>; renders <code>&lt;html&gt;</code>/<code>&lt;body&gt;</code></td>
+</tr>
+<tr>
+<td><strong>dev / build / start</strong></td>
+<td>Dev server, production build, production server</td>
+</tr>
+<tr>
+<td><strong>Turbopack</strong></td>
+<td>Rust bundler, default for <code>next dev</code> in Next.js 15; faster than Webpack</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="additional-resources">📌 Additional Resources</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/app/getting-started">Next.js Docs — Getting Started</a></li>
+<li><a href="https://nextjs.org/docs/app/getting-started/installation">Next.js — Installation &amp; <code>create-next-app</code></a></li>
+<li><a href="https://nextjs.org/docs/app/getting-started/project-structure">Next.js — Project Structure &amp; File Conventions</a></li>
+<li><a href="https://nextjs.org/docs/app/building-your-application/routing">Next.js — App Router vs Pages Router</a></li>
+<li><a href="https://nextjs.org/docs/app/api-reference/turbopack">Turbopack Documentation</a></li>
+<li><a href="https://react.dev/reference/rsc/server-components">React — Server Components</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../nextjs-list/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 0.List of Content">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                0.List of Content
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2.Routing%20in%20Next.js/" class="md-footer__link md-footer__link--next" aria-label="Next: 2.Routing (App Router)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2.Routing (App Router)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 S.Kumar
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://souravkumardash.vercel.app" target="_blank" rel="noopener" title="souravkumardash.vercel.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 17h-8v-1c0-1.33 2.67-2 4-2s4 .67 4 2m-4-7a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m5-3h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/sourav183" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Captain-Rengoku" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
