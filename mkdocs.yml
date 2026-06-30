@@ -91,6 +91,11 @@ nav:
     - 10.State Management in React: react/10.State Management in React.md
     - 10.5.Redux Toolkit: react/10.5.Redux Toolkit.md
     - 10.6.Zustand: react/10.6.Zustand.md
+    - 11.React Styling Techniques: react/11.React Styling Techniques.md
+    - 12.React SSR & SSG: react/12.React SSR and SSG.md
+    - 13.React Progressive Web Apps: react/13.React Progressive Web Apps.md
+    - 15.React Performance Optimization: react/15.React Performance Optimization.md
+    - 16.React Testing and Debugging: react/16.React Testing and Debugging.md
     - Important Keywords: react/Important Keywords.md
     - React & Next Ecosystem: react/React & Next Ecosystem.md
     - Progress: react/Progress.md

@@ -20,9 +20,9 @@ date:
 9. ✅ React Router (Navigation in React)  
 10. ✅ State Management in React (Redux and Zustand)
 
-11. ❌ React Styling Techniques  
-12. ❌ React Server-Side Rendering (SSR) & Static Site Generation (SSG)  
-13. ❌ React Progressive Web Apps (PWAs)
-14. 🟡 API Integration (Axios and React Query)
-15. ❌ React Performance Optimization
-16. ❌ React Testing and Debugging
+11. ✅ React Styling Techniques  
+12. ✅ React Server-Side Rendering (SSR) & Static Site Generation (SSG)  
+13. ✅ React Progressive Web Apps (PWAs)
+14. ✅ API Integration (Axios and React Query)
+15. ✅ React Performance Optimization
+16. ✅ React Testing and Debugging

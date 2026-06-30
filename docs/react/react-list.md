@@ -469,7 +469,13 @@ date:
 
 ---
 
-## 14. React Performance Optimization
+## 14. API Integration (Axios & React Query)
+
+> Covered in depth in the dedicated **[API Integration](../reactapi/14.API%20Integration.md)** section — Fetch & Axios, authentication, TanStack Query, real-time data, security, and file handling.
+
+---
+
+## 15. React Performance Optimization
 
 ### 1. React.memo for Component Optimization
 
@@ -517,7 +523,7 @@ date:
 
 ---
 
-## 15. React Testing and Debugging
+## 16. React Testing and Debugging
 
 ### Introduction to Testing in React
 
